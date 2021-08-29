@@ -1,0 +1,6 @@
+framework module MTBBarcodeScanner {
+  umbrella header "MTBBarcodeScanner-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,9 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.swapapp">
+    package="com.arsizes.swapapp">
    <application
         android:label="swapapp"
         android:icon="@mipmap/ic_launcher">
-         
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -33,7 +32,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
@@ -42,8 +40,6 @@
         <meta-data 
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDq3Rt8_V6qFSI8t44yY7OMdVJBEVlCae4"/>
-
     </application>
- 
     <uses-permission android:name="android.permission.CAMERA" />
 </manifest>

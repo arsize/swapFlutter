@@ -1,5 +1,14 @@
-# swapFlutter
-flutter初尝试，从零开始构建一个完整的项目，包括尺寸适配，路由，provider，组件封装，google map等
+# Flutter版 Swap App
+
+Flutter for ios&android App
 
 ### 运行本项目请注意
 Support [√] Flutter (Channel stable, v2.2.2). 
+
+### 注意
+1.本项目运行在GETX，创建路由建议用以下命令:
+```
+get create page:xx
+```
+<br />
+2.首页地图需要Goole service

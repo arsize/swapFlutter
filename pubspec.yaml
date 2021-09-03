@@ -24,6 +24,7 @@ dependencies:
 
 dev_dependencies: 
   lints: 1.0.1
+  dio_http_formatter: ^2.0.0
   flutter_test: 
     sdk: flutter
 

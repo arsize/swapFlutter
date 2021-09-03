@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:swapapp/app/utils/log_util.dart';
 import 'arutil.dart';
-import 'http_util.dart';
+import 'http/http_util.dart';
 
 ///全局信息
 class Global {

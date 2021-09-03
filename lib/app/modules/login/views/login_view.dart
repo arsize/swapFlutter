@@ -7,7 +7,7 @@ import 'package:swapapp/app/colors/colors.dart';
 import 'package:swapapp/app/utils/utils.dart';
 import 'package:swapapp/app/common/widgets/app_bar.dart';
 import 'package:swapapp/app/common/widgets/button.dart';
-import 'package:swapapp/app/data/mobile_prefix.dart';
+import 'package:swapapp/app/values/mobile_prefix.dart';
 
 import '../controllers/login_controller.dart';
 
@@ -89,7 +89,8 @@ class LoginView extends GetView<LoginController> {
                     style: TextStyle(color: Colours.app_green),
                   ),
                   onTap: () => {
-                    Get.offNamed("/registry"),
+                    // Get.offNamed("/registry"),
+                    Get.toNamed("/registry")
                   },
                 ),
                 InkWell(

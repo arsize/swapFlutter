@@ -5,13 +5,14 @@
  */
 import 'package:get/get.dart';
 import 'package:swapapp/app/utils/global.dart';
+import 'package:swapapp/app/utils/http/http_util.dart';
 import 'package:swapapp/app/values/result_code.dart';
 
 Future verificationVerificationCode({
   account,
   verificationCode,
 }) async {
-  return Global.http.request(
+  return HTTP().request(
     path: "app/login/verificationVerificationCode",
     methods: 'post',
     data: {

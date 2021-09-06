@@ -1,25 +1,39 @@
-import 'package:localstorage/localstorage.dart';
-import 'package:swapapp/config.dart';
+import 'dart:convert';
 
-/// 本地存储
-/// 单例 StorageUtil().getItem('key')
-class StorageUtil {
-  static final StorageUtil _singleton = new StorageUtil._internal();
-  late LocalStorage _storage;
+import 'package:shared_preferences/shared_preferences.dart';
 
-  factory StorageUtil() {
-    return _singleton;
+/// 本地存储-单例模式
+class LoacalStorage {
+  static LoacalStorage _instance = new LoacalStorage._();
+  factory LoacalStorage() => _instance;
+  static late SharedPreferences _prefs;
+
+  LoacalStorage._();
+
+  static Future<void> init() async {
+    _prefs = await SharedPreferences.getInstance();
   }
 
-  StorageUtil._internal() {
-    _storage = LocalStorage(STORAGE_MASTER_KEY);
+  Future<bool> setJSON(String key, dynamic jsonVal) {
+    String jsonString = jsonEncode(jsonVal);
+    return _prefs.setString(key, jsonString);
   }
 
-  String? getItem(String key) {
-    return _storage.getItem(key);
+  dynamic getJSON(String key) {
+    String? jsonString = _prefs.getString(key);
+    return jsonString == null ? null : jsonDecode(jsonString);
   }
 
-  Future<void> setItem(String key, String val) async {
-    await _storage.setItem(key, val);
+  Future<bool> setBool(String key, bool val) {
+    return _prefs.setBool(key, val);
+  }
+
+  bool getBool(String key) {
+    bool? val = _prefs.getBool(key);
+    return val == null ? false : val;
+  }
+
+  Future<bool> remove(String key) {
+    return _prefs.remove(key);
   }
 }

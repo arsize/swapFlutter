@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 import 'package:swapapp/app/utils/utils.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import '../controllers/home_controller.dart';
-import 'google_map.dart';
-import 'map_tools.dart';
-import 'panel.dart';
+import 'widgets/google_map.dart';
+import 'widgets/map_tools.dart';
+import 'widgets/panel.dart';
 
 class HomeView extends GetView<HomeController> {
   @override
@@ -27,8 +27,7 @@ class HomeView extends GetView<HomeController> {
             padding: EdgeInsets.only(left: 32.w),
             child: InkWell(
               onTap: () {
-                // mycenter
-                Navigator.of(context).pushNamed("my");
+                Get.toNamed("/my");
               },
               child: Image(
                 image: AssetImage("images/home_avatar.png"),

@@ -1,12 +1,24 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:swapapp/app/utils/utils.dart';
+import 'package:swapapp/config.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  // 响应式变量
 
-  final count = 0.obs;
+  // 普通变量
+  String selectMenu = "换电";
+  final LayerLink layerLink = LayerLink();
+
   @override
   void onInit() {
     super.onInit();
+    print("触发了home 控制器");
+  }
+
+  changeMenu(str) {
+    selectMenu = str;
+    update();
   }
 
   @override
@@ -16,5 +28,9 @@ class HomeController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 }

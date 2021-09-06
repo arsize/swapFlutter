@@ -12,7 +12,6 @@ import 'package:swapapp/app/values/mobile_prefix.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
-  final LoginController login_c = Get.put(LoginController());
   static List prefixList = prefixDefault;
   @override
   Widget build(BuildContext context) {
@@ -65,7 +64,7 @@ class LoginView extends GetView<LoginController> {
                   return _.isFinish
                       ? arBtn(
                           fn: () {
-                            login_c.submitTo();
+                            controller.submitTo();
                           },
                           text: "登录",
                           width: 690,
@@ -125,8 +124,8 @@ class LoginView extends GetView<LoginController> {
             InkWell(
               child: Row(
                 children: [
-                  Obx(() =>
-                      Text("+${prefixList[login_c.prefix.value]['prefix']}")),
+                  Obx(() => Text(
+                      "+${prefixList[controller.prefix.value]['prefix']}")),
                   Icon(Icons.arrow_drop_down),
                 ],
               ),
@@ -142,10 +141,10 @@ class LoginView extends GetView<LoginController> {
                       padding: EdgeInsets.only(left: 40.w, right: 40.w),
                       child: ListView.builder(
                         itemCount: prefixList.length,
-                        controller: login_c.scrollController,
+                        controller: controller.scrollController,
                         itemBuilder: (ctx, index) => InkWell(
                           onTap: () {
-                            login_c.changePrefix(index);
+                            controller.changePrefix(index);
                             Get.back();
                           },
                           child: ListTile(
@@ -167,13 +166,13 @@ class LoginView extends GetView<LoginController> {
             Expanded(
               flex: 1,
               child: TextField(
-                controller: login_c.mobileController,
+                controller: controller.mobileController,
                 decoration: InputDecoration(
                   hintText: "请输入手机号",
                   border: InputBorder.none,
                 ),
                 onChanged: (String text) {
-                  login_c.inputOnchange(text, 'mobile');
+                  controller.inputOnchange(text, 'mobile');
                 },
               ),
             ),
@@ -188,7 +187,7 @@ class LoginView extends GetView<LoginController> {
                           alignment: Alignment.center,
                           child: InkWell(
                             onTap: () {
-                              login_c.clearInput(type: "mobile");
+                              controller.clearInput(type: "mobile");
                             },
                             child: Image(
                               width: 32.w,
@@ -230,14 +229,14 @@ class LoginView extends GetView<LoginController> {
             ),
             Expanded(
               child: TextField(
-                controller: login_c.pwdController,
+                controller: controller.pwdController,
                 obscureText: true,
                 decoration: InputDecoration(
                   hintText: "请输入密码",
                   border: InputBorder.none,
                 ),
                 onChanged: (String text) {
-                  login_c.inputOnchange(text, 'pwd');
+                  controller.inputOnchange(text, 'pwd');
                 },
               ),
             ),
@@ -252,7 +251,7 @@ class LoginView extends GetView<LoginController> {
                           alignment: Alignment.center,
                           child: InkWell(
                             onTap: () {
-                              login_c.clearInput(type: "pwd");
+                              controller.clearInput(type: "pwd");
                             },
                             child: Image(
                               width: 32.w,

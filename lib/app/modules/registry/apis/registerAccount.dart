@@ -6,6 +6,7 @@
 
 import 'package:get/get.dart';
 import 'package:swapapp/app/utils/global.dart';
+import 'package:swapapp/app/utils/http/http_util.dart';
 import 'package:swapapp/app/values/result_code.dart';
 import 'package:swapapp/config.dart';
 
@@ -17,7 +18,7 @@ Future registerAccount({
   password,
   simpleAppId = SIMPLEAPPID,
 }) async {
-  return Global.http.request(
+  return HTTP().request(
     methods: "post",
     path: "app/login/registerAccount",
     data: {

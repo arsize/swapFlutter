@@ -12,13 +12,15 @@ dependencies:
    # 屏幕适配
   flutter_screenutil: ^5.0.0
    # storage
-  localstorage: ^4.0.0+1
+  shared_preferences: ^2.0.6
    # google map
   google_maps_flutter: ^2.0.4
    # 滑动panel
   sliding_up_panel: ^2.0.0+1
   # toast
   fluttertoast: ^8.0.8
+   # 图片选择
+  image_picker: 0.8.3+3
   flutter: 
     sdk: flutter
 

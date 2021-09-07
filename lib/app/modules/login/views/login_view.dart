@@ -16,7 +16,27 @@ class LoginView extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: defaultAppBar(background: 'light', elevation: 0),
+      appBar: AppBar(
+        title: Text(
+          "",
+          style: TextStyle(
+            fontSize: 36.f,
+          ),
+        ),
+        backgroundColor: Colors.white,
+        brightness: Brightness.light,
+        elevation: 0.0,
+        centerTitle: true,
+        leading: IconButton(
+          icon: Icon(
+            Icons.close,
+            color: Colours.app_main,
+          ),
+          onPressed: () {
+            Get.back();
+          },
+        ),
+      ),
       body: Container(
         width: double.infinity,
         color: Colors.white,
@@ -87,10 +107,7 @@ class LoginView extends GetView<LoginController> {
                     "注册账号",
                     style: TextStyle(color: Colours.app_green),
                   ),
-                  onTap: () => {
-                    // Get.offNamed("/registry"),
-                    Get.toNamed("/registry")
-                  },
+                  onTap: () => {Get.offNamed("/registry")},
                 ),
                 InkWell(
                   onTap: () {},

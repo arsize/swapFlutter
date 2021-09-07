@@ -21,7 +21,7 @@ import 'package:swapapp/app/modules/shop/views/shop_view.dart';
 import 'package:swapapp/app/modules/wallet/bindings/wallet_binding.dart';
 import 'package:swapapp/app/modules/wallet/views/wallet_view.dart';
 
-import 'router_auth.dart';
+import '../middlewares/router_auth.dart';
 
 part 'app_routes.dart';
 
@@ -40,11 +40,13 @@ class AppPages {
       name: _Paths.LOGIN,
       page: () => LoginView(),
       binding: LoginBinding(),
+      transition: Transition.downToUp,
     ),
     GetPage(
       name: _Paths.REGISTRY,
       page: () => RegistryView(),
       binding: RegistryBinding(),
+      transition: Transition.downToUp,
     ),
     GetPage(
       name: _Paths.MY,

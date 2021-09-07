@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:swapapp/app/modules/home/model/user_login_response_model.dart';
+import 'package:swapapp/app/entities/user_login_response_model.dart';
 import 'package:swapapp/app/utils/log_util.dart';
 import 'package:swapapp/app/utils/storage.dart';
 import 'package:swapapp/config.dart';

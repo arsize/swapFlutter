@@ -21,6 +21,9 @@ dependencies:
   fluttertoast: ^8.0.8
    # 图片选择
   image_picker: 0.8.3+3
+  # 日期
+  intl: ^0.17.0
+  
   flutter: 
     sdk: flutter
 

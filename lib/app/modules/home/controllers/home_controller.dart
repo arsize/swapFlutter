@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:swapapp/app/utils/utils.dart';
-import 'package:swapapp/config.dart';
+import 'package:swapapp/app/store/auth_store.dart';
 
 class HomeController extends GetxController {
   // 响应式变量
@@ -13,7 +12,6 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    print("触发了home 控制器");
   }
 
   changeMenu(str) {

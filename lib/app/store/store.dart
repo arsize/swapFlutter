@@ -1,28 +1,28 @@
 import 'package:get/get.dart';
 import 'package:swapapp/app/utils/utils.dart';
+import 'package:swapapp/config.dart';
 
-class AuthStore extends GetxController {
-  static AuthStore get to => Get.find();
-
-  static const TOKEN = 'TOKEN';
-  static const USER = 'USER';
+class StoreController extends GetxController {
+  static StoreController get to => Get.find();
 
   late var token;
-  final isLogged = true.obs;
+
+  /// 全局登录状态
+  final RxBool loginStatus = false.obs;
+  // final UserModel userProfile =
 
   @override
   void onInit() {
     super.onInit();
-    print("oninit auth store");
     token = LoacalStorage().getJSON(TOKEN);
-    if (token == null) {
-      isLogged.value = false;
+    if (token != null) {
+      loginStatus.value = true;
     }
+    print("初始化:store$loginStatus");
   }
 
-  changeisLogged() {
-    print("点击了");
-    isLogged.value = false;
+  void changeLoginStatus(bool flag) {
+    loginStatus.value = flag;
   }
 
   void saveToken(String token) async {
@@ -34,7 +34,7 @@ class AuthStore extends GetxController {
   Future<void> logout() async {
     await LoacalStorage().remove(TOKEN);
     token = null;
-    isLogged.value = false;
+    loginStatus.value = false;
     update();
   }
 }

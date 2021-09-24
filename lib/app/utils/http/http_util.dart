@@ -41,8 +41,8 @@ class HTTP {
   }) async {
     Options requestOptions = options ?? Options();
     requestOptions.method = methods;
-    Map<String, dynamic> _authorization = getAuthorizationHeader();
-    if (_authorization.isNotEmpty) {
+    Map<String, dynamic>? _authorization = getAuthorizationHeader();
+    if (_authorization != null) {
       requestOptions = requestOptions.copyWith(headers: _authorization);
     }
     var response = await dio.request(
@@ -56,14 +56,14 @@ class HTTP {
 }
 
 /// 读取token
-Map<String, dynamic> getAuthorizationHeader() {
+Map<String, dynamic>? getAuthorizationHeader() {
   var headers;
-  String? token = Global.profile?.token;
-  if (token != null) {
-    headers = {
-      'access_token': '$token',
-    };
-  }
+  // String? token = Global.profile?.token;
+  // if (token != null) {
+  //   headers = {
+  //     'access_token': '$token',
+  //   };
+  // }
   return headers;
 }
 

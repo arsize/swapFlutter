@@ -13,7 +13,7 @@ bool isAuthenticated() {
 /// 删除缓存token
 Future deleteAuthentication() async {
   await LoacalStorage().remove(STORAGE_USER_PROFILE_KEY);
-  Global.profile = null;
+  // Global.profile = null;
 }
 
 /// 重新登录

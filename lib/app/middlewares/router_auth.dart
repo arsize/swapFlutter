@@ -12,9 +12,7 @@ class RouteAuthMiddleware extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
     print("路由鉴权");
-    if (Global.profile!.token != null ||
-        route == Routes.LOGIN ||
-        route == Routes.MY) {
+    if (route == Routes.LOGIN || route == Routes.MY) {
       return super.redirect(route);
     } else {
       Future.delayed(

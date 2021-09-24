@@ -18,8 +18,7 @@ bool checkPin(pin) {
 
 /// 校验常用密码格式
 bool checkPwd(pwd) {
-  RegExp exp = RegExp(r'^(\d{2})$');
-  return exp.hasMatch(pwd);
+  return true;
 }
 
 /// 检查邮箱格式

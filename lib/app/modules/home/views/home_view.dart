@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:swapapp/app/store/store.dart';
 import 'package:swapapp/app/utils/utils.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import '../controllers/home_controller.dart';
@@ -11,7 +12,9 @@ import 'widgets/panel.dart';
 class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
+    final StoreController store = Get.find();
     Adapt.init(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Image(
@@ -29,8 +32,14 @@ class HomeView extends GetView<HomeController> {
               onTap: () {
                 Get.toNamed("/my");
               },
-              child: Image(
-                image: AssetImage("images/home_avatar.png"),
+              child: Obx(
+                () => store.loginStatus.value
+                    ? Image(
+                        image: AssetImage("images/my_avatar_default.png"),
+                      )
+                    : Image(
+                        image: AssetImage("images/home_avatar.png"),
+                      ),
               ),
             ),
           );

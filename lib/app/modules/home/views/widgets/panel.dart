@@ -25,7 +25,9 @@ class Panel extends StatelessWidget {
                 ),
                 arBtn(
                   fn: () {
-                    Get.toNamed("/login");
+                    Get.toNamed(
+                      "/login",
+                    );
                   },
                   text: "登录/注册",
                   width: 630,

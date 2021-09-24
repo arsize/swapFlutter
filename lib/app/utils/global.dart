@@ -10,8 +10,8 @@ import 'http/http_util.dart';
 
 ///全局信息
 class Global {
-  /// 用户配置
-  static UserLoginResponseModel? profile = UserLoginResponseModel(token: null);
+  // /// 用户配置
+  // static UserLoginResponseModel? profile = UserLoginResponseModel(token: null);
 
   /// 是否第一次打开
   static bool isFirstOpen = false;
@@ -23,10 +23,10 @@ class Global {
     LogUtil.e("全局信息初始化...", tag: "utils/global");
     WidgetsFlutterBinding.ensureInitialized();
 
-    // http 模块初始化
-    HTTP();
     // 本地存储初始化
     await LoacalStorage.init();
+    // http 模块初始化
+    HTTP();
     // 读取设备第一次打开
     isFirstOpen = !LoacalStorage().getBool(STORAGE_DEVICE_ALREADY_OPEN_KEY);
     if (isFirstOpen) {
@@ -42,10 +42,10 @@ class Global {
     }
   }
 
-  // 持久化 用户信息
-  static Future<bool> saveProfile(UserLoginResponseModel userResponse) {
-    profile = userResponse;
-    return LoacalStorage()
-        .setJSON(STORAGE_USER_PROFILE_KEY, userResponse.toJson());
-  }
+  // // 持久化 用户信息
+  // static Future<bool> saveProfile(UserLoginResponseModel userResponse) {
+  //   profile = userResponse;
+  //   return LoacalStorage()
+  //       .setJSON(STORAGE_USER_PROFILE_KEY, userResponse.toJson());
+  // }
 }

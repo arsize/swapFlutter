@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:swapapp/app/colors/colors.dart';
 import 'package:swapapp/app/common/methods/checkFormat.dart';
+import 'package:swapapp/app/modules/login/api/loginByMobile.dart';
+import 'package:swapapp/app/store/store.dart';
+import 'package:swapapp/app/values/mobile_prefix.dart';
 
 class LoginController extends GetxController {
+  StoreController store = Get.find();
   // 响应式成员变量
   final prefix = 0.obs;
 
@@ -11,6 +15,7 @@ class LoginController extends GetxController {
   bool isFinish = false;
   String mobile = '';
   String pwd = '';
+  List prefixList = prefixDefault;
 
   // list view 控制器
   late final ScrollController scrollController;
@@ -67,6 +72,7 @@ class LoginController extends GetxController {
 
   /// 验证表单
   bool checkForm() {
+    print(mobile);
     if (!checkMobile(mobile)) {
       Get.snackbar(
         "注意",
@@ -74,6 +80,7 @@ class LoginController extends GetxController {
       );
       return false;
     }
+    print(pwd);
     if (!checkPwd(pwd)) {
       Get.snackbar(
         "注意",
@@ -85,9 +92,19 @@ class LoginController extends GetxController {
   }
 
   /// 登录
-  submitTo() {
+  submitTo() async {
     if (checkForm()) {
       print("提交");
+      var result = await loginByMobile(
+        account: mobile,
+        password: pwd,
+        areaCode: prefixList[prefix.value]["prefix"],
+      );
+      print(result);
+      int code = result["code"];
+      print(code);
+      store.changeLoginStatus(true);
+      Get.back();
     } else {
       print("不提交");
     }

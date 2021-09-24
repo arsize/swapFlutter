@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:swapapp/app/common/methods/checkFormat.dart';
 import 'package:swapapp/app/modules/registry/apis/api.dart';
+import 'package:swapapp/app/utils/storage.dart';
 import 'package:swapapp/app/values/mobile_prefix.dart';
 
+//
+//
 class RegistryController extends GetxController {
   // 响应式成员变量
   final prefix = 0.obs;
@@ -191,6 +194,7 @@ class RegistryController extends GetxController {
         "成功",
         "登录成功",
       );
+      LoacalStorage().setJSON("user", result["data"]);
     }
   }
 

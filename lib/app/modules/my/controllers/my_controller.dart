@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:swapapp/app/store/auth_store.dart';
+import 'package:swapapp/app/store/store.dart';
 import 'package:swapapp/app/utils/storage.dart';
 import 'package:swapapp/config.dart';
 

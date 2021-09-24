@@ -7,6 +7,8 @@ import 'app/routes/app_pages.dart';
 import 'app/store/initial_binding.dart';
 import 'app/utils/global.dart';
 
+// 83860506 123456
+
 void main() => Global.init().then((e) => runApp(MyApp()));
 
 class MyApp extends StatelessWidget {

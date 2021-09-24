@@ -16,6 +16,9 @@ const String SERVICE_API_RUL = 'http://139.196.252.205:8701/';
 /// 用户信息
 const String STORAGE_USER_PROFILE_KEY = 'user_profile';
 
+/// 存储token
+const String TOKEN = 'access_token';
+
 // SimpleAppId
 const String SIMPLEAPPID = 'yl48180fc2469269f9';
 

@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:get/get.dart';
-import 'package:swapapp/app/utils/global.dart';
 import 'package:swapapp/app/utils/storage.dart';
 import 'package:swapapp/config.dart';
 
@@ -13,7 +12,6 @@ bool isAuthenticated() {
 /// 删除缓存token
 Future deleteAuthentication() async {
   await LoacalStorage().remove(LOGINDATA);
-  // Global.profile = null;
 }
 
 /// 重新登录

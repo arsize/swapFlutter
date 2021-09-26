@@ -6,7 +6,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:swapapp/app/routes/app_pages.dart';
-import 'package:swapapp/app/utils/global.dart';
 
 class RouteAuthMiddleware extends GetMiddleware {
   @override

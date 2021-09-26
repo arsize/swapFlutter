@@ -5,7 +5,6 @@
  */
 import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:swapapp/app/utils/global.dart';
 import 'package:swapapp/config.dart';
 
 import 'interceptors.dart';

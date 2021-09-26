@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import 'app/colors/colors.dart';
 import 'app/routes/app_pages.dart';
 import 'app/store/initial_binding.dart';
-import 'app/utils/global.dart';
+import 'global.dart';
 
 void main() => Global.init().then((e) => runApp(MyApp()));
 

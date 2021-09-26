@@ -12,7 +12,7 @@ const String SERVICE_API_RUL = 'http://139.196.252.205:8701/';
 
 /// 接口地址-本地
 // const String SERVICE_API_RUL = 'http://192.168.0.105:8701/';
-// 83860506 123456
+
 /// 登录信息
 const String LOGINDATA = 'login_data';
 
@@ -27,3 +27,6 @@ const String STORAGE_MASTER_KEY = 'swap_app';
 
 /// 设备是否第一次打开
 const String STORAGE_DEVICE_ALREADY_OPEN_KEY = 'device_already_open';
+
+// 测试账号密码
+// 83860506 123456

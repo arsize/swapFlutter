@@ -3,12 +3,6 @@
  * @Date: 2021-09-26 17:43:16 
  * @Describe: 登录信息模型
  */
-import 'dart:convert';
-
-LoginModel LoginModelFromJson(String str) =>
-    LoginModel.fromJson(json.decode(str));
-
-String LoginModelToJson(LoginModel data) => json.encode(data.toJson());
 
 class LoginModel {
   LoginModel({

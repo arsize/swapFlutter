@@ -12,9 +12,9 @@ const String SERVICE_API_RUL = 'http://139.196.252.205:8701/';
 
 /// 接口地址-本地
 // const String SERVICE_API_RUL = 'http://192.168.0.105:8701/';
-
-/// 用户信息
-const String STORAGE_USER_PROFILE_KEY = 'user_profile';
+// 83860506 123456
+/// 登录信息
+const String LOGINDATA = 'login_data';
 
 /// 存储token
 const String TOKEN = 'access_token';

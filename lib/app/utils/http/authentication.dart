@@ -6,13 +6,13 @@ import 'package:swapapp/config.dart';
 
 /// 检查是否有 token
 bool isAuthenticated() {
-  var profileJSON = LoacalStorage().getJSON(STORAGE_USER_PROFILE_KEY);
+  var profileJSON = LoacalStorage().getJSON(LOGINDATA);
   return profileJSON != null ? true : false;
 }
 
 /// 删除缓存token
 Future deleteAuthentication() async {
-  await LoacalStorage().remove(STORAGE_USER_PROFILE_KEY);
+  await LoacalStorage().remove(LOGINDATA);
   // Global.profile = null;
 }
 

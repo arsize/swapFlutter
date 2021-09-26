@@ -4,7 +4,9 @@ import 'package:swapapp/app/colors/colors.dart';
 import 'package:swapapp/app/common/methods/checkFormat.dart';
 import 'package:swapapp/app/modules/login/api/loginByMobile.dart';
 import 'package:swapapp/app/store/store.dart';
+import 'package:swapapp/app/utils/utils.dart';
 import 'package:swapapp/app/values/mobile_prefix.dart';
+import 'package:swapapp/config.dart';
 
 class LoginController extends GetxController {
   StoreController store = Get.find();
@@ -103,8 +105,11 @@ class LoginController extends GetxController {
       print(result);
       int code = result["code"];
       print(code);
-      store.changeLoginStatus(true);
-      Get.back();
+      if (code == 200) {
+        await LoacalStorage().setJSON(LOGINDATA, result["data"]);
+        // store.changeLoginStatus(true);
+        Get.back();
+      }
     } else {
       print("不提交");
     }

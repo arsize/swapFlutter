@@ -5,11 +5,13 @@ import 'package:swapapp/app/colors/colors.dart';
 import 'package:swapapp/app/common/widgets/common_wigets.dart';
 import 'package:swapapp/app/modules/my/views/widgets/info_item.dart';
 import 'package:swapapp/app/modules/my/views/widgets/menu_item.dart';
+import 'package:swapapp/app/store/store.dart';
 import 'package:swapapp/app/utils/utils.dart';
 import '../controllers/my_controller.dart';
 import 'widgets/menu_panel.dart';
 
 class MyView extends GetView<MyController> {
+  final StoreController store = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,53 +93,49 @@ class MyView extends GetView<MyController> {
                             onTap: () {
                               Get.toNamed("/setting");
                             },
-                            child: GetBuilder<MyController>(
-                              builder: (_) {
-                                return Row(
-                                  children: [
-                                    Image(
-                                      width: 112.w,
-                                      height: 112.h,
-                                      image: _.isLogin
-                                          ? AssetImage(
-                                              "images/app_info_logo.png")
-                                          : AssetImage(
-                                              "images/my_avatar_default.png"),
-                                    ),
-                                    SizedBox(
-                                      width: 24.w,
-                                    ),
-                                    GetBuilder<MyController>(builder: (_) {
-                                      return Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            _.isLogin ? "成龙" : "未登录",
-                                            style: TextStyle(
-                                              fontSize: 36.f,
-                                              color: Colors.white,
-                                            ),
+                            child: Row(
+                              children: [
+                                Obx(
+                                  () => Image(
+                                    width: 112.w,
+                                    height: 112.h,
+                                    image: store.isLogin.value
+                                        ? AssetImage("images/app_info_logo.png")
+                                        : AssetImage(
+                                            "images/my_avatar_default.png"),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 24.w,
+                                ),
+                                Obx(
+                                  () => Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        store.isLogin.value ? "成龙" : "未登录",
+                                        style: TextStyle(
+                                          fontSize: 36.f,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      Offstage(
+                                        offstage: !store.isLogin.value,
+                                        child: Text(
+                                          "130xxxx5678",
+                                          style: TextStyle(
+                                            fontSize: 28.f,
+                                            color:
+                                                Colors.white.withOpacity(0.8),
                                           ),
-                                          Offstage(
-                                            offstage: !_.isLogin,
-                                            child: Text(
-                                              "130xxxx5678",
-                                              style: TextStyle(
-                                                fontSize: 28.f,
-                                                color: Colors.white
-                                                    .withOpacity(0.8),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      );
-                                    })
-                                  ],
-                                );
-                              },
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
                             ),
                           ),
                         ),

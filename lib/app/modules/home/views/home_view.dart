@@ -33,7 +33,7 @@ class HomeView extends GetView<HomeController> {
                 Get.toNamed("/my");
               },
               child: Obx(
-                () => store.loginStatus.value
+                () => store.loginData().registered
                     ? Image(
                         image: AssetImage("images/my_avatar_default.png"),
                       )

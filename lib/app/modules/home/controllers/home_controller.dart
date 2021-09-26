@@ -17,7 +17,6 @@ class HomeController extends GetxController {
   void onInit() {
     super.onInit();
     print("home init");
-    print(store.loginStatus);
   }
 
   changeMenu(str) {

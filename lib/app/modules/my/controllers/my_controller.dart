@@ -15,7 +15,7 @@ class MyController extends GetxController {
   }
 
   checkLogin() {
-    var user_info = LoacalStorage().getJSON(STORAGE_USER_PROFILE_KEY);
+    var user_info = LoacalStorage().getJSON(LOGINDATA);
     // user_info = true;
     if (user_info != null) {
       isLogin = true;

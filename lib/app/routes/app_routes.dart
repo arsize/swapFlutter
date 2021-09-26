@@ -14,6 +14,7 @@ abstract class Routes {
   static const MY_QRCODE = _Paths.MY_QRCODE;
   static const MORE = _Paths.MORE;
   static const ABOUT_US = _Paths.ABOUT_US;
+  static const CESHIY = _Paths.CESHIY;
 }
 
 abstract class _Paths {
@@ -27,4 +28,5 @@ abstract class _Paths {
   static const MY_QRCODE = '/my-qrcode';
   static const MORE = '/more';
   static const ABOUT_US = '/about-us';
+  static const CESHIY = '/ceshiy';
 }

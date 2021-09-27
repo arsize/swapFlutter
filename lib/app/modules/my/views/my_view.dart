@@ -99,8 +99,9 @@ class MyView extends GetView<MyController> {
                                   () => Image(
                                     width: 112.w,
                                     height: 112.h,
-                                    image: store.isLogin.value
-                                        ? AssetImage("images/app_info_logo.png")
+                                    image: store.loginData().userPhoto != null
+                                        ? AssetImage(
+                                            store.loginData().userPhoto!)
                                         : AssetImage(
                                             "images/my_avatar_default.png"),
                                   ),
@@ -115,7 +116,10 @@ class MyView extends GetView<MyController> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        store.isLogin.value ? "成龙" : "未登录",
+                                        store.isLogin.value
+                                            ? store.loginData().userNickname ??
+                                                "--"
+                                            : "未登录",
                                         style: TextStyle(
                                           fontSize: 36.f,
                                           color: Colors.white,
@@ -124,7 +128,7 @@ class MyView extends GetView<MyController> {
                                       Offstage(
                                         offstage: !store.isLogin.value,
                                         child: Text(
-                                          "130xxxx5678",
+                                          store.loginData().account ?? "--",
                                           style: TextStyle(
                                             fontSize: 28.f,
                                             color:

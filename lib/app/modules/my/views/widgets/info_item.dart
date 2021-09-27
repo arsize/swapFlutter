@@ -7,16 +7,24 @@ import 'package:swapapp/app/modules/my/controllers/my_controller.dart';
 class InfoItem extends StatelessWidget {
   const InfoItem({Key? key, required this.str}) : super(key: key);
   final String str;
+
   @override
   Widget build(BuildContext context) {
+    final MyController my = Get.find();
     return GetBuilder<MyController>(builder: (_) {
       return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text(
-          _.isLogin ? "129.00" : '--',
-          style: TextStyle(
-            fontSize: 36.f,
-            fontWeight: FontWeight.w500,
-            color: Colours.app_main,
+        Obx(
+          () => Text(
+            str == "钱包余额(元)"
+                ? my.walletMoney.value.toString()
+                : str == "本月换电(次)"
+                    ? my.currentMonthOrderCount.value.toString()
+                    : my.totalSurplusNum.value.toString(),
+            style: TextStyle(
+              fontSize: 36.f,
+              fontWeight: FontWeight.w500,
+              color: Colours.app_main,
+            ),
           ),
         ),
         SizedBox(

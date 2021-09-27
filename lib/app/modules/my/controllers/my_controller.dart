@@ -1,35 +1,31 @@
 import 'package:get/get.dart';
+import 'package:swapapp/app/modules/my/apis/getUserCenterData.dart';
 import 'package:swapapp/app/store/store.dart';
-import 'package:swapapp/app/utils/storage.dart';
-import 'package:swapapp/config.dart';
+import 'package:swapapp/global.dart';
 
 class MyController extends GetxController {
-  bool isLogin = false;
+  final StoreController store = Get.find();
+  RxDouble walletMoney = 0.0.obs;
+  RxInt currentMonthOrderCount = 0.obs;
+  RxInt totalSurplusNum = 0.obs;
 
-  late var userInfo;
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
-    checkLogin();
-    print('login');
-  }
-
-  checkLogin() {
-    var user_info = LoacalStorage().getJSON(LOGINDATA);
-    // user_info = true;
-    if (user_info != null) {
-      isLogin = true;
-      userInfo = user_info;
-    } else {
-      isLogin = false;
+    Global.ctl = this;
+    print("------------------------");
+    if (store.isLogin.value) {
+      var user = await getUserCenterData();
+      walletMoney.value = user["data"]["walletMoney"] ?? 0;
+      currentMonthOrderCount.value =
+          user["data"]["currentMonthOrderCount"] ?? 0;
+      totalSurplusNum.value = user["data"]["totalSurplusNum"] ?? 0;
     }
-    update();
   }
 
   @override
   void onReady() {
     super.onReady();
-    print("ready");
   }
 
   @override

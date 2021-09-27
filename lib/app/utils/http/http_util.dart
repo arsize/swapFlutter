@@ -5,6 +5,8 @@
  */
 import 'dart:convert';
 import 'package:dio/dio.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:swapapp/app/utils/storage.dart';
 import 'package:swapapp/config.dart';
 
 import 'interceptors.dart';
@@ -38,6 +40,7 @@ class HTTP {
     params,
     Options? options,
   }) async {
+    EasyLoading.show(status: '请稍后...');
     Options requestOptions = options ?? Options();
     requestOptions.method = methods;
     Map<String, dynamic>? _authorization = getAuthorizationHeader();
@@ -50,6 +53,7 @@ class HTTP {
       data: data,
       queryParameters: params,
     );
+    EasyLoading.dismiss();
     return _handleDecodeJson(response);
   }
 }
@@ -57,12 +61,17 @@ class HTTP {
 /// 读取token
 Map<String, dynamic>? getAuthorizationHeader() {
   var headers;
-  // String? token = Global.profile?.token;
-  // if (token != null) {
-  //   headers = {
-  //     'access_token': '$token',
-  //   };
-  // }
+  Map<String, dynamic>? _login = LoacalStorage().getJSON(LOGINDATA);
+  var token;
+  if (_login != null) {
+    token = _login["appToken"];
+    if (token != null) {
+      headers = {
+        'access_token': '$token',
+      };
+    }
+  }
+
   return headers;
 }
 

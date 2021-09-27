@@ -4,6 +4,7 @@ import 'package:swapapp/app/common/widgets/common_wigets.dart';
 import 'package:swapapp/app/modules/home/controllers/home_controller.dart';
 import 'package:swapapp/app/modules/home/views/widgets/panel_btn_list.dart';
 import 'package:swapapp/app/modules/home/views/widgets/panel_head_row.dart';
+import 'package:swapapp/app/store/store.dart';
 import 'package:swapapp/app/utils/utils.dart';
 
 class Panel extends StatelessWidget {
@@ -11,9 +12,10 @@ class Panel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final HomeController ctrl = Get.find();
+    final HomeController home = Get.find();
+    final StoreController store = Get.find();
     return CompositedTransformTarget(
-      link: ctrl.layerLink,
+      link: home.layerLink,
       child: Container(
         child: Column(
           children: [
@@ -23,16 +25,24 @@ class Panel extends StatelessWidget {
                 SizedBox(
                   height: 20.h,
                 ),
-                arBtn(
-                  fn: () {
-                    Get.toNamed(
-                      "/login",
-                    );
-                  },
-                  text: "登录/注册",
-                  width: 630,
-                  height: 100,
-                  fontSize: 36,
+                Obx(
+                  () => arBtn(
+                    fn: () {
+                      store.isLogin.value
+                          ? Get.toNamed(
+                              "/login",
+                            )
+                          : Get.toNamed(
+                              "/login",
+                            );
+                    },
+                    leftIcon:
+                        store.isLogin.value ? "images/home_scan_icon.png" : "",
+                    text: store.isLogin.value ? "扫码换电" : "登录/注册",
+                    width: 630,
+                    height: 100,
+                    fontSize: 36,
+                  ),
                 ),
                 SizedBox(
                   height: 32.h,

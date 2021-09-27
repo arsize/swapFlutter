@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:swapapp/app/colors/colors.dart';
@@ -102,14 +104,14 @@ class LoginController extends GetxController {
         password: pwd,
         areaCode: prefixList[prefix.value]["prefix"],
       );
-      print(result);
-      int code = result["code"];
-      print(code);
-      if (code == 200) {
-        await LoacalStorage().setJSON(LOGINDATA, result["data"]);
-        // store.changeLoginStatus(true);
-        Get.back();
-      }
+      await LoacalStorage().setJSON(LOGINDATA, result["data"]);
+      await LoacalStorage().setJSON(ACCOUNTPW, {
+        "account": mobile,
+        "password": pwd,
+        "areaCode": prefixList[prefix.value]["prefix"],
+      });
+      store.getLoginData();
+      Get.back();
     } else {
       print("不提交");
     }

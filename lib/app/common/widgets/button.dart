@@ -14,11 +14,12 @@ Widget arBtn({
   double fontSize: 32.0,
   backgroundColor: Colours.app_main,
   String text: '默认',
+  String leftIcon: '',
   required void Function()? fn,
 }) {
   return ElevatedButton(
     style: ButtonStyle(
-      minimumSize: MaterialStateProperty.all(
+      fixedSize: MaterialStateProperty.all(
         Size(
           width.w,
           height.h,
@@ -40,9 +41,31 @@ Widget arBtn({
       ),
     ),
     onPressed: fn,
-    child: Text(
-      text,
-      style: TextStyle(fontSize: fontSize.f),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        getImage(leftIcon),
+        Offstage(
+          offstage: leftIcon == '',
+          child: SizedBox(
+            width: 20.w,
+          ),
+        ),
+        Text(
+          text,
+          style: TextStyle(fontSize: fontSize.f),
+        )
+      ],
     ),
   );
+}
+
+Widget getImage(leftIcon) {
+  return leftIcon == ''
+      ? Container()
+      : Image(
+          image: AssetImage(leftIcon),
+          width: 36.w,
+          height: 36.w,
+        );
 }

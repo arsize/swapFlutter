@@ -12,6 +12,15 @@ class StoreController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    getLoginData();
+    // logout();
+  }
+
+  void changeLoginStatus(bool flag) {
+    isLogin.value = flag;
+  }
+
+  void getLoginData() {
     Map<String, dynamic>? _login = LoacalStorage().getJSON(LOGINDATA);
     if (_login != null) {
       loginData(LoginModel.fromJson(_login));
@@ -19,13 +28,9 @@ class StoreController extends GetxController {
     }
   }
 
-  void changeLoginStatus(bool flag) {
-    isLogin.value = flag;
-  }
-
   Future<void> logout() async {
     await LoacalStorage().remove(LOGINDATA);
+    await LoacalStorage().remove(ACCOUNTPW);
     isLogin.value = false;
-    update();
   }
 }

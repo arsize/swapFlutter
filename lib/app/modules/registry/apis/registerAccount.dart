@@ -5,13 +5,10 @@
  */
 
 import 'package:get/get.dart';
-import 'package:swapapp/app/utils/global.dart';
 import 'package:swapapp/app/utils/http/http_util.dart';
 import 'package:swapapp/app/values/result_code.dart';
 import 'package:swapapp/config.dart';
 
-//83300533-620185
-//93ebab5d-dff4-45fb-ad76-116a4ad064dc
 Future registerAccount({
   account,
   areaCode,

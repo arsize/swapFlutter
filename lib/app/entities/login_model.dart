@@ -12,6 +12,7 @@ class LoginModel {
     this.userPhoto,
     this.uid,
     this.status,
+    this.account,
   });
 
   bool registered;
@@ -20,6 +21,7 @@ class LoginModel {
   String? userPhoto;
   String? uid;
   int? status;
+  String? account;
 
   factory LoginModel.fromJson(Map<String, dynamic> json) => LoginModel(
         registered: !json["unregistered"],
@@ -28,6 +30,7 @@ class LoginModel {
         uid: json["uid"],
         userPhoto: json["userPhoto"],
         status: json["status"],
+        account: json["account"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -37,5 +40,6 @@ class LoginModel {
         "uid": uid,
         "userPhoto": userPhoto,
         "status": status,
+        "account": account,
       };
 }

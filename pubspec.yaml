@@ -23,6 +23,8 @@ dependencies:
   image_picker: 0.8.3+3
   # 日期
   intl: ^0.17.0
+  # loading
+  flutter_easyloading: ^3.0.3
   
   flutter: 
     sdk: flutter

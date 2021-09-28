@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:swapapp/app/modules/my/controllers/my_controller.dart';
-import 'package:swapapp/app/utils/utils.dart';
+part of my_view;
 
 class MenuItem extends StatelessWidget {
   const MenuItem(

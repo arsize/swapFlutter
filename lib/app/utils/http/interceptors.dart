@@ -35,12 +35,12 @@ void interceptors(dio) {
           case 1003:
             // token失效,重新登录
             print("token失效");
-            // reLogin(incomplete: Incomplete(path: ''));
-            Global.ctl!.onInit();
+            reLogin();
             break;
           default:
         }
         print("异常");
+        handler.next(e);
       }
     }, onError: (DioError e, handler) {
       // 当请求失败时做一些预处理
@@ -61,6 +61,6 @@ void reLogin() async {
     await LoacalStorage().setJSON(LOGINDATA, result["data"]);
     print("重新登录成功");
     // 继续发起未完成请求
-
+    Global.currentPage!.onInit();
   }
 }

@@ -2,6 +2,10 @@ import 'package:get/get.dart';
 
 import 'package:swapapp/app/modules/about_us/bindings/about_us_binding.dart';
 import 'package:swapapp/app/modules/about_us/views/about_us_view.dart';
+import 'package:swapapp/app/modules/camera_scan/bindings/camera_scan_binding.dart';
+import 'package:swapapp/app/modules/camera_scan/views/camera_scan_view.dart';
+import 'package:swapapp/app/modules/exchange_info/bindings/exchange_info_binding.dart';
+import 'package:swapapp/app/modules/exchange_info/views/exchange_info_view.dart';
 import 'package:swapapp/app/modules/home/bindings/home_binding.dart';
 import 'package:swapapp/app/modules/home/views/home_view.dart';
 import 'package:swapapp/app/modules/login/bindings/login_binding.dart';
@@ -10,6 +14,8 @@ import 'package:swapapp/app/modules/more/bindings/more_binding.dart';
 import 'package:swapapp/app/modules/more/views/more_view.dart';
 import 'package:swapapp/app/modules/my/bindings/my_binding.dart';
 import 'package:swapapp/app/modules/my/views/my_view.dart';
+import 'package:swapapp/app/modules/my_package/bindings/my_package_binding.dart';
+import 'package:swapapp/app/modules/my_package/views/my_package_view.dart';
 import 'package:swapapp/app/modules/my_qrcode/bindings/my_qrcode_binding.dart';
 import 'package:swapapp/app/modules/my_qrcode/views/my_qrcode_view.dart';
 import 'package:swapapp/app/modules/registry/bindings/registry_binding.dart';
@@ -18,6 +24,8 @@ import 'package:swapapp/app/modules/setting/bindings/setting_binding.dart';
 import 'package:swapapp/app/modules/setting/views/setting_view.dart';
 import 'package:swapapp/app/modules/shop/bindings/shop_binding.dart';
 import 'package:swapapp/app/modules/shop/views/shop_view.dart';
+import 'package:swapapp/app/modules/transit_input/bindings/transit_input_binding.dart';
+import 'package:swapapp/app/modules/transit_input/views/transit_input_view.dart';
 import 'package:swapapp/app/modules/wallet/bindings/wallet_binding.dart';
 import 'package:swapapp/app/modules/wallet/views/wallet_view.dart';
 
@@ -52,6 +60,7 @@ class AppPages {
       name: _Paths.MY,
       page: () => MyView(),
       binding: MyBinding(),
+      middlewares: [RouteAuthMiddleware()],
     ),
     GetPage(
       name: _Paths.WALLET,
@@ -84,6 +93,26 @@ class AppPages {
       name: _Paths.ABOUT_US,
       page: () => AboutUsView(),
       binding: AboutUsBinding(),
+    ),
+    GetPage(
+      name: _Paths.MY_PACKAGE,
+      page: () => MyPackageView(),
+      binding: MyPackageBinding(),
+    ),
+    GetPage(
+      name: _Paths.CAMERA_SCAN,
+      page: () => CameraScanView(),
+      binding: CameraScanBinding(),
+    ),
+    GetPage(
+      name: _Paths.TRANSIT_INPUT,
+      page: () => TransitInputView(),
+      binding: TransitInputBinding(),
+    ),
+    GetPage(
+      name: _Paths.EXCHANGE_INFO,
+      page: () => ExchangeInfoView(),
+      binding: ExchangeInfoBinding(),
     ),
   ];
 }

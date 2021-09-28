@@ -25,6 +25,10 @@ dependencies:
   intl: ^0.17.0
   # loading
   flutter_easyloading: ^3.0.3
+  # 扫码
+  qr_code_scanner: ^0.5.2
+  # ID输入框
+  flutter_verification_box: ^2.0.0
   
   flutter: 
     sdk: flutter
@@ -34,6 +38,9 @@ dev_dependencies:
   dio_http_formatter: ^2.0.0
   flutter_test: 
     sdk: flutter
+    
+module:
+    androidX: true
 
 flutter: 
   uses-material-design: true

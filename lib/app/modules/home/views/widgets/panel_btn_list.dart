@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:swapapp/app/colors/colors.dart';
-import 'package:swapapp/app/modules/home/controllers/home_controller.dart';
-import 'package:swapapp/app/utils/utils.dart';
+part of home_view;
 
 class PanelBtnList extends StatelessWidget {
   const PanelBtnList({Key? key}) : super(key: key);

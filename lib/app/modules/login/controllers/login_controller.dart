@@ -98,7 +98,6 @@ class LoginController extends GetxController {
   /// 登录
   submitTo() async {
     if (checkForm()) {
-      print("提交");
       var result = await loginByMobile(
         account: mobile,
         password: pwd,

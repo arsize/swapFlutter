@@ -3,8 +3,7 @@
  * @Date: 2021-08-24 14:42:42 
  * @Describe: Google地图组件
  */
-import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+part of home_view;
 
 class Gmap extends StatefulWidget {
   const Gmap({Key? key}) : super(key: key);

@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:swapapp/app/modules/home/controllers/home_controller.dart';
-import 'package:swapapp/app/modules/home/views/widgets/panel_head_text.dart';
-import 'package:swapapp/app/utils/utils.dart';
+part of home_view;
 
 class PanelHeadRow extends StatelessWidget {
   const PanelHeadRow({Key? key}) : super(key: key);

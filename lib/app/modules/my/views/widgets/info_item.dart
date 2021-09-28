@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:swapapp/app/colors/colors.dart';
-import 'package:swapapp/app/utils/utils.dart';
-import 'package:swapapp/app/modules/my/controllers/my_controller.dart';
+part of my_view;
 
 class InfoItem extends StatelessWidget {
   const InfoItem({Key? key, required this.str}) : super(key: key);

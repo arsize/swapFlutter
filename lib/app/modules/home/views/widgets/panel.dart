@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:swapapp/app/common/widgets/common_wigets.dart';
-import 'package:swapapp/app/modules/home/controllers/home_controller.dart';
-import 'package:swapapp/app/modules/home/views/widgets/panel_btn_list.dart';
-import 'package:swapapp/app/modules/home/views/widgets/panel_head_row.dart';
-import 'package:swapapp/app/store/store.dart';
-import 'package:swapapp/app/utils/utils.dart';
+part of home_view;
 
 class Panel extends StatelessWidget {
   const Panel({Key? key}) : super(key: key);
@@ -30,7 +23,7 @@ class Panel extends StatelessWidget {
                     fn: () {
                       store.isLogin.value
                           ? Get.toNamed(
-                              "/login",
+                              "/camera-scan",
                             )
                           : Get.toNamed(
                               "/login",

@@ -6,16 +6,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:swapapp/app/routes/app_pages.dart';
+import 'package:swapapp/app/store/store.dart';
 
 class RouteAuthMiddleware extends GetMiddleware {
+  final store = Get.find<StoreController>();
   @override
   RouteSettings? redirect(String? route) {
     print("路由鉴权");
-    if (route == Routes.LOGIN || route == Routes.MY) {
+    if (store.isLogin.value) {
       return super.redirect(route);
     } else {
-      Future.delayed(
-          Duration(seconds: 1), () => Get.snackbar("提示", "登录过期,请重新登录"));
       return RouteSettings(name: Routes.LOGIN);
     }
   }

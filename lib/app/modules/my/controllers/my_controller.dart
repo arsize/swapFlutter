@@ -12,8 +12,7 @@ class MyController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
-    Global.ctl = this;
-    print("------------------------");
+    Global.currentPage = this;
     if (store.isLogin.value) {
       var user = await getUserCenterData();
       walletMoney.value = user["data"]["walletMoney"] ?? 0;

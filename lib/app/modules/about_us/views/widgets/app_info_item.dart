@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:swapapp/app/colors/colors.dart';
-import 'package:swapapp/app/utils/utils.dart';
+part of about_us_view;
 
 class AppInfoItem extends StatelessWidget {
   const AppInfoItem({Key? key, required this.value, required this.lable})

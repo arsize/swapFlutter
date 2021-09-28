@@ -1,13 +1,28 @@
-import 'package:flutter/material.dart';
+/*
+ * @Author: Arsize 
+ * @Date: 2021-09-28 09:28:21 
+ * @Describe: 首页
+ */
+library home_view;
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:swapapp/app/colors/colors.dart';
 import 'package:swapapp/app/store/store.dart';
 import 'package:swapapp/app/utils/utils.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
-import '../controllers/home_controller.dart';
-import 'widgets/google_map.dart';
-import 'widgets/map_tools.dart';
-import 'widgets/panel.dart';
+import 'package:swapapp/app/common/widgets/common_wigets.dart';
+import 'package:swapapp/app/modules/home/controllers/home_controller.dart';
+
+// part
+part './widgets/panel.dart';
+part './widgets/panel_topbar.dart';
+part './widgets/google_map.dart';
+part './widgets/map_tools.dart';
+part './widgets/panel_btn_list.dart';
+part './widgets/panel_head_text.dart';
+part './widgets/panel_head_row.dart';
 
 class HomeView extends GetView<HomeController> {
   @override

@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:swapapp/app/utils/utils.dart';
+part of home_view;
 
 class MapTools extends StatefulWidget {
   const MapTools({Key? key}) : super(key: key);

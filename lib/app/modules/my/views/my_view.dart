@@ -1,14 +1,22 @@
-import 'package:flutter/material.dart';
+/*
+ * @Author: Arsize 
+ * @Date: 2021-09-28 09:31:24 
+ * @Describe: 个人中心
+ */
+library my_view;
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:swapapp/app/colors/colors.dart';
 import 'package:swapapp/app/common/widgets/common_wigets.dart';
-import 'package:swapapp/app/modules/my/views/widgets/info_item.dart';
-import 'package:swapapp/app/modules/my/views/widgets/menu_item.dart';
 import 'package:swapapp/app/store/store.dart';
 import 'package:swapapp/app/utils/utils.dart';
 import '../controllers/my_controller.dart';
-import 'widgets/menu_panel.dart';
+
+// part
+part './widgets/info_item.dart';
+part './widgets/menu_item.dart';
+part './widgets/menu_panel.dart';
 
 class MyView extends GetView<MyController> {
   final StoreController store = Get.find();
@@ -29,7 +37,7 @@ class MyView extends GetView<MyController> {
               Stack(
                 children: [
                   Container(
-                    width: double.infinity,
+                    width: Get.width,
                     height: 260.h,
                     color: Colours.app_main,
                     child: Padding(

@@ -14,7 +14,10 @@ abstract class Routes {
   static const MY_QRCODE = _Paths.MY_QRCODE;
   static const MORE = _Paths.MORE;
   static const ABOUT_US = _Paths.ABOUT_US;
-  static const CESHIY = _Paths.CESHIY;
+  static const MY_PACKAGE = _Paths.MY_PACKAGE;
+  static const CAMERA_SCAN = _Paths.CAMERA_SCAN;
+  static const TRANSIT_INPUT = _Paths.TRANSIT_INPUT;
+  static const EXCHANGE_INFO = _Paths.EXCHANGE_INFO;
 }
 
 abstract class _Paths {
@@ -28,5 +31,8 @@ abstract class _Paths {
   static const MY_QRCODE = '/my-qrcode';
   static const MORE = '/more';
   static const ABOUT_US = '/about-us';
-  static const CESHIY = '/ceshiy';
+  static const MY_PACKAGE = '/my-package';
+  static const CAMERA_SCAN = '/camera-scan';
+  static const TRANSIT_INPUT = '/transit-input';
+  static const EXCHANGE_INFO = '/exchange-info';
 }

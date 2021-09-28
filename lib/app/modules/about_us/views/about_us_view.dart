@@ -1,12 +1,16 @@
+library about_us_view;
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:swapapp/app/colors/colors.dart';
-import 'package:swapapp/app/modules/about_us/views/widgets/app_info_item.dart';
 import 'package:swapapp/app/utils/utils.dart';
 import 'package:swapapp/app/common/widgets/common_wigets.dart';
 
 import '../controllers/about_us_controller.dart';
+
+// part
+part './widgets/app_info_item.dart';
 
 class AboutUsView extends GetView<AboutUsController> {
   @override

@@ -32,5 +32,6 @@ class StoreController extends GetxController {
     await LoacalStorage().remove(LOGINDATA);
     await LoacalStorage().remove(ACCOUNTPW);
     isLogin.value = false;
+    Get.offAllNamed("/home");
   }
 }

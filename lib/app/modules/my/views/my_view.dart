@@ -201,7 +201,7 @@ class MyView extends GetView<MyController> {
                   MenuItem(
                       icon: "images/my_icons05.png",
                       itemText: "我的车辆",
-                      route: "my_vehicle"),
+                      route: "/vehicle"),
                   MenuItem(
                       icon: "images/my_icons06.png",
                       itemText: "服务网点",

@@ -29,6 +29,7 @@ dependencies:
   qr_code_scanner: ^0.5.2
   # ID输入框
   flutter_verification_box: ^2.0.0
+  loading_gifs: ^0.3.0
   
   flutter: 
     sdk: flutter

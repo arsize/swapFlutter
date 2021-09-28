@@ -22,7 +22,7 @@ class ExchangeInfoView extends GetView<ExchangeInfoController> {
     return Scaffold(
       appBar: defaultAppBar(title: "换电"),
       body: Container(
-        height: double.infinity,
+        width: Get.width,
         color: Colours.app_F5_grey,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -96,7 +96,7 @@ class ExchangeInfoView extends GetView<ExchangeInfoController> {
                     ),
                   ),
                   arBtn(
-                    fn: () {},
+                    fn: controller.beginExchange,
                     width: 280,
                     height: 88,
                     text: "开始换电",

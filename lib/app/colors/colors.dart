@@ -27,4 +27,5 @@ class Colours {
   static const Color app_FD_grey = Color(0xFFDDDDDD);
   static const Color app_blue = Color(0xFF166CFF);
   static const Color app_over_yellow = Color(0xFFFF9900);
+  static const Color app_title_yellow = Color(0xFFFECB27);
 }

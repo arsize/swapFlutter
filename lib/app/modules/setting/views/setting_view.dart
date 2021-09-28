@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:swapapp/app/colors/colors.dart';
 import 'package:swapapp/app/common/widgets/common_wigets.dart';
 import 'package:swapapp/app/modules/setting/views/widgets/base_info_panel.dart';
+import 'package:swapapp/app/store/store.dart';
 import 'package:swapapp/app/utils/utils.dart';
 
 import '../controllers/setting_controller.dart';
@@ -11,6 +12,7 @@ import '../controllers/setting_controller.dart';
 class SettingView extends GetView<SettingController> {
   @override
   Widget build(BuildContext context) {
+    final StoreController store = Get.find();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: defaultAppBar(title: "设置"),
@@ -206,7 +208,10 @@ class SettingView extends GetView<SettingController> {
                       fn1: () {
                         Navigator.of(context).pop();
                       },
-                      fn2: () {},
+                      fn2: () {
+                        store.logout();
+                        Navigator.of(context).pop();
+                      },
                     );
                   },
                 );

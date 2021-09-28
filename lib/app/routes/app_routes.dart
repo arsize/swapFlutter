@@ -18,6 +18,10 @@ abstract class Routes {
   static const CAMERA_SCAN = _Paths.CAMERA_SCAN;
   static const TRANSIT_INPUT = _Paths.TRANSIT_INPUT;
   static const EXCHANGE_INFO = _Paths.EXCHANGE_INFO;
+  static const SERVING = _Paths.SERVING;
+  static const PUT_MONEY = _Paths.PUT_MONEY;
+  static const RECORDS = _Paths.RECORDS;
+  static const VEHICLE = _Paths.VEHICLE;
 }
 
 abstract class _Paths {
@@ -35,4 +39,8 @@ abstract class _Paths {
   static const CAMERA_SCAN = '/camera-scan';
   static const TRANSIT_INPUT = '/transit-input';
   static const EXCHANGE_INFO = '/exchange-info';
+  static const SERVING = '/serving';
+  static const PUT_MONEY = '/put-money';
+  static const RECORDS = '/records';
+  static const VEHICLE = '/vehicle';
 }

@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:swapapp/app/colors/colors.dart';
-import 'package:swapapp/app/utils/utils.dart';
-import 'package:image_picker/image_picker.dart';
+part of setting_view;
 
 class BaseInfoPanel extends StatelessWidget {
   const BaseInfoPanel({Key? key}) : super(key: key);

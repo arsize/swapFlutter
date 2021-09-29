@@ -125,6 +125,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "5.1.0"
+  flutter_staggered_animations:
+    dependency: "direct main"
+    description:
+      name: flutter_staggered_animations
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter

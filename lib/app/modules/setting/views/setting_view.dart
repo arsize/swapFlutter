@@ -1,13 +1,18 @@
+library setting_view;
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:swapapp/app/colors/colors.dart';
 import 'package:swapapp/app/common/widgets/common_wigets.dart';
-import 'package:swapapp/app/modules/setting/views/widgets/base_info_panel.dart';
 import 'package:swapapp/app/store/store.dart';
 import 'package:swapapp/app/utils/utils.dart';
 
 import '../controllers/setting_controller.dart';
+
+part './widgets/base_info_panel.dart';
 
 class SettingView extends GetView<SettingController> {
   @override
@@ -30,7 +35,7 @@ class SettingView extends GetView<SettingController> {
               padding: EdgeInsets.all(30.w),
               child: InkWell(
                 onTap: () {
-                  Navigator.of(context).pushNamed("change_mobile");
+                  Get.toNamed("/edit-mobile");
                 },
                 child: Container(
                   child: Row(
@@ -71,7 +76,7 @@ class SettingView extends GetView<SettingController> {
             ),
             InkWell(
               onTap: () {
-                Navigator.of(context).pushNamed("change_nickname");
+                Get.toNamed("/edit-nickname");
               },
               child: Padding(
                 padding: EdgeInsets.all(30.w),
@@ -116,7 +121,7 @@ class SettingView extends GetView<SettingController> {
               padding: EdgeInsets.all(30.w),
               child: InkWell(
                 onTap: () {
-                  Navigator.of(context).pushNamed("my_address");
+                  Get.toNamed("/product-address");
                 },
                 child: Container(
                   child: Row(
@@ -157,7 +162,7 @@ class SettingView extends GetView<SettingController> {
             ),
             InkWell(
               onTap: () {
-                Navigator.of(context).pushNamed("multilingual");
+                Get.toNamed("/multilingual");
               },
               child: Padding(
                 padding: EdgeInsets.all(28.w),

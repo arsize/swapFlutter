@@ -22,6 +22,16 @@ abstract class Routes {
   static const PUT_MONEY = _Paths.PUT_MONEY;
   static const RECORDS = _Paths.RECORDS;
   static const VEHICLE = _Paths.VEHICLE;
+  static const EXCHANGE_FINISH = _Paths.EXCHANGE_FINISH;
+  static const NOTICE_LIST = _Paths.NOTICE_LIST;
+  static const NOTICE_DETAIL = _Paths.NOTICE_DETAIL;
+  static const CUSTOMER_SERVICE = _Paths.CUSTOMER_SERVICE;
+  static const FEEDBACK = _Paths.FEEDBACK;
+  static const URGE_CABINETS = _Paths.URGE_CABINETS;
+  static const MULTILINGUAL = _Paths.MULTILINGUAL;
+  static const EDIT_MOBILE = _Paths.EDIT_MOBILE;
+  static const EDIT_NICKNAME = _Paths.EDIT_NICKNAME;
+  static const PRODUCT_ADDRESS = _Paths.PRODUCT_ADDRESS;
 }
 
 abstract class _Paths {
@@ -43,4 +53,14 @@ abstract class _Paths {
   static const PUT_MONEY = '/put-money';
   static const RECORDS = '/records';
   static const VEHICLE = '/vehicle';
+  static const EXCHANGE_FINISH = '/exchange-finish';
+  static const NOTICE_LIST = '/notice-list';
+  static const NOTICE_DETAIL = '/notice-detail';
+  static const CUSTOMER_SERVICE = '/customer-service';
+  static const FEEDBACK = '/feedback';
+  static const URGE_CABINETS = '/urge-cabinets';
+  static const MULTILINGUAL = '/multilingual';
+  static const EDIT_MOBILE = '/edit-mobile';
+  static const EDIT_NICKNAME = '/edit-nickname';
+  static const PRODUCT_ADDRESS = '/product-address';
 }

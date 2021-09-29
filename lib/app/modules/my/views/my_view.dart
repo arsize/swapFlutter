@@ -209,7 +209,7 @@ class MyView extends GetView<MyController> {
                   MenuItem(
                       icon: "images/my_icons07.png",
                       itemText: "客服中心",
-                      route: ""),
+                      route: "/customer-service"),
                   MenuItem(
                       icon: "images/my_icons08.png",
                       itemText: "设置",
@@ -217,7 +217,7 @@ class MyView extends GetView<MyController> {
                   MenuItem(
                       icon: "images/my_icons09.png",
                       itemText: "公告消息",
-                      route: "notice_list"),
+                      route: "notice-list"),
                   MenuItem(
                       icon: "images/my_icons10.png",
                       itemText: "更多",

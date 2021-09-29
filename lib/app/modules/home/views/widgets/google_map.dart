@@ -5,23 +5,21 @@
  */
 part of home_view;
 
-class Gmap extends StatefulWidget {
+class Gmap extends StatelessWidget {
   const Gmap({Key? key}) : super(key: key);
 
   @override
-  _GmapState createState() => _GmapState();
-}
-
-class _GmapState extends State<Gmap> {
-  @override
   Widget build(BuildContext context) {
+    HomeController home = Get.find();
     return GoogleMap(
       myLocationButtonEnabled: false,
       zoomControlsEnabled: false,
       initialCameraPosition: CameraPosition(
-        target: LatLng(37.7786, -122.4375),
+        target: home.mapCenter,
         zoom: 11.5,
       ),
+      onMapCreated: home.createMarers,
+      markers: home.markers,
     );
   }
 }

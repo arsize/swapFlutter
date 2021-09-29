@@ -4,20 +4,38 @@ import 'package:swapapp/app/modules/about_us/bindings/about_us_binding.dart';
 import 'package:swapapp/app/modules/about_us/views/about_us_view.dart';
 import 'package:swapapp/app/modules/camera_scan/bindings/camera_scan_binding.dart';
 import 'package:swapapp/app/modules/camera_scan/views/camera_scan_view.dart';
+import 'package:swapapp/app/modules/customer_service/bindings/customer_service_binding.dart';
+import 'package:swapapp/app/modules/customer_service/views/customer_service_view.dart';
+import 'package:swapapp/app/modules/edit_mobile/bindings/edit_mobile_binding.dart';
+import 'package:swapapp/app/modules/edit_mobile/views/edit_mobile_view.dart';
+import 'package:swapapp/app/modules/edit_nickname/bindings/edit_nickname_binding.dart';
+import 'package:swapapp/app/modules/edit_nickname/views/edit_nickname_view.dart';
+import 'package:swapapp/app/modules/exchange_finish/bindings/exchange_finish_binding.dart';
+import 'package:swapapp/app/modules/exchange_finish/views/exchange_finish_view.dart';
 import 'package:swapapp/app/modules/exchange_info/bindings/exchange_info_binding.dart';
 import 'package:swapapp/app/modules/exchange_info/views/exchange_info_view.dart';
+import 'package:swapapp/app/modules/feedback/bindings/feedback_binding.dart';
+import 'package:swapapp/app/modules/feedback/views/feedback_view.dart';
 import 'package:swapapp/app/modules/home/bindings/home_binding.dart';
 import 'package:swapapp/app/modules/home/views/home_view.dart';
 import 'package:swapapp/app/modules/login/bindings/login_binding.dart';
 import 'package:swapapp/app/modules/login/views/login_view.dart';
 import 'package:swapapp/app/modules/more/bindings/more_binding.dart';
 import 'package:swapapp/app/modules/more/views/more_view.dart';
+import 'package:swapapp/app/modules/multilingual/bindings/multilingual_binding.dart';
+import 'package:swapapp/app/modules/multilingual/views/multilingual_view.dart';
 import 'package:swapapp/app/modules/my/bindings/my_binding.dart';
 import 'package:swapapp/app/modules/my/views/my_view.dart';
 import 'package:swapapp/app/modules/my_package/bindings/my_package_binding.dart';
 import 'package:swapapp/app/modules/my_package/views/my_package_view.dart';
 import 'package:swapapp/app/modules/my_qrcode/bindings/my_qrcode_binding.dart';
 import 'package:swapapp/app/modules/my_qrcode/views/my_qrcode_view.dart';
+import 'package:swapapp/app/modules/notice_detail/bindings/notice_detail_binding.dart';
+import 'package:swapapp/app/modules/notice_detail/views/notice_detail_view.dart';
+import 'package:swapapp/app/modules/notice_list/bindings/notice_list_binding.dart';
+import 'package:swapapp/app/modules/notice_list/views/notice_list_view.dart';
+import 'package:swapapp/app/modules/product_address/bindings/product_address_binding.dart';
+import 'package:swapapp/app/modules/product_address/views/product_address_view.dart';
 import 'package:swapapp/app/modules/put_money/bindings/put_money_binding.dart';
 import 'package:swapapp/app/modules/put_money/views/put_money_view.dart';
 import 'package:swapapp/app/modules/records/bindings/records_binding.dart';
@@ -32,6 +50,8 @@ import 'package:swapapp/app/modules/shop/bindings/shop_binding.dart';
 import 'package:swapapp/app/modules/shop/views/shop_view.dart';
 import 'package:swapapp/app/modules/transit_input/bindings/transit_input_binding.dart';
 import 'package:swapapp/app/modules/transit_input/views/transit_input_view.dart';
+import 'package:swapapp/app/modules/urge_cabinets/bindings/urge_cabinets_binding.dart';
+import 'package:swapapp/app/modules/urge_cabinets/views/urge_cabinets_view.dart';
 import 'package:swapapp/app/modules/vehicle/bindings/vehicle_binding.dart';
 import 'package:swapapp/app/modules/vehicle/views/vehicle_view.dart';
 import 'package:swapapp/app/modules/wallet/bindings/wallet_binding.dart';
@@ -140,6 +160,56 @@ class AppPages {
       name: _Paths.VEHICLE,
       page: () => VehicleView(),
       binding: VehicleBinding(),
+    ),
+    GetPage(
+      name: _Paths.EXCHANGE_FINISH,
+      page: () => ExchangeFinishView(),
+      binding: ExchangeFinishBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTICE_LIST,
+      page: () => NoticeListView(),
+      binding: NoticeListBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTICE_DETAIL,
+      page: () => NoticeDetailView(),
+      binding: NoticeDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.CUSTOMER_SERVICE,
+      page: () => CustomerServiceView(),
+      binding: CustomerServiceBinding(),
+    ),
+    GetPage(
+      name: _Paths.FEEDBACK,
+      page: () => FeedbackView(),
+      binding: FeedbackBinding(),
+    ),
+    GetPage(
+      name: _Paths.URGE_CABINETS,
+      page: () => UrgeCabinetsView(),
+      binding: UrgeCabinetsBinding(),
+    ),
+    GetPage(
+      name: _Paths.MULTILINGUAL,
+      page: () => MultilingualView(),
+      binding: MultilingualBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_MOBILE,
+      page: () => EditMobileView(),
+      binding: EditMobileBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_NICKNAME,
+      page: () => EditNicknameView(),
+      binding: EditNicknameBinding(),
+    ),
+    GetPage(
+      name: _Paths.PRODUCT_ADDRESS,
+      page: () => ProductAddressView(),
+      binding: ProductAddressBinding(),
     ),
   ];
 }

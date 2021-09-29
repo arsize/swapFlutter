@@ -1,28 +1,28 @@
 /*
  * @Author: Arsize 
- * @Date: 2021-09-28 17:02:42 
- * @Describe: 服务进行中
+ * @Date: 2021-09-29 09:35:36 
+ * @Describe: 订单信息 换电完成
  */
-library serving_view;
+library exchange_finish_view;
 
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
-import 'package:loading_gifs/loading_gifs.dart';
 import 'package:swapapp/app/colors/colors.dart';
-import 'package:swapapp/app/common/widgets/app_bar.dart';
+import 'package:swapapp/app/common/widgets/common_wigets.dart';
 import 'package:swapapp/app/utils/utils.dart';
 
-import '../controllers/serving_controller.dart';
+import '../controllers/exchange_finish_controller.dart';
 
-part './widgets/serving_panel.dart';
-part './widgets/serving_panel_line.dart';
-part './widgets/box_info.dart';
+part './widgets/finish_panel.dart';
+part './widgets/finish_panel_line.dart';
+part './widgets/order_info_item.dart';
 
-class ServingView extends GetView<ServingController> {
+class ExchangeFinishView extends GetView<ExchangeFinishController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: defaultAppBar(title: "服务进行中", elevation: 0),
+      appBar: defaultAppBar(title: "订单信息", elevation: 0),
       body: Container(
         child: Stack(
           alignment: Alignment.center,
@@ -33,41 +33,31 @@ class ServingView extends GetView<ServingController> {
               left: 0,
               right: 0,
               child: Image(
+                width: Get.width,
                 height: 560.h,
-                image: AssetImage("images/serving_view_topimg.png"),
+                image: AssetImage("images/finish_panel_img.png"),
               ),
             ),
             Positioned(
-              top: 324.h,
+              top: 243.h,
               left: 32.w,
-              child: ServingPanel(),
+              child: FinishPanel(),
             ),
             Positioned(
               bottom: 156.h,
-              child: Row(
-                children: [
-                  Text(
-                    "如有疑问，请",
-                    style: TextStyle(
-                      color: Colours.app_normal_grey,
-                      fontSize: 28.f,
-                    ),
-                  ),
-                  Text(
-                    "联系客服",
-                    style: TextStyle(
-                      color: Colours.app_green,
-                      fontSize: 28.f,
-                    ),
-                  )
-                ],
+              child: Text(
+                "对订单有疑问？",
+                style: TextStyle(
+                  color: Colours.app_green,
+                  fontSize: 28.f,
+                ),
               ),
             ),
             Positioned(
               bottom: 32.h,
               child: InkWell(
                 onTap: () {
-                  Get.offAllNamed("/exchange-finish");
+                  Get.offAllNamed("/home");
                 },
                 child: Container(
                   width: 686.w,

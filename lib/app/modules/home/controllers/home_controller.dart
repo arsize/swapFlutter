@@ -1,6 +1,6 @@
-import 'dart:collection';
-
+import 'package:swapapp/app/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:swapapp/app/store/store.dart';
@@ -16,6 +16,7 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    setMarkerImage();
   }
 
   @override
@@ -31,25 +32,23 @@ class HomeController extends GetxController {
 
 // -------------------------地图相关-------------------------------------
   final LatLng mapCenter = LatLng(37.7786, -122.4375);
-  Set<Marker> markers = HashSet<Marker>();
+  Set<Marker> markers = {};
+  late BitmapDescriptor _marker_icon;
 
-  createMarers(GoogleMapController googleMapController) {
-    markers.add(Marker(
-      markerId: MarkerId('1'),
-      position: mapCenter,
-    ));
+  void setMarkerImage() async {
+    _marker_icon = await BitmapDescriptor.fromAssetImage(
+        createLocalImageConfiguration(Get.context!, size: Size(1, 1)),
+        'images/map_marker_01.png');
   }
 
-  // createMarkerImageFromAsset() async {
-  //   final ImageConfiguration imageConfiguration =
-  //       createLocalImageConfiguration(Get.context!, size: Size.square(38));
-  //   var temp = await BitmapDescriptor.fromAssetImage(
-  //       imageConfiguration, 'images/map_cabinet1.png');
-  //   markerSet.add(Marker(
-  //     markerId: MarkerId("marker_1"),
-  //     position: mapCenter,
-  //     icon: temp,
-  //   ));
-  //   print(markerSet);
-  // }
+  void onMapCreated(GoogleMapController googleMapController) {
+    markers.add(
+      Marker(
+        markerId: MarkerId("id_1"),
+        position: mapCenter,
+        icon: _marker_icon,
+      ),
+    );
+    update();
+  }
 }

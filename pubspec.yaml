@@ -14,7 +14,7 @@ dependencies:
    # storage
   shared_preferences: ^2.0.6
    # google map
-  google_maps_flutter: ^2.0.4
+  google_maps_flutter: ^2.0.9
    # 滑动panel
   sliding_up_panel: ^2.0.0+1
   # toast

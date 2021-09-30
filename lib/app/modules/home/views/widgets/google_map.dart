@@ -10,16 +10,17 @@ class Gmap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    HomeController home = Get.find();
-    return GoogleMap(
-      myLocationButtonEnabled: false,
-      zoomControlsEnabled: false,
-      initialCameraPosition: CameraPosition(
-        target: home.mapCenter,
-        zoom: 11.5,
-      ),
-      onMapCreated: home.createMarers,
-      markers: home.markers,
-    );
+    return GetBuilder<HomeController>(builder: (_) {
+      return GoogleMap(
+        myLocationButtonEnabled: false,
+        zoomControlsEnabled: true,
+        initialCameraPosition: CameraPosition(
+          target: _.mapCenter,
+          zoom: 11.5,
+        ),
+        onMapCreated: _.onMapCreated,
+        markers: _.markers,
+      );
+    });
   }
 }

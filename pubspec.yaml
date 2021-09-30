@@ -32,6 +32,8 @@ dependencies:
   loading_gifs: ^0.3.0
   # 列表动画
   flutter_staggered_animations: ^1.0.0
+  # 定位
+  location: ^4.3.0
   
   flutter: 
     sdk: flutter

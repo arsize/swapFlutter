@@ -1,3 +1,5 @@
+import 'package:location/location.dart';
+import 'package:swapapp/app/common/methods/check_pixel_ratio.dart';
 import 'package:swapapp/app/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -19,11 +21,6 @@ class HomeController extends GetxController {
     setMarkerImage();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
 //---------------------------------------------------------------
   changeMenu(str) {
     selectMenu = str;
@@ -31,14 +28,43 @@ class HomeController extends GetxController {
   }
 
 // -------------------------地图相关-------------------------------------
-  final LatLng mapCenter = LatLng(37.7786, -122.4375);
+  LatLng mapCenter = LatLng(22.582657328817298, 113.86058293363483);
   Set<Marker> markers = {};
-  late BitmapDescriptor _marker_icon;
+  late BitmapDescriptor _markerIcon;
 
   void setMarkerImage() async {
-    _marker_icon = await BitmapDescriptor.fromAssetImage(
-        createLocalImageConfiguration(Get.context!, size: Size(1, 1)),
-        'images/map_marker_01.png');
+    var _imgPath = "images/map_markers/${checkRatio()}/map_marker_01.png";
+    _markerIcon =
+        await BitmapDescriptor.fromAssetImage(ImageConfiguration(), _imgPath);
+  }
+
+  void getLocation() async {
+    Location location = Location();
+
+    bool _serviceEnabled;
+    PermissionStatus _permissionGranted;
+    LocationData _locationData;
+
+    _serviceEnabled = await location.serviceEnabled();
+    if (!_serviceEnabled) {
+      _serviceEnabled = await location.requestService();
+      if (!_serviceEnabled) {
+        return;
+      }
+    }
+
+    _permissionGranted = await location.hasPermission();
+    if (_permissionGranted == PermissionStatus.denied) {
+      _permissionGranted = await location.requestPermission();
+      if (_permissionGranted != PermissionStatus.granted) {
+        return;
+      }
+    }
+
+    _locationData = await location.getLocation();
+
+    mapCenter = LatLng(_locationData.latitude!, _locationData.latitude!);
+    update();
   }
 
   void onMapCreated(GoogleMapController googleMapController) {
@@ -46,7 +72,7 @@ class HomeController extends GetxController {
       Marker(
         markerId: MarkerId("id_1"),
         position: mapCenter,
-        icon: _marker_icon,
+        icon: _markerIcon,
       ),
     );
     update();

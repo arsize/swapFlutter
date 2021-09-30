@@ -44,6 +44,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<false/>
 </dict>
 </plist>

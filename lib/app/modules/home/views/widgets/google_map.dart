@@ -13,7 +13,6 @@ class Gmap extends StatelessWidget {
     return GetBuilder<HomeController>(builder: (_) {
       return GoogleMap(
         myLocationButtonEnabled: false,
-        zoomControlsEnabled: true,
         initialCameraPosition: CameraPosition(
           target: _.mapCenter,
           zoom: 11.5,

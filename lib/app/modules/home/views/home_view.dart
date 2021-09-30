@@ -38,7 +38,7 @@ class HomeView extends GetView<HomeController> {
           image: AssetImage("images/home_logo.png"),
         ),
         centerTitle: true,
-        brightness: Brightness.dark,
+        backgroundColor: Colours.app_main,
         leadingWidth: 94.w,
         leading: Builder(builder: (context) {
           return Padding(

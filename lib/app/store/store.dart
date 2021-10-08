@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:swapapp/app/entities/login_model.dart';
-import 'package:swapapp/app/utils/utils.dart';
-import 'package:swapapp/config.dart';
+import 'package:raintree/app/entities/login_model.dart';
+import 'package:raintree/app/utils/utils.dart';
+import 'package:raintree/config.dart';
 
 class StoreController extends GetxController {
   static StoreController get to => Get.find();

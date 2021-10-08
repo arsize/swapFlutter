@@ -15,12 +15,12 @@ String duTimeLineFormat(DateTime dt) {
   }
   // MM-dd
   else if (difference.inDays < 365) {
-    final dtFormat = new DateFormat('MM-dd');
+    final dtFormat = DateFormat('MM-dd');
     return dtFormat.format(dt);
   }
   // yyyy-MM-dd
   else {
-    final dtFormat = new DateFormat('yyyy-MM-dd');
+    final dtFormat = DateFormat('yyyy-MM-dd');
     var str = dtFormat.format(dt);
     return str;
   }

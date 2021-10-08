@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 /// 本地存储-单例模式
 class LoacalStorage {
-  static LoacalStorage _instance = new LoacalStorage._();
+  static LoacalStorage _instance = LoacalStorage._();
   factory LoacalStorage() => _instance;
   static late SharedPreferences _prefs;
 

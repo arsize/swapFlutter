@@ -6,9 +6,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:swapapp/app/colors/colors.dart';
-import 'package:swapapp/app/modules/registry/controllers/registry_controller.dart';
-import 'package:swapapp/app/utils/utils.dart';
+import 'package:raintree/app/colors/colors.dart';
+import 'package:raintree/app/modules/registry/controllers/registry_controller.dart';
+import 'package:raintree/app/utils/utils.dart';
 
 class InputPassWd extends StatelessWidget {
   const InputPassWd({Key? key, required this.type}) : super(key: key);

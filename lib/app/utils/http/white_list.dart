@@ -8,4 +8,5 @@ List<String> whiteList = [
   "app/login/verificationVerificationCode",
   "app/login/getVerificationCode",
   "app/login/registerAccount",
+  "cabinet/map/roundList"
 ];

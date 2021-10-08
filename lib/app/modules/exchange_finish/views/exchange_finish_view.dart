@@ -8,9 +8,9 @@ library exchange_finish_view;
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:swapapp/app/colors/colors.dart';
-import 'package:swapapp/app/common/widgets/common_wigets.dart';
-import 'package:swapapp/app/utils/utils.dart';
+import 'package:raintree/app/colors/colors.dart';
+import 'package:raintree/app/common/widgets/common_wigets.dart';
+import 'package:raintree/app/utils/utils.dart';
 
 import '../controllers/exchange_finish_controller.dart';
 

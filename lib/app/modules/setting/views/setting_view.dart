@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:swapapp/app/colors/colors.dart';
-import 'package:swapapp/app/common/widgets/common_wigets.dart';
-import 'package:swapapp/app/store/store.dart';
-import 'package:swapapp/app/utils/utils.dart';
+import 'package:raintree/app/colors/colors.dart';
+import 'package:raintree/app/common/widgets/common_wigets.dart';
+import 'package:raintree/app/store/store.dart';
+import 'package:raintree/app/utils/utils.dart';
 
 import '../controllers/setting_controller.dart';
 

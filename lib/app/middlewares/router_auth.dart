@@ -5,8 +5,8 @@
  */
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:swapapp/app/routes/app_pages.dart';
-import 'package:swapapp/app/store/store.dart';
+import 'package:raintree/app/routes/app_pages.dart';
+import 'package:raintree/app/store/store.dart';
 
 class RouteAuthMiddleware extends GetMiddleware {
   final store = Get.find<StoreController>();

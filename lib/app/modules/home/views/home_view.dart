@@ -8,12 +8,13 @@ library home_view;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:swapapp/app/colors/colors.dart';
-import 'package:swapapp/app/store/store.dart';
-import 'package:swapapp/app/utils/utils.dart';
+import 'package:raintree/app/colors/colors.dart';
+import 'package:raintree/app/modules/home/controllers/custom_map.dart';
+import 'package:raintree/app/store/store.dart';
+import 'package:raintree/app/utils/utils.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
-import 'package:swapapp/app/common/widgets/common_wigets.dart';
-import 'package:swapapp/app/modules/home/controllers/home_controller.dart';
+import 'package:raintree/app/common/widgets/common_wigets.dart';
+import 'package:raintree/app/modules/home/controllers/home_controller.dart';
 
 // part
 part './widgets/panel.dart';
@@ -63,7 +64,9 @@ class HomeView extends GetView<HomeController> {
           Padding(
             padding: EdgeInsets.only(right: 32.w),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Get.toNamed("/notice-list");
+              },
               child: Image(
                 width: 54.w,
                 height: 54.w,

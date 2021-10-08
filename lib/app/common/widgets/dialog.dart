@@ -4,8 +4,8 @@
  * @Describe: 弹窗组件
  */
 import 'package:flutter/material.dart';
-import 'package:swapapp/app/colors/colors.dart';
-import 'package:swapapp/app/utils/utils.dart';
+import 'package:raintree/app/colors/colors.dart';
+import 'package:raintree/app/utils/utils.dart';
 
 class ArDialog extends Dialog {
   /// 弹窗类型，分为：确认-confirm；选择-choice；通知-info；列表-list

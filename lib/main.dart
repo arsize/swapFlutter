@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: "雨林",
+      title: "",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       defaultTransition: Transition.rightToLeft,

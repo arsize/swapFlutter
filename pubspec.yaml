@@ -1,4 +1,4 @@
-name: swapapp
+name: raintree
 description: A new Flutter project.
 version: 1.0.0+1
 publish_to: none
@@ -34,6 +34,8 @@ dependencies:
   flutter_staggered_animations: ^1.0.0
   # 定位
   location: ^4.3.0
+  # 二维码
+  qr_flutter: ^4.0.0
   
   flutter: 
     sdk: flutter

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:swapapp/app/common/widgets/app_bar.dart';
-import 'package:swapapp/app/colors/colors.dart';
-import 'package:swapapp/app/common/widgets/common_wigets.dart';
-import 'package:swapapp/app/modules/registry/views/widgets/input_mobile.dart';
-import 'package:swapapp/app/modules/registry/views/widgets/input_passwd.dart';
-import 'package:swapapp/app/modules/registry/views/widgets/input_pincode.dart';
-import 'package:swapapp/app/utils/utils.dart';
+import 'package:raintree/app/common/widgets/app_bar.dart';
+import 'package:raintree/app/colors/colors.dart';
+import 'package:raintree/app/common/widgets/common_wigets.dart';
+import 'package:raintree/app/modules/registry/views/widgets/input_mobile.dart';
+import 'package:raintree/app/modules/registry/views/widgets/input_passwd.dart';
+import 'package:raintree/app/modules/registry/views/widgets/input_pincode.dart';
+import 'package:raintree/app/utils/utils.dart';
 
 import '../controllers/registry_controller.dart';
 

@@ -6,13 +6,10 @@
 
 import 'package:dio/dio.dart';
 import 'package:dio_http_formatter/dio_http_formatter.dart';
-import 'package:swapapp/app/common/methods/normal.dart';
-import 'package:swapapp/app/modules/login/api/loginByMobile.dart';
-import 'package:swapapp/app/utils/storage.dart';
-import 'package:swapapp/config.dart';
-import 'package:swapapp/global.dart';
-
-import 'white_list.dart';
+import 'package:raintree/app/modules/login/api/loginByMobile.dart';
+import 'package:raintree/app/utils/storage.dart';
+import 'package:raintree/config.dart';
+import 'package:raintree/global.dart';
 
 void interceptors(dio) {
   /// 请求日志
@@ -20,11 +17,6 @@ void interceptors(dio) {
 
   dio.interceptors.add(
     InterceptorsWrapper(onRequest: (e, handler) {
-      if (!isInTheList(e.path, whiteList)) {
-        // 不在白名单中的路由需要传token
-      }
-      print("请求");
-      print(e.path);
       handler.next(e);
     }, onResponse: (e, handler) {
       var code = e.data["code"];
@@ -39,7 +31,6 @@ void interceptors(dio) {
             break;
           default:
         }
-        print("异常");
         handler.next(e);
       }
     }, onError: (DioError e, handler) {
@@ -51,12 +42,12 @@ void interceptors(dio) {
 
 /// 重新登录,获取新token
 void reLogin() async {
-  var account_pw = LoacalStorage().getJSON(ACCOUNTPW);
-  if (account_pw != null) {
+  var accountPw = LoacalStorage().getJSON(ACCOUNTPW);
+  if (accountPw != null) {
     var result = await loginByMobile(
-      account: account_pw["account"],
-      password: account_pw["password"],
-      areaCode: account_pw["areaCode"],
+      account: accountPw["account"],
+      password: accountPw["password"],
+      areaCode: accountPw["areaCode"],
     );
     await LoacalStorage().setJSON(LOGINDATA, result["data"]);
     print("重新登录成功");

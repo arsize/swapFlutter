@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:swapapp/app/colors/colors.dart';
-import 'package:swapapp/app/common/widgets/app_bar.dart';
-import 'package:swapapp/app/utils/utils.dart';
+import 'package:qr_flutter/qr_flutter.dart';
+import 'package:raintree/app/colors/colors.dart';
+import 'package:raintree/app/common/widgets/app_bar.dart';
+import 'package:raintree/app/utils/utils.dart';
 
 import '../controllers/my_qrcode_controller.dart';
 
@@ -37,7 +38,11 @@ class MyQrcodeView extends GetView<MyQrcodeController> {
                   Adapt.width(12),
                 ),
               ),
-              child: Text("x"),
+              child: QrImage(
+                data: "1234567890",
+                version: QrVersions.auto,
+                size: 200.0,
+              ),
             ),
           )
         ],

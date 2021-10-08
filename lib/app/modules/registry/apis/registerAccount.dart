@@ -5,9 +5,9 @@
  */
 
 import 'package:get/get.dart';
-import 'package:swapapp/app/utils/http/http_util.dart';
-import 'package:swapapp/app/values/result_code.dart';
-import 'package:swapapp/config.dart';
+import 'package:raintree/app/utils/http/http_util.dart';
+import 'package:raintree/app/values/result_code.dart';
+import 'package:raintree/config.dart';
 
 Future registerAccount({
   account,

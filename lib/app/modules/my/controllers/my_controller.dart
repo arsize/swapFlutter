@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:swapapp/app/modules/my/apis/getUserCenterData.dart';
-import 'package:swapapp/app/store/store.dart';
-import 'package:swapapp/global.dart';
+import 'package:raintree/app/modules/my/apis/get_user_center.dart';
+import 'package:raintree/app/store/store.dart';
+import 'package:raintree/global.dart';
 
 class MyController extends GetxController {
   final StoreController store = Get.find();
@@ -20,11 +20,6 @@ class MyController extends GetxController {
           user["data"]["currentMonthOrderCount"] ?? 0;
       totalSurplusNum.value = user["data"]["totalSurplusNum"] ?? 0;
     }
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
   }
 
   @override

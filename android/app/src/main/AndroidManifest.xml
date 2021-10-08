@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.arsizes.swapapp">
+    package="com.arsizes.raintree">
    <application
-        android:label="swapapp"
+        android:label="raintree"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

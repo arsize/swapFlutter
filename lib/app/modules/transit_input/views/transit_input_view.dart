@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_verification_box/verification_box.dart';
 
 import 'package:get/get.dart';
-import 'package:swapapp/app/colors/colors.dart';
-import 'package:swapapp/app/common/widgets/common_wigets.dart';
-import 'package:swapapp/app/utils/utils.dart';
+import 'package:raintree/app/colors/colors.dart';
+import 'package:raintree/app/common/widgets/common_wigets.dart';
+import 'package:raintree/app/utils/utils.dart';
 
 import '../controllers/transit_input_controller.dart';
 

@@ -9,9 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 import 'package:get/get.dart';
-import 'package:swapapp/app/colors/colors.dart';
-import 'package:swapapp/app/utils/utils.dart';
-import 'package:swapapp/app/common/widgets/common_wigets.dart';
+import 'package:raintree/app/colors/colors.dart';
+import 'package:raintree/app/utils/utils.dart';
+import 'package:raintree/app/common/widgets/common_wigets.dart';
 
 import '../controllers/customer_service_controller.dart';
 

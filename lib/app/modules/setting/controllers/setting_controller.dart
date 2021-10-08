@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:swapapp/app/store/store.dart';
+import 'package:raintree/app/store/store.dart';
 
 class SettingController extends GetxController {
   @override

@@ -1,6 +1,6 @@
 {
-    "name": "swapapp",
-    "short_name": "swapapp",
+    "name": "raintree",
+    "short_name": "raintree",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

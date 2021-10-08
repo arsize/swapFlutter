@@ -6,8 +6,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:swapapp/app/colors/colors.dart';
-import 'package:swapapp/app/utils/utils.dart';
+import 'package:raintree/app/colors/colors.dart';
+import 'package:raintree/app/utils/utils.dart';
 
 defaultAppBar({String title = '', background = 'black', elevation = 4.0}) {
   return AppBar(

@@ -1,12 +1,12 @@
 /// 接口地址-mock
-// const String SERVICE_API_RUL =
+// const String SERVICEAPIURL =
 //     'https://www.fastmock.site/mock/0dd1747c00724003fdefa98cae0c012d/';
 
 /// 接口地址-测试
-const String SERVICE_API_RUL = 'http://139.196.252.205:8701/';
+const String SERVICEAPIURL = 'http://139.196.252.205:8701/';
 
 /// 接口地址-本地
-// const String SERVICE_API_RUL = 'http://192.168.0.105:8701/';
+// const String SERVICEAPIURL = 'http://192.168.0.105:8701/';
 
 /// 登录账号密码
 const String ACCOUNTPW = 'account_pw';

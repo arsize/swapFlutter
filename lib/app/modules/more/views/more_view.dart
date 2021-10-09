@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:raintree/app/common/widgets/common_wigets.dart';
 import 'package:raintree/app/modules/more/views/widgets/item_menu.dart';
-import 'package:raintree/app/store/store.dart';
 
 import '../controllers/more_controller.dart';
 

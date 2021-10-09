@@ -1,5 +1,5 @@
 library api;
 
-export 'getVerificationCode.dart';
-export 'registerAccount.dart';
-export 'verificationVerificationCode.dart';
+export 'get_verification_code.dart';
+export 'register_account.dart';
+export 'verification_verification_code.dart';

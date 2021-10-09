@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:raintree/app/common/methods/checkFormat.dart';
+import 'package:raintree/app/common/methods/check_format.dart';
 import 'package:raintree/app/modules/registry/apis/api.dart';
 import 'package:raintree/app/utils/storage.dart';
 import 'package:raintree/app/values/mobile_prefix.dart';
@@ -129,7 +129,7 @@ class RegistryController extends GetxController {
       );
       return;
     }
-    const timeout = const Duration(seconds: 1);
+    const timeout = Duration(seconds: 1);
     _timer?.cancel();
     _timer = Timer.periodic(timeout, (timer) {
       if (sendCount > 0) {
@@ -215,11 +215,6 @@ class RegistryController extends GetxController {
     }
     isFinish = false;
     update();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
   }
 
   @override

@@ -8,13 +8,13 @@ import 'package:raintree/app/colors/colors.dart';
 import 'package:raintree/app/utils/utils.dart';
 
 Widget arBtn({
-  double width: 630.0,
-  double height: 98.0,
-  double borderRadius: 15.0,
-  double fontSize: 32.0,
-  backgroundColor: Colours.app_main,
-  String text: '默认',
-  String leftIcon: '',
+  double width = 630.0,
+  double height = 98.0,
+  double borderRadius = 15.0,
+  double fontSize = 32.0,
+  backgroundColor = Colours.app_main,
+  String text = '默认',
+  String leftIcon = '',
   required void Function()? fn,
 }) {
   return ElevatedButton(

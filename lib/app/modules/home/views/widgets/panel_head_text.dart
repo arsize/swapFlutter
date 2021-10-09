@@ -6,7 +6,6 @@ class PanelHeadText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final HomeController ctrl = Get.find();
     return Container(
       height: 85.w,
       child: Stack(

@@ -9,34 +9,34 @@ import 'package:raintree/app/utils/utils.dart';
 
 class ArDialog extends Dialog {
   /// 弹窗类型，分为：确认-confirm；选择-choice；通知-info；列表-list
-  final type;
+  final String type;
 
   /// 弹窗宽度
-  final width;
+  final double? width;
 
   /// 弹窗长度
-  final height;
+  final double? height;
 
   /// 是否有圆角
-  final round;
+  final bool round;
 
   /// 弹窗标题
-  final title;
+  final String title;
 
   /// 弹窗内容
-  final content;
+  final String content;
 
   /// 确认回调函数
   final void Function()? fn1;
 
   /// 确认按钮文字
-  final confirmText;
+  final String confirmText;
 
   /// 取消回调函数
   final void Function()? fn2;
 
   /// 取消按钮文字
-  final cancelText;
+  final String cancelText;
 
   const ArDialog({
     Key? key,
@@ -61,7 +61,7 @@ class ArDialog extends Dialog {
   }
 
   _hanleDialogType() {
-    switch (this.type) {
+    switch (type) {
       case "confirm":
         return _confirmDialog();
       case "choice":
@@ -78,28 +78,27 @@ class ArDialog extends Dialog {
   Widget _confirmDialog() {
     return Center(
       child: Container(
-        width: this.width ?? 640.w,
-        height: this.height ?? 390.h,
+        width: width ?? 640.w,
+        height: height ?? 390.h,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: this.round != true
-              ? BorderRadius.zero
-              : BorderRadius.circular(16.w),
+          borderRadius:
+              round != true ? BorderRadius.zero : BorderRadius.circular(16.w),
         ),
         child: Column(
           children: [
             Container(
               alignment: Alignment.center,
-              width: this.width ?? 640.w,
+              width: width ?? 640.w,
               height: 100.h,
               decoration: BoxDecoration(
                 color: Colours.app_dialog_title,
-                borderRadius: this.round != true
+                borderRadius: round != true
                     ? BorderRadius.zero
                     : BorderRadius.circular(16.w),
               ),
               child: Text(
-                this.title,
+                title,
                 style: TextStyle(
                   fontSize: 32.f,
                   color: Colours.app_main,
@@ -111,7 +110,7 @@ class ArDialog extends Dialog {
             ),
             Center(
               child: Text(
-                this.content,
+                content,
                 style: TextStyle(
                   fontSize: 28.f,
                   color: Colours.app_font_grey6,
@@ -130,7 +129,7 @@ class ArDialog extends Dialog {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
-                    onTap: this.fn1,
+                    onTap: fn1,
                     child: Container(
                       alignment: Alignment.center,
                       width: 260.w,
@@ -140,7 +139,7 @@ class ArDialog extends Dialog {
                         borderRadius: BorderRadius.circular(15.w),
                       ),
                       child: Text(
-                        this.cancelText,
+                        cancelText,
                         style: TextStyle(
                           fontSize: 32.f,
                           color: Colours.app_main,
@@ -149,7 +148,7 @@ class ArDialog extends Dialog {
                     ),
                   ),
                   InkWell(
-                    onTap: this.fn2,
+                    onTap: fn2,
                     child: Container(
                       alignment: Alignment.center,
                       width: 260.w,
@@ -159,7 +158,7 @@ class ArDialog extends Dialog {
                         borderRadius: BorderRadius.circular(15.w),
                       ),
                       child: Text(
-                        this.confirmText,
+                        confirmText,
                         style: TextStyle(
                           fontSize: 32.f,
                           color: Colours.app_yellow,

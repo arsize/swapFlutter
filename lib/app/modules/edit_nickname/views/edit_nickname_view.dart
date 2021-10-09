@@ -18,7 +18,6 @@ class EditNicknameView extends GetView<EditNicknameController> {
           ),
         ),
         centerTitle: true,
-        brightness: Brightness.dark,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios,

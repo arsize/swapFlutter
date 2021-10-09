@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:raintree/app/colors/colors.dart';
 import 'package:raintree/app/utils/utils.dart';
-import 'package:raintree/app/common/widgets/app_bar.dart';
 import 'package:raintree/app/common/widgets/button.dart';
 import 'package:raintree/app/values/mobile_prefix.dart';
 
@@ -24,7 +23,6 @@ class LoginView extends GetView<LoginController> {
           ),
         ),
         backgroundColor: Colors.white,
-        brightness: Brightness.light,
         elevation: 0.0,
         centerTitle: true,
         leading: IconButton(

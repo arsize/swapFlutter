@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:raintree/app/common/widgets/app_bar.dart';
 import 'package:raintree/app/colors/colors.dart';
 import 'package:raintree/app/common/widgets/common_wigets.dart';
 import 'package:raintree/app/modules/registry/views/widgets/input_mobile.dart';
@@ -23,7 +22,6 @@ class RegistryView extends GetView<RegistryController> {
           ),
         ),
         backgroundColor: Colors.white,
-        brightness: Brightness.light,
         elevation: 0.0,
         centerTitle: true,
         leading: IconButton(

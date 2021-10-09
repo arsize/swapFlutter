@@ -1,9 +1,7 @@
-/**
-     * APP全局相关
-     */
-const APP_NOT_ACCREDIT = 10001; //(, "应用未授权"),
-const FEATURES_ARE_BEING_DEVELOPED = 10002; //(, "暂不支持该类型收费模式!"),
-const LOCATION_IS_CLOSE = 10003; //(, "定位服务异常"),
+///APP全局相关
+const APP_NOT_ACCREDIT = 10001; // "应用未授权",
+const FEATURES_ARE_BEING_DEVELOPED = 10002; // "暂不支持该类型收费模式!",
+const LOCATION_IS_CLOSE = 10003; //"定位服务异常",
 
 const USER_PHONE_ERROR = 1001; //"手机号错误";
 const PHONE_NUMBER_HAS_BEEN_USED = 1002; //"此号码已被注册，去登录看看";

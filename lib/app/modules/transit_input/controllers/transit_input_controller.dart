@@ -11,11 +11,6 @@ class TransitInputController extends GetxController {
   }
 
   @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
   void onClose() {}
 
   onSubmitted(value) {

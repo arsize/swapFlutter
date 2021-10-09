@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 /// 本地存储-单例模式
 class LoacalStorage {
+  // ignore: prefer_final_fields
   static LoacalStorage _instance = LoacalStorage._();
   factory LoacalStorage() => _instance;
   static late SharedPreferences _prefs;
@@ -30,6 +31,7 @@ class LoacalStorage {
 
   bool getBool(String key) {
     bool? val = _prefs.getBool(key);
+    // ignore: prefer_if_null_operators
     return val == null ? false : val;
   }
 

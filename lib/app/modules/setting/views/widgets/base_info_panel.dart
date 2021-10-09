@@ -85,11 +85,13 @@ class BaseInfoPanel extends StatelessWidget {
   _openGallery() async {
     final ImagePicker _picker = ImagePicker();
     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    print(image);
   }
 
   /// 拍照
   _takePhoto() async {
     final ImagePicker _picker = ImagePicker();
     final XFile? image = await _picker.pickImage(source: ImageSource.camera);
+    print(image);
   }
 }

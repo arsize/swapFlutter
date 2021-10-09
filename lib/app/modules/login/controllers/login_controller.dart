@@ -1,10 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:raintree/app/colors/colors.dart';
-import 'package:raintree/app/common/methods/checkFormat.dart';
-import 'package:raintree/app/modules/login/api/loginByMobile.dart';
+import 'package:raintree/app/common/methods/check_format.dart';
+import 'package:raintree/app/modules/login/api/login_by_mobile.dart';
 import 'package:raintree/app/store/store.dart';
 import 'package:raintree/app/utils/utils.dart';
 import 'package:raintree/app/values/mobile_prefix.dart';
@@ -34,11 +31,6 @@ class LoginController extends GetxController {
     scrollController = ScrollController();
     mobileController = TextEditingController();
     pwdController = TextEditingController();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
   }
 
   @override

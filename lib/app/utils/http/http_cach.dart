@@ -9,11 +9,11 @@ class Incomplete {
   factory Incomplete() => _instance ?? Incomplete._internal();
 
   void pushCach(Function fn) {
-    this.cach.add(fn);
+    cach.add(fn);
   }
 
   void clearCach() {
-    this.cach = [];
+    cach = [];
   }
 
   void removeCach() {}

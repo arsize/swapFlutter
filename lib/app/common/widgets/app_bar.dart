@@ -18,7 +18,6 @@ defaultAppBar({String title = '', background = 'black', elevation = 4.0}) {
       ),
     ),
     backgroundColor: background == 'light' ? Colors.white : Colours.app_main,
-    brightness: background == 'light' ? Brightness.light : Brightness.dark,
     elevation: elevation + 0.0,
     centerTitle: true,
     leading: IconButton(

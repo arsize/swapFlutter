@@ -25,7 +25,7 @@ class HTTP {
 
   HTTP._internal() {
     dio = Dio(BaseOptions(
-      baseUrl: SERVICE_API_RUL,
+      baseUrl: SERVICEAPIURL,
       headers: {
         'Accept-Language': 'zh',
       },
@@ -73,7 +73,7 @@ Map<String, dynamic>? getAuthorizationHeader({path}) {
       token = _login["appToken"];
       if (token != null) {
         headers = {
-          'access_token': '$token!',
+          'access_token': token,
         };
       }
     }

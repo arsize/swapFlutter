@@ -5,17 +5,6 @@ class CameraScanController extends GetxController {
   // 列表滚动
   late final QRViewController qrController;
 
-  // 普通变量
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
   @override
   void onClose() {}
 

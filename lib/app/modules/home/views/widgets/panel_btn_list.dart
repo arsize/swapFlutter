@@ -5,7 +5,6 @@ class PanelBtnList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final HomeController ctrl = Get.find();
     return Container(
       padding: EdgeInsets.only(
         left: 32.w,

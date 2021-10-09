@@ -7,7 +7,6 @@
   <h1></h1>
 </div>
 
-
 Support [√] Flutter (Channel stable, v2.2.2).
 
 ## 注意
@@ -17,12 +16,59 @@ Support [√] Flutter (Channel stable, v2.2.2).
 ```
 get create page:xx
 ```
-
 <br />
 2.首页地图需要Goole service（科学上网）
 
 <br />
 
-## 依赖
+## 启动
 
-##### flutter_screenutil
+```
+flutter run
+```
+
+## 目录结构
+
+```
+app
+    ├─colors
+    ├─common
+    │  ├─langs
+    │  ├─methods        
+    │  └─widgets        
+    ├─entities
+    ├─middlewares       
+    ├─modules
+    │  └─home
+    │      ├─apis       
+    │      ├─bindings   
+    │      ├─controllers
+    │      ├─mixins     
+    │      └─views      
+    │          └─widgets
+    ├─routes
+    ├─store
+    ├─utils
+    │  ├─extensions     
+    │  └─http
+    └─values
+```
+
+## 设置权限
+
+#### 谷歌地图
+
+##### 安卓：android-app-src-main-AndroidManifest.xml
+
+```
+<meta-data 
+  android:name="com.google.android.geo.API_KEY"
+  android:value="这里填写自己的谷歌地图key"/>
+```
+
+##### IOS：ios-Runner-AppDelegate.swift
+
+```
+import GoogleMaps
+GMSServices.provideAPIKey("这里填写自己的谷歌地图key")
+```

@@ -9,21 +9,26 @@ import 'package:raintree/app/common/methods/check_pixel_ratio.dart';
 
 mixin Markers {
   Set<Marker> markers = {};
-  late BitmapDescriptor markerIcon;
+  Map<String, BitmapDescriptor> markerIcons = {};
 
   void addMarker({markerId, position, icon}) {
     markers.add(
       Marker(
-        markerId: MarkerId("id_1"),
+        markerId: MarkerId(markerId),
         position: position,
-        icon: markerIcon,
+        icon: icon,
       ),
     );
   }
 
-  Future setMarkerBitmap() async {
-    var _imgPath = "images/map_markers/${checkRatio()}/map_marker_01.png";
-    markerIcon =
-        await BitmapDescriptor.fromAssetImage(ImageConfiguration(), _imgPath);
+  // TODO:MARKERS 渲染
+  setMarkersBitmap() async {
+    List.filled(13, '').asMap().entries.map((e) async {
+      var _path =
+          "images/map_markers/${checkRatio()}/map_marker_${e.key < 10 ? '0' + e.key.toString() : e.key}.png";
+      print(_path);
+      markerIcons[e.key.toString()] =
+          await BitmapDescriptor.fromAssetImage(ImageConfiguration(), _path);
+    }).toList();
   }
 }

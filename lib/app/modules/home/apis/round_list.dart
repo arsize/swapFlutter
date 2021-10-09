@@ -9,5 +9,5 @@ Future roundList() {
       "organizationId": 2,
       "longitude": 113.86058293363483
     },
-  ).then((value) => {print(value)});
+  ).then((value) => value);
 }

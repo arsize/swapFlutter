@@ -42,4 +42,6 @@
             android:value="AIzaSyDq3Rt8_V6qFSI8t44yY7OMdVJBEVlCae4"/>
     </application>
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
 </manifest>

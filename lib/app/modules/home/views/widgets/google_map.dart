@@ -10,14 +10,15 @@ class Gmap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<CustomMap>(builder: (_) {
+    return GetBuilder<HomeController>(builder: (_) {
       return GoogleMap(
-        myLocationButtonEnabled: false,
+        myLocationButtonEnabled: true,
         initialCameraPosition: CameraPosition(
           target: _.mapCenter,
-          zoom: 11.5,
+          zoom: 12,
         ),
         onMapCreated: _.onMapCreated,
+        onCameraMove: _.onCameraMove,
         markers: _.markers,
       );
     });

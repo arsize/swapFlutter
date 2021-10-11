@@ -8,12 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:raintree/app/colors/colors.dart';
 import 'package:raintree/app/common/widgets/common_wigets.dart';
+import 'package:raintree/app/store/store.dart';
 import 'package:raintree/app/utils/utils.dart';
 import '../controllers/edit_mobile_controller.dart';
 
 class EditMobileView extends GetView<EditMobileController> {
   @override
   Widget build(BuildContext context) {
+    final StoreController store = Get.find();
     return Scaffold(
       appBar: defaultAppBar(title: "修改手机号"),
       body: Container(
@@ -22,12 +24,26 @@ class EditMobileView extends GetView<EditMobileController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "当前手机号：130000000",
-              style: TextStyle(
-                fontSize: 28.f,
-                color: Colours.app_font_grey6,
-              ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "当前手机号：",
+                  style: TextStyle(
+                    fontSize: 28.f,
+                    color: Colours.app_font_grey6,
+                  ),
+                ),
+                Obx(
+                  () => Text(
+                    store.loginData.value.account ?? '--',
+                    style: TextStyle(
+                      fontSize: 28.f,
+                      color: Colours.app_font_grey6,
+                    ),
+                  ),
+                ),
+              ],
             ),
             SizedBox(
               height: 32.h,

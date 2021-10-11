@@ -114,25 +114,30 @@ class CameraScanView extends GetView<CameraScanController> {
                           ],
                         ),
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image(
-                            width: 88.w,
-                            height: 88.w,
-                            image: AssetImage("images/scan_light.png"),
-                          ),
-                          SizedBox(
-                            height: 16.h,
-                          ),
-                          Text(
-                            "打开手电筒",
-                            style: TextStyle(
-                              fontSize: 24.f,
-                              color: Colors.white,
+                      InkWell(
+                        onTap: () {
+                          controller.toggleFlash();
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image(
+                              width: 88.w,
+                              height: 88.w,
+                              image: AssetImage("images/scan_light.png"),
                             ),
-                          ),
-                        ],
+                            SizedBox(
+                              height: 16.h,
+                            ),
+                            Text(
+                              "打开手电筒",
+                              style: TextStyle(
+                                fontSize: 24.f,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
                       )
                     ],
                   ),

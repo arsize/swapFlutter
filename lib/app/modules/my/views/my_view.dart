@@ -176,19 +176,19 @@ class MyView extends GetView<MyController> {
                   MenuItem(
                       icon: "images/my_icons01.png",
                       itemText: "待付款",
-                      route: ""),
+                      route: "/order-detail"),
                   MenuItem(
                       icon: "images/my_icons02.png",
                       itemText: "待发货",
-                      route: ""),
+                      route: "/order-detail"),
                   MenuItem(
                       icon: "images/my_icons03.png",
                       itemText: "待收货",
-                      route: ""),
+                      route: "/order-detail"),
                   MenuItem(
                       icon: "images/my_icons04.png",
                       itemText: "全部订单",
-                      route: ""),
+                      route: "/order-detail"),
                 ],
               ),
               SizedBox(
@@ -213,7 +213,7 @@ class MyView extends GetView<MyController> {
                   MenuItem(
                       icon: "images/my_icons08.png",
                       itemText: "设置",
-                      route: "setting"),
+                      route: "/setting"),
                   MenuItem(
                       icon: "images/my_icons09.png",
                       itemText: "公告消息",
@@ -225,7 +225,7 @@ class MyView extends GetView<MyController> {
                   MenuItem(
                       icon: "images/my_icons11.png",
                       itemText: "管理员",
-                      route: ""),
+                      route: "/admin"),
                 ],
               ),
             ],

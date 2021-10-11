@@ -18,13 +18,14 @@ class EditNicknameView extends GetView<EditNicknameController> {
           ),
         ),
         centerTitle: true,
+        backgroundColor: Colours.app_main,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios,
             color: Colors.white,
           ),
           onPressed: () {
-            Navigator.of(context).pop();
+            Get.back();
           },
         ),
         actions: [
@@ -32,8 +33,13 @@ class EditNicknameView extends GetView<EditNicknameController> {
             padding: EdgeInsets.only(right: 32.w),
             alignment: Alignment.center,
             child: InkWell(
-              onTap: () {},
-              child: Text("完成"),
+              onTap: () {
+                controller.finish();
+              },
+              child: Container(
+                padding: EdgeInsets.only(left: 20.w),
+                child: Text("完成"),
+              ),
             ),
           )
         ],
@@ -66,6 +72,7 @@ class EditNicknameView extends GetView<EditNicknameController> {
                   ),
                   Expanded(
                     child: TextField(
+                      controller: controller.editInputController,
                       maxLength: 40,
                       decoration: InputDecoration(
                         counterText: '',
@@ -76,6 +83,9 @@ class EditNicknameView extends GetView<EditNicknameController> {
                         ),
                         border: InputBorder.none,
                       ),
+                      onChanged: (String text) {
+                        controller.inputOnchange(text);
+                      },
                     ),
                   ),
                 ],

@@ -19,6 +19,7 @@ class Gmap extends StatelessWidget {
         ),
         onMapCreated: _.onMapCreated,
         onCameraMove: _.onCameraMove,
+        onTap: _.onMapTap,
         markers: _.markers,
       );
     });

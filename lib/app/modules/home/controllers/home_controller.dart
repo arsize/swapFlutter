@@ -16,6 +16,7 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
   final cabinetResult = CabinetListModel().obs;
   GoogleMapController? mapController;
   // 响应式
+  RxString currentModle = 'default'.obs;
 
   // 普通变量
   String selectMenu = "换电";
@@ -26,6 +27,12 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
   @override
   void onInit() {
     super.onInit();
+  }
+
+  @override
+  void dispose() {
+    mapController!.dispose();
+    super.dispose();
   }
 
   void changeMenu(str) {
@@ -74,6 +81,11 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
     });
   }
 
+  /// 回到地图中心
+  void resetPosition() {
+    mapController?.animateCamera(CameraUpdate.newLatLngZoom(mapCenter, 12));
+  }
+
   /// 渲染机柜Marker
   void drawCabinetMarkers() {
     var _cabinetData = cabinetResult.value.data;
@@ -82,10 +94,12 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
         if (item.latitude != null && item.longitude != null) {
           markers.add(
             Marker(
-              markerId: MarkerId(item.cabinetDid!),
-              position: LatLng(item.latitude!, item.longitude!),
-              icon: markerBts[cabinetBoxStatus(item)]!,
-            ),
+                markerId: MarkerId(item.cabinetDid!),
+                position: LatLng(item.latitude!, item.longitude!),
+                icon: markerBts[cabinetBoxStatus(item)]!,
+                onTap: () {
+                  currentModle.value = "cabinet";
+                }),
           );
         }
       }).toList();
@@ -97,5 +111,12 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
   void onCameraMove(CameraPosition cameraPosition) {
     print("在移动");
     print(cameraPosition);
+  }
+
+  /// 地图点击事件
+  void onMapTap(e) {
+    print("点击了地图");
+    print(e);
+    currentModle.value = "default";
   }
 }

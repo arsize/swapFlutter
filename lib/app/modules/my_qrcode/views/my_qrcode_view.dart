@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:raintree/app/colors/colors.dart';
 import 'package:raintree/app/common/widgets/app_bar.dart';
+import 'package:raintree/app/store/store.dart';
 import 'package:raintree/app/utils/utils.dart';
 
 import '../controllers/my_qrcode_controller.dart';
@@ -11,6 +12,7 @@ import '../controllers/my_qrcode_controller.dart';
 class MyQrcodeView extends GetView<MyQrcodeController> {
   @override
   Widget build(BuildContext context) {
+    final StoreController store = Get.find();
     return Scaffold(
       appBar: defaultAppBar(title: "我的二维码", elevation: 0),
       body: Stack(
@@ -25,23 +27,56 @@ class MyQrcodeView extends GetView<MyQrcodeController> {
             ),
           ),
           Positioned(
-            top: 20,
-            left: Adapt.width(32),
-            right: Adapt.width(32),
+            top: 20.h,
+            left: 32.w,
+            right: 32.w,
             child: Container(
-              alignment: Alignment.center,
-              height: Adapt.width(800),
-              padding: EdgeInsets.all(Adapt.width(32)),
+              height: 800.w,
+              padding: EdgeInsets.only(top: 100.h, left: 32.w, right: 32.w),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: ArUtil.border(
-                  Adapt.width(12),
-                ),
+                borderRadius: ArUtil.border(24),
               ),
-              child: QrImage(
-                data: "1234567890",
-                version: QrVersions.auto,
-                size: 200.0,
+              child: Column(
+                children: [
+                  Obx(
+                    () {
+                      if (store.loginData.value.userPhoto != null) {
+                        return QrImage(
+                          data: store.loginData.value.account ?? '',
+                          version: QrVersions.auto,
+                          size: 390.w,
+                          embeddedImage:
+                              NetworkImage(store.loginData.value.userPhoto!),
+                          embeddedImageStyle: QrEmbeddedImageStyle(
+                            size: Size(50, 50),
+                          ),
+                        );
+                      } else {
+                        return QrImage(
+                          data: store.loginData.value.account ?? '',
+                          version: QrVersions.auto,
+                          size: 390.w,
+                          embeddedImage:
+                              AssetImage("images/my_avatar_default.png"),
+                          embeddedImageStyle: QrEmbeddedImageStyle(
+                            size: Size(50, 50),
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                  SizedBox(
+                    height: 50.h,
+                  ),
+                  Text(
+                    "请向线下服务人员出示个人二维码，以便店员扫码为你解绑电池",
+                    style: TextStyle(
+                      fontSize: 32.f,
+                      color: Colours.app_font_grey6,
+                    ),
+                  )
+                ],
               ),
             ),
           )

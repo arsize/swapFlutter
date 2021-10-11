@@ -126,8 +126,6 @@ class LoginView extends GetView<LoginController> {
   // 输入手机号
   _inputMobile(context) {
     return Container(
-      width: 690.w,
-      height: 96.w,
       decoration: BoxDecoration(
         borderRadius: ArUtil.border(12),
         color: Colours.app_FA_grey,
@@ -179,7 +177,7 @@ class LoginView extends GetView<LoginController> {
               width: 16.w,
             ),
             Expanded(
-              flex: 1,
+              flex: 2,
               child: TextField(
                 controller: controller.mobileController,
                 decoration: InputDecoration(
@@ -204,10 +202,14 @@ class LoginView extends GetView<LoginController> {
                             onTap: () {
                               controller.clearInput(type: "mobile");
                             },
-                            child: Image(
-                              width: 32.w,
-                              height: 32.w,
-                              image: AssetImage("images/input_icon_close.png"),
+                            child: Container(
+                              padding: EdgeInsets.all(10.w),
+                              child: Image(
+                                width: 32.w,
+                                height: 32.w,
+                                image:
+                                    AssetImage("images/input_icon_close.png"),
+                              ),
                             ),
                           ),
                         )
@@ -243,6 +245,7 @@ class LoginView extends GetView<LoginController> {
               width: 70.w,
             ),
             Expanded(
+              flex: 2,
               child: TextField(
                 controller: controller.pwdController,
                 obscureText: true,
@@ -268,10 +271,14 @@ class LoginView extends GetView<LoginController> {
                             onTap: () {
                               controller.clearInput(type: "pwd");
                             },
-                            child: Image(
-                              width: 32.w,
-                              height: 32.w,
-                              image: AssetImage("images/input_icon_close.png"),
+                            child: Container(
+                              padding: EdgeInsets.all(10.w),
+                              child: Image(
+                                width: 32.w,
+                                height: 32.w,
+                                image:
+                                    AssetImage("images/input_icon_close.png"),
+                              ),
                             ),
                           ),
                         )

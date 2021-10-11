@@ -32,6 +32,8 @@ abstract class Routes {
   static const EDIT_MOBILE = _Paths.EDIT_MOBILE;
   static const EDIT_NICKNAME = _Paths.EDIT_NICKNAME;
   static const PRODUCT_ADDRESS = _Paths.PRODUCT_ADDRESS;
+  static const ORDER_DETAIL = _Paths.ORDER_DETAIL;
+  static const ADMIN = _Paths.ADMIN;
 }
 
 abstract class _Paths {
@@ -63,4 +65,6 @@ abstract class _Paths {
   static const EDIT_MOBILE = '/edit-mobile';
   static const EDIT_NICKNAME = '/edit-nickname';
   static const PRODUCT_ADDRESS = '/product-address';
+  static const ORDER_DETAIL = '/order-detail';
+  static const ADMIN = '/admin';
 }

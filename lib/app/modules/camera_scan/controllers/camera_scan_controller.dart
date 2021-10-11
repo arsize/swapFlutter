@@ -18,4 +18,9 @@ class CameraScanController extends GetxController {
     qrController = controller;
     qrController.scannedDataStream.listen((scanData) {});
   }
+
+  /// 打开/关闭闪光灯
+  void toggleFlash() {
+    qrController.toggleFlash();
+  }
 }

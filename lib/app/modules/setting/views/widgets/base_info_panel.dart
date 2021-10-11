@@ -5,6 +5,7 @@ class BaseInfoPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final StoreController store = Get.find();
     return Container(
       height: 411.h,
       alignment: Alignment.center,
@@ -52,7 +53,7 @@ class BaseInfoPanel extends StatelessWidget {
                       child: Text(
                         "取消",
                         style: TextStyle(
-                          fontSize: Adapt.font(34),
+                          fontSize: 34.f,
                         ),
                       ),
                     ),
@@ -60,20 +61,25 @@ class BaseInfoPanel extends StatelessWidget {
                 },
               );
             },
-            child: Image(
-              width: Adapt.width(112),
-              height: Adapt.height(112),
-              image: AssetImage("images/my_avatar_default.png"),
-            ),
+            child: Obx(() {
+              return Image(
+                width: 112.w,
+                height: 112.w,
+                image: AssetImage(store.loginData.value.userPhoto ??
+                    "images/my_avatar_default.png"),
+              );
+            }),
           ),
           SizedBox(
-            height: Adapt.height(40),
+            height: 40.h,
           ),
-          Text(
-            "130****5678",
-            style: TextStyle(
-              fontSize: Adapt.font(36),
-              color: Colours.app_main,
+          Obx(
+            () => Text(
+              store.loginData.value.account ?? '--',
+              style: TextStyle(
+                fontSize: 36.f,
+                color: Colours.app_main,
+              ),
             ),
           )
         ],

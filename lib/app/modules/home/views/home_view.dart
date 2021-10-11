@@ -5,7 +5,10 @@
  */
 library home_view;
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:raintree/app/colors/colors.dart';
@@ -22,6 +25,7 @@ part './widgets/google_map.dart';
 part './widgets/map_tools.dart';
 part './widgets/panel_btn_list.dart';
 part './widgets/panel_head_text.dart';
+part './widgets/cabinet_panel.dart';
 part './widgets/panel_head_row.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -75,24 +79,30 @@ class HomeView extends GetView<HomeController> {
           ),
         ],
       ),
-      body: SlidingUpPanel(
-        margin: EdgeInsets.only(left: 13, right: 13),
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(10.0),
-          topRight: Radius.circular(10.0),
-        ),
-        minHeight: 380.h,
-        maxHeight: 560.h,
-        panel: Panel(),
-        body: SafeArea(
-          child: Stack(
-            children: [
-              Gmap(),
-              MapTools(),
-            ],
+      body: Obx(() {
+        return SlidingUpPanel(
+          margin: controller.currentModle.value == 'cabinet'
+              ? EdgeInsets.only(left: 0, right: 0)
+              : EdgeInsets.only(left: 13, right: 13),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10.0),
+            topRight: Radius.circular(10.0),
           ),
-        ),
-      ),
+          minHeight: 380.h,
+          maxHeight: controller.currentModle.value == 'cabinet' ? 620.h : 560.h,
+          panel: controller.currentModle.value == 'cabinet'
+              ? CabinetPanel()
+              : Panel(),
+          body: SafeArea(
+            child: Stack(
+              children: [
+                Gmap(),
+                MapTools(),
+              ],
+            ),
+          ),
+        );
+      }),
     );
   }
 }

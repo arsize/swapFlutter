@@ -110,20 +110,20 @@ class RegistryView extends GetView<RegistryController> {
                 },
               ),
             ),
-            SizedBox(
-              height: 30.h,
-            ),
             Row(
               children: [
                 InkWell(
                   onTap: () {
-                    Get.back();
+                    Get.offNamed("/login");
                   },
-                  child: Text(
-                    "已有账号，立即登录",
-                    style: TextStyle(
-                      color: Colours.app_green,
-                      fontSize: 28.f,
+                  child: Container(
+                    padding: EdgeInsets.only(top: 30.h, bottom: 30.h),
+                    child: Text(
+                      "已有账号，立即登录",
+                      style: TextStyle(
+                        color: Colours.app_green,
+                        fontSize: 28.f,
+                      ),
                     ),
                   ),
                 ),

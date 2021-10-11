@@ -47,11 +47,13 @@ class SettingView extends GetView<SettingController> {
                       ),
                       Row(
                         children: [
-                          Text(
-                            "130000000",
-                            style: TextStyle(
-                              color: Colours.app_font_grey6,
-                              fontSize: 28.f,
+                          Obx(
+                            () => Text(
+                              store.loginData.value.account ?? '--',
+                              style: TextStyle(
+                                color: Colours.app_font_grey6,
+                                fontSize: 28.f,
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -90,11 +92,13 @@ class SettingView extends GetView<SettingController> {
                       ),
                       Row(
                         children: [
-                          Text(
-                            "陈龙",
-                            style: TextStyle(
-                              color: Colours.app_font_grey6,
-                              fontSize: 28.w,
+                          Obx(
+                            () => Text(
+                              store.loginData.value.userNickname ?? '--',
+                              style: TextStyle(
+                                color: Colours.app_font_grey6,
+                                fontSize: 28.w,
+                              ),
                             ),
                           ),
                           SizedBox(

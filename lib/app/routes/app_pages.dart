@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import 'package:raintree/app/modules/about_us/bindings/about_us_binding.dart';
 import 'package:raintree/app/modules/about_us/views/about_us_view.dart';
+import 'package:raintree/app/modules/admin/bindings/admin_binding.dart';
+import 'package:raintree/app/modules/admin/views/admin_view.dart';
 import 'package:raintree/app/modules/camera_scan/bindings/camera_scan_binding.dart';
 import 'package:raintree/app/modules/camera_scan/views/camera_scan_view.dart';
 import 'package:raintree/app/modules/customer_service/bindings/customer_service_binding.dart';
@@ -34,6 +36,8 @@ import 'package:raintree/app/modules/notice_detail/bindings/notice_detail_bindin
 import 'package:raintree/app/modules/notice_detail/views/notice_detail_view.dart';
 import 'package:raintree/app/modules/notice_list/bindings/notice_list_binding.dart';
 import 'package:raintree/app/modules/notice_list/views/notice_list_view.dart';
+import 'package:raintree/app/modules/order_detail/bindings/order_detail_binding.dart';
+import 'package:raintree/app/modules/order_detail/views/order_detail_view.dart';
 import 'package:raintree/app/modules/product_address/bindings/product_address_binding.dart';
 import 'package:raintree/app/modules/product_address/views/product_address_view.dart';
 import 'package:raintree/app/modules/put_money/bindings/put_money_binding.dart';
@@ -210,6 +214,16 @@ class AppPages {
       name: _Paths.PRODUCT_ADDRESS,
       page: () => ProductAddressView(),
       binding: ProductAddressBinding(),
+    ),
+    GetPage(
+      name: _Paths.ORDER_DETAIL,
+      page: () => OrderDetailView(),
+      binding: OrderDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN,
+      page: () => AdminView(),
+      binding: AdminBinding(),
     ),
   ];
 }

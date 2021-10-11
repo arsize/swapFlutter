@@ -25,6 +25,6 @@ mixin Markers {
         await getBytesFromAsset("images/map_marker_poweroff.png", 120));
     // 中心位置
     markerBts['location'] = BitmapDescriptor.fromBytes(
-        await getBytesFromAsset("images/my_location.png", 60));
+        await getBytesFromAsset("images/my_location.png", 50));
   }
 }

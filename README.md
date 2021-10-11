@@ -38,7 +38,7 @@ app
     │  └─widgets        
     ├─entities
     ├─middlewares       
-    ├─modules
+    ├─modules(按路由划分模块)
     │  └─home
     │      ├─apis       
     │      ├─bindings   
@@ -54,7 +54,7 @@ app
     └─values
 ```
 
-## 设置权限
+## 设置权限（项目中已配置）
 
 #### 谷歌地图
 
@@ -71,4 +71,22 @@ app
 ```
 import GoogleMaps
 GMSServices.provideAPIKey("这里填写自己的谷歌地图key")
+```
+#### 定位
+
+##### 安卓：android-app-src-main-AndroidManifest.xml
+
+
+```
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+  <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+```
+
+#### 相机
+
+##### 安卓：android-app-src-main-AndroidManifest.xml
+
+
+```
+  <uses-permission android:name="android.permission.CAMERA" />
 ```

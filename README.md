@@ -7,7 +7,7 @@
   <h1></h1>
 </div>
 
-Support [√] Flutter (Channel stable, v2.2.2).
+Support [√] Flutter (Channel stable, v2.2.2).Dart SDK version: 2.14.0（stable）
 
 ## 注意
 

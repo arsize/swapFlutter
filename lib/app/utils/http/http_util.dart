@@ -23,15 +23,17 @@ class HTTP {
     responseType: ResponseType.json,
   );
 
+  static BaseOptions baseOptions = BaseOptions(
+    baseUrl: SERVICEAPIURL,
+    headers: {
+      'Accept-Language': 'zh',
+    },
+    contentType: 'application/json; charset=utf-8',
+    responseType: ResponseType.json,
+  );
+
   HTTP._internal() {
-    dio = Dio(BaseOptions(
-      baseUrl: SERVICEAPIURL,
-      headers: {
-        'Accept-Language': 'zh',
-      },
-      contentType: 'application/json; charset=utf-8',
-      responseType: ResponseType.json,
-    ));
+    dio = Dio(baseOptions);
 
     /// 拦截器
     interceptors(dio);

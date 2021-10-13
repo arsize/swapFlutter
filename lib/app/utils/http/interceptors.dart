@@ -4,9 +4,10 @@
  * @Describe: 请求拦截器
  */
 
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:dio_http_formatter/dio_http_formatter.dart';
-import 'package:raintree/app/modules/login/api/login_by_mobile.dart';
 import 'package:raintree/app/utils/http/http_util.dart';
 import 'package:raintree/app/utils/storage.dart';
 import 'package:raintree/app/values/result_code.dart';
@@ -19,21 +20,18 @@ void interceptors(dio) {
   dio.interceptors.add(
     InterceptorsWrapper(onRequest: (e, handler) {
       handler.next(e);
-    }, onResponse: (e, handler) {
+    }, onResponse: (e, handler) async {
       var code = e.data["code"];
       if (code == 200) {
         handler.next(e);
       } else {
         switch (code) {
           case ACCESS_TOKEN_EXPIRE:
-            // token失效,重新登录
-            reLogin().then((value) {
-              HTTP().request(
-                  path: e.requestOptions.path,
-                  methods: e.requestOptions.method,
-                  data: e.requestOptions.data,
-                  params: e.requestOptions.queryParameters);
-            });
+            dio.lock();
+            await reLogin();
+            var _result = await reApi(e.requestOptions);
+            dio.unlock();
+            handler.next(_result);
             break;
           default:
             handler.next(e);
@@ -50,12 +48,44 @@ void interceptors(dio) {
 Future reLogin() async {
   var accountPw = LoacalStorage().getJSON(ACCOUNTPW);
   if (accountPw != null) {
-    var result = await loginByMobile(
-      account: accountPw["account"],
-      password: accountPw["password"],
-      areaCode: accountPw["areaCode"],
-    );
-    await LoacalStorage().setJSON(LOGINDATA, result["data"]);
+    var _loginDio = Dio(HTTP.baseOptions);
+    _loginDio.interceptors.add(HttpFormatter());
+
+    var result = await _loginDio.post("app/login/appRegister", data: {
+      "account": accountPw["account"],
+      "password": accountPw["password"],
+      "areaCode": accountPw["areaCode"],
+    });
+    await LoacalStorage().setJSON(LOGINDATA, _handleDecodeJson(result)["data"]);
     print("重新登录成功");
   }
+}
+
+Map<String, dynamic> _handleDecodeJson(result) {
+  var res = jsonDecode(result.toString());
+  return res;
+}
+
+/// 重新发送接口
+Future reApi(RequestOptions requestOptions) async {
+  var _reApiDio = Dio(HTTP.baseOptions);
+  _reApiDio.interceptors.add(HttpFormatter());
+  Options _options = Options();
+
+  _options = _options.copyWith(
+    method: requestOptions.method,
+  );
+  Map<String, dynamic>? _authorization =
+      getAuthorizationHeader(path: requestOptions.path);
+  if (_authorization != null) {
+    _options = _options.copyWith(headers: _authorization);
+  }
+  var response = await _reApiDio.request(
+    requestOptions.path,
+    options: _options,
+    data: requestOptions.data,
+    queryParameters: requestOptions.queryParameters,
+  );
+
+  return response;
 }

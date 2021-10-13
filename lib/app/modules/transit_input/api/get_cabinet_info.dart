@@ -11,6 +11,8 @@ Future getCabinetInfoByScan({cabinetId}) {
       "cabinetId": cabinetId,
     },
   ).then((value) {
+    print("---我又走到了这里");
+    print(value);
     if (value["code"] != 200) {
       var _msg = '';
       var type = 'info';

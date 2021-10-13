@@ -7,6 +7,22 @@ import 'package:flutter/material.dart';
 import 'package:raintree/app/colors/colors.dart';
 import 'package:raintree/app/utils/utils.dart';
 
+arDialog({context, type, content, fn1, fn2, fn1Text, fn2Text}) {
+  return showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return ArDialog(
+        type: type ?? "normal",
+        content: content,
+        fn1Text: fn1Text ?? '取消',
+        fn2Text: fn2Text ?? '确认',
+        fn1: fn1,
+        fn2: fn2,
+      );
+    },
+  );
+}
+
 class ArDialog extends Dialog {
   /// 弹窗类型，分为：确认-confirm；选择-choice；通知-info；列表-list
   final String type;
@@ -30,24 +46,24 @@ class ArDialog extends Dialog {
   final void Function()? fn1;
 
   /// 确认按钮文字
-  final String confirmText;
+  final String? fn2Text;
 
   /// 取消回调函数
   final void Function()? fn2;
 
   /// 取消按钮文字
-  final String cancelText;
+  final String? fn1Text;
 
   const ArDialog({
     Key? key,
-    required this.type,
+    this.type = "normal",
     this.width,
     this.height,
     this.round = true,
     this.title = "温馨提示",
     this.content = '',
-    this.confirmText = "确认",
-    this.cancelText = "点错了",
+    this.fn2Text,
+    this.fn1Text,
     this.fn1,
     this.fn2,
   }) : super(key: key);
@@ -62,12 +78,8 @@ class ArDialog extends Dialog {
 
   _hanleDialogType() {
     switch (type) {
-      case "confirm":
-        return _confirmDialog();
-      case "choice":
-        break;
-      case "info":
-        break;
+      case "normal":
+        return _normalDialog();
       case "list":
         break;
       default:
@@ -75,7 +87,7 @@ class ArDialog extends Dialog {
   }
 
   // 确认弹窗
-  Widget _confirmDialog() {
+  Widget _normalDialog() {
     return Center(
       child: Container(
         width: width ?? 640.w,
@@ -125,88 +137,73 @@ class ArDialog extends Dialog {
                 left: 40.w,
                 right: 40.w,
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  InkWell(
-                    onTap: fn1,
-                    child: Container(
-                      alignment: Alignment.center,
-                      width: 260.w,
-                      height: 88.h,
-                      decoration: BoxDecoration(
-                        color: Colours.app_F1_grey,
-                        borderRadius: BorderRadius.circular(15.w),
-                      ),
-                      child: Text(
-                        cancelText,
-                        style: TextStyle(
-                          fontSize: 32.f,
+              child: (fn1 != null && fn2 != null)
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InkWell(
+                          onTap: fn1,
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 260.w,
+                            height: 88.h,
+                            decoration: BoxDecoration(
+                              color: Colours.app_F1_grey,
+                              borderRadius: BorderRadius.circular(15.w),
+                            ),
+                            child: Text(
+                              fn1Text!,
+                              style: TextStyle(
+                                fontSize: 32.f,
+                                color: Colours.app_main,
+                              ),
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: fn2,
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 260.w,
+                            height: 88.h,
+                            decoration: BoxDecoration(
+                              color: Colours.app_main,
+                              borderRadius: BorderRadius.circular(15.w),
+                            ),
+                            child: Text(
+                              fn2Text!,
+                              style: TextStyle(
+                                fontSize: 32.f,
+                                color: Colours.app_yellow,
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    )
+                  : InkWell(
+                      onTap: fn1,
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: 290.w,
+                        height: 88.h,
+                        decoration: BoxDecoration(
                           color: Colours.app_main,
+                          borderRadius: BorderRadius.circular(15.w),
+                        ),
+                        child: Text(
+                          fn1Text!,
+                          style: TextStyle(
+                            fontSize: 32.f,
+                            color: Colours.app_yellow,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  InkWell(
-                    onTap: fn2,
-                    child: Container(
-                      alignment: Alignment.center,
-                      width: 260.w,
-                      height: 88.h,
-                      decoration: BoxDecoration(
-                        color: Colours.app_main,
-                        borderRadius: BorderRadius.circular(15.w),
-                      ),
-                      child: Text(
-                        confirmText,
-                        style: TextStyle(
-                          fontSize: 32.f,
-                          color: Colours.app_yellow,
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
             ),
           ],
         ),
       ),
     );
   }
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Material(
-  //     type: MaterialType.transparency, //透明类型
-  //     child: Center(
-  //       child: SizedBox(
-  //         width: 200.0,
-  //         height: 160.0,
-  //         child: Container(
-  //           color: Colors.white,
-  //           child: ListView.builder(
-  //               itemCount: data.length == 0 ? 0 : data.length,
-  //               itemBuilder: (BuildContext context, int position) {
-  //                 return itemWidget(context, position);
-  //               }),
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
-
-  // Widget itemWidget(BuildContext context, int index) {
-  //   return GestureDetector(
-  //     child: Container(
-  //         height: 40,
-  //         width: double.infinity,
-  //         child: Center(
-  //           child: Text(data[index]),
-  //         )),
-  //     onTap: () {
-  //       Navigator.pop(context, data[index]);
-  //     },
-  //   );
-  // }
 }

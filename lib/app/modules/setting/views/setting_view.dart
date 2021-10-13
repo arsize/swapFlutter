@@ -208,20 +208,15 @@ class SettingView extends GetView<SettingController> {
             ),
             InkWell(
               onTap: () {
-                showDialog(
+                arDialog(
                   context: context,
-                  builder: (BuildContext context) {
-                    return ArDialog(
-                      type: "confirm",
-                      content: "确认要退出账号吗？",
-                      fn1: () {
-                        Navigator.of(context).pop();
-                      },
-                      fn2: () {
-                        store.logout();
-                        Navigator.of(context).pop();
-                      },
-                    );
+                  content: "确认要退出账号吗？",
+                  fn1: () {
+                    Navigator.of(context).pop();
+                  },
+                  fn2: () {
+                    store.logout();
+                    Navigator.of(context).pop();
                   },
                 );
               },

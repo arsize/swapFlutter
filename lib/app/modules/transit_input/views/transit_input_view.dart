@@ -31,7 +31,9 @@ class TransitInputView extends GetView<TransitInputController> {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed("/bind-contact");
+                  },
                   child: Text(
                     "切换扫码",
                     style: TextStyle(

@@ -62,11 +62,11 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
       ),
     );
 
-    mapController?.animateCamera(
-      CameraUpdate.newLatLng(
-        LatLng(point.latitude!, point.longitude!),
-      ),
-    );
+    // mapController?.animateCamera(
+    //   CameraUpdate.newLatLng(
+    //     LatLng(point.latitude!, point.longitude!),
+    //   ),
+    // );
     location.onLocationChanged.listen((LocationData currentLocation) {
       markers.add(
         Marker(

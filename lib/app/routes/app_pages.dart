@@ -4,6 +4,12 @@ import 'package:raintree/app/modules/about_us/bindings/about_us_binding.dart';
 import 'package:raintree/app/modules/about_us/views/about_us_view.dart';
 import 'package:raintree/app/modules/admin/bindings/admin_binding.dart';
 import 'package:raintree/app/modules/admin/views/admin_view.dart';
+import 'package:raintree/app/modules/bind_car/bindings/bind_car_binding.dart';
+import 'package:raintree/app/modules/bind_car/views/bind_car_view.dart';
+import 'package:raintree/app/modules/bind_contact/bindings/bind_contact_binding.dart';
+import 'package:raintree/app/modules/bind_contact/views/bind_contact_view.dart';
+import 'package:raintree/app/modules/bind_success/bindings/bind_success_binding.dart';
+import 'package:raintree/app/modules/bind_success/views/bind_success_view.dart';
 import 'package:raintree/app/modules/camera_scan/bindings/camera_scan_binding.dart';
 import 'package:raintree/app/modules/camera_scan/views/camera_scan_view.dart';
 import 'package:raintree/app/modules/customer_service/bindings/customer_service_binding.dart';
@@ -224,6 +230,21 @@ class AppPages {
       name: _Paths.ADMIN,
       page: () => AdminView(),
       binding: AdminBinding(),
+    ),
+    GetPage(
+      name: _Paths.BIND_CONTACT,
+      page: () => BindContactView(),
+      binding: BindContactBinding(),
+    ),
+    GetPage(
+      name: _Paths.BIND_CAR,
+      page: () => BindCarView(),
+      binding: BindCarBinding(),
+    ),
+    GetPage(
+      name: _Paths.BIND_SUCCESS,
+      page: () => BindSuccessView(),
+      binding: BindSuccessBinding(),
     ),
   ];
 }

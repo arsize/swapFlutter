@@ -1,3 +1,5 @@
+library camera_scan_view;
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -6,6 +8,8 @@ import 'package:raintree/app/colors/colors.dart';
 import 'package:raintree/app/utils/utils.dart';
 
 import '../controllers/camera_scan_controller.dart';
+
+part './widgets/scan_ani.dart';
 
 class CameraScanView extends GetView<CameraScanController> {
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
@@ -31,37 +35,13 @@ class CameraScanView extends GetView<CameraScanController> {
             child: Opacity(
               opacity: 0.8,
               child: Container(
-                height: 321.h,
+                height: 301.h,
                 color: Colors.black,
               ),
             ),
           ),
           Positioned(
-            top: 321.h,
-            left: 0,
-            child: Opacity(
-              opacity: 0.8,
-              child: Container(
-                width: 85.w,
-                height: 500.h,
-                color: Colors.black,
-              ),
-            ),
-          ),
-          Positioned(
-            top: 321.h,
-            right: 0,
-            child: Opacity(
-              opacity: 0.8,
-              child: Container(
-                width: 85.w,
-                height: 500.h,
-                color: Colors.black,
-              ),
-            ),
-          ),
-          Positioned(
-            top: 821.h,
+            top: 910.h,
             bottom: 210.h,
             left: 0,
             right: 0,
@@ -188,6 +168,22 @@ class CameraScanView extends GetView<CameraScanController> {
                 Navigator.of(context).pop(),
               },
             ),
+          ),
+          Positioned(
+            top: 301.h,
+            left: 0,
+            right: 0,
+            child: Container(
+              height: 610.h,
+              child: Image(
+                fit: BoxFit.fill,
+                image: AssetImage("images/scan_view.png"),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 302.h,
+            child: ScanAnimate(),
           ),
         ],
       ),

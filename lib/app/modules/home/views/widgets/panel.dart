@@ -22,9 +22,7 @@ class Panel extends StatelessWidget {
                   () => arBtn(
                     fn: () {
                       store.isLogin.value
-                          ? Get.toNamed(
-                              "/camera-scan",
-                            )
+                          ? home.gotoNext()
                           : Get.toNamed(
                               "/login",
                             );

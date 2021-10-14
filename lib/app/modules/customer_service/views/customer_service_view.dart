@@ -12,6 +12,7 @@ import 'package:get/get.dart';
 import 'package:raintree/app/colors/colors.dart';
 import 'package:raintree/app/utils/utils.dart';
 import 'package:raintree/app/common/widgets/common_wigets.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../controllers/customer_service_controller.dart';
 
@@ -154,7 +155,9 @@ class CustomerServiceView extends GetView<CustomerServiceController> {
                   ),
                   Expanded(
                     child: arBtn(
-                      fn: () {},
+                      fn: () {
+                        launch("tel://xxx");
+                      },
                       text: "拨打客服电话",
                       width: 296.w,
                       height: 80.h,

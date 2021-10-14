@@ -30,4 +30,5 @@ class Colours {
   static const Color app_title_yellow = Color(0xFFFECB27);
   static const Color app_FC_grey = Color(0xFFCCCCCC);
   static const Color app_lignt_red = Color(0xFFEE3265);
+  static const Color app_lignt_grey = Color(0xFFF0F2F5);
 }

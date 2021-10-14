@@ -37,6 +37,8 @@ abstract class Routes {
   static const BIND_CONTACT = _Paths.BIND_CONTACT;
   static const BIND_CAR = _Paths.BIND_CAR;
   static const BIND_SUCCESS = _Paths.BIND_SUCCESS;
+  static const SHOP_PRODUCT_DETAIL = _Paths.SHOP_PRODUCT_DETAIL;
+  static const SUBMIT_ORDER = _Paths.SUBMIT_ORDER;
 }
 
 abstract class _Paths {
@@ -73,4 +75,6 @@ abstract class _Paths {
   static const BIND_CONTACT = '/bind-contact';
   static const BIND_CAR = '/bind-car';
   static const BIND_SUCCESS = '/bind-success';
+  static const SHOP_PRODUCT_DETAIL = '/shop-product-detail';
+  static const SUBMIT_ORDER = '/submit-order';
 }

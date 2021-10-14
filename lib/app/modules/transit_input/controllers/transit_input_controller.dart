@@ -12,8 +12,8 @@ class TransitInputController extends GetxController {
   }
 
   onSubmitted(value) async {
-    // var _cabinet = await getCabinetInfoByScan(cabinetId: value);
-    // print(_cabinet);
-    Get.offNamed("/exchange-info");
+    var _cabinet = await getCabinetInfoByScan(cabinetId: value);
+    print(_cabinet);
+    // Get.offNamed("/exchange-info");
   }
 }

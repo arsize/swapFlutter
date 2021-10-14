@@ -58,6 +58,10 @@ import 'package:raintree/app/modules/setting/bindings/setting_binding.dart';
 import 'package:raintree/app/modules/setting/views/setting_view.dart';
 import 'package:raintree/app/modules/shop/bindings/shop_binding.dart';
 import 'package:raintree/app/modules/shop/views/shop_view.dart';
+import 'package:raintree/app/modules/shop_product_detail/bindings/shop_product_detail_binding.dart';
+import 'package:raintree/app/modules/shop_product_detail/views/shop_product_detail_view.dart';
+import 'package:raintree/app/modules/submit_order/bindings/submit_order_binding.dart';
+import 'package:raintree/app/modules/submit_order/views/submit_order_view.dart';
 import 'package:raintree/app/modules/transit_input/bindings/transit_input_binding.dart';
 import 'package:raintree/app/modules/transit_input/views/transit_input_view.dart';
 import 'package:raintree/app/modules/urge_cabinets/bindings/urge_cabinets_binding.dart';
@@ -245,6 +249,16 @@ class AppPages {
       name: _Paths.BIND_SUCCESS,
       page: () => BindSuccessView(),
       binding: BindSuccessBinding(),
+    ),
+    GetPage(
+      name: _Paths.SHOP_PRODUCT_DETAIL,
+      page: () => ShopProductDetailView(),
+      binding: ShopProductDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.SUBMIT_ORDER,
+      page: () => SubmitOrderView(),
+      binding: SubmitOrderBinding(),
     ),
   ];
 }

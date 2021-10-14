@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
+import 'package:raintree/app/common/widgets/common_wigets.dart';
 import 'package:raintree/app/entities/entities.dart';
 import 'package:raintree/app/store/store.dart';
 
@@ -38,6 +39,30 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
   void changeMenu(str) {
     selectMenu = str;
     update();
+  }
+
+  void gotoNext() {
+    var _isBindVehicle = store.loginData.value.isBindVehicle;
+    if (_isBindVehicle == 0) {
+      // 未绑定车辆
+      arDialog(
+        context: Get.context,
+        content: "暂不能使用换电服务，请先绑定车辆",
+        fn1: () {
+          Get.back();
+          Get.toNamed("/shop");
+        },
+        fn1Text: "无车，去购买",
+        fn2: () {
+          Get.back();
+          Get.toNamed("/bind-contact");
+        },
+        fn2Text: "有车，去绑定",
+      );
+    } else if (_isBindVehicle == 1) {
+      // 已绑定车辆
+      Get.toNamed("/transit-input");
+    }
   }
 
 // ---- 地图 ----------------------------------------------------

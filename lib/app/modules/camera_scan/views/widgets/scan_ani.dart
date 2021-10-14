@@ -29,8 +29,8 @@ class _ScanAnimateState extends State<ScanAnimate>
 
   @override
   void dispose() {
-    super.dispose();
     controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -41,10 +41,10 @@ class _ScanAnimateState extends State<ScanAnimate>
         child: Opacity(
           opacity: 0.6,
           child: Container(
-            margin: EdgeInsets.only(left: 98.5.w),
+            margin: EdgeInsets.only(left: 90.w),
             child: Image(
-              width: 553.w,
-              height: 37.h,
+              width: 573.w,
+              height: 40.h,
               image: AssetImage("images/scan_line_view.png"),
             ),
           ),

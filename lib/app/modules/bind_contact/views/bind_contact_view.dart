@@ -1,3 +1,8 @@
+/*
+ * @Author: Arsize 
+ * @Date: 2021-10-14 12:29:53 
+ * @Describe: 填写紧急联系人
+ */
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -185,6 +190,7 @@ class BindContactView extends GetView<BindContactController> {
                           Expanded(
                             flex: 2,
                             child: TextField(
+                              controller: controller.nameTextController,
                               obscureText: true,
                               decoration: InputDecoration(
                                 hintText: "请输入姓名",
@@ -194,7 +200,9 @@ class BindContactView extends GetView<BindContactController> {
                                   color: Colours.app_normal_grey,
                                 ),
                               ),
-                              onChanged: (String text) {},
+                              onChanged: (String text) {
+                                controller.inputOnchange(text, 'name');
+                              },
                             ),
                           ),
                           SizedBox(
@@ -233,6 +241,7 @@ class BindContactView extends GetView<BindContactController> {
                           Expanded(
                             flex: 2,
                             child: TextField(
+                              controller: controller.mobileController,
                               obscureText: true,
                               decoration: InputDecoration(
                                 hintText: "请输入手机号码",
@@ -242,7 +251,9 @@ class BindContactView extends GetView<BindContactController> {
                                   color: Colours.app_normal_grey,
                                 ),
                               ),
-                              onChanged: (String text) {},
+                              onChanged: (String text) {
+                                controller.inputOnchange(text, 'mobile');
+                              },
                             ),
                           ),
                           SizedBox(
@@ -272,7 +283,7 @@ class BindContactView extends GetView<BindContactController> {
             right: 32.w,
             child: arBtn(
               fn: () {
-                Get.offNamed("/bind-success");
+                controller.submitTo();
               },
               text: "下一步",
             ),

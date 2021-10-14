@@ -36,6 +36,10 @@ dependencies:
   location: ^4.3.0
   # 二维码
   qr_flutter: ^4.0.0
+  # swiper
+  card_swiper: ^1.0.4
+  # call phone
+  url_launcher: ^6.0.12
   
   flutter: 
     sdk: flutter

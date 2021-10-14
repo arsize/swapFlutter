@@ -153,7 +153,7 @@ class CameraScanView extends GetView<CameraScanController> {
           ),
           Positioned(
             left: 44.w,
-            top: 70.w,
+            top: 90.w,
             child: InkWell(
               child: Padding(
                 padding: EdgeInsets.only(

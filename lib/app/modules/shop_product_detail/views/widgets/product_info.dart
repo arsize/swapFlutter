@@ -150,10 +150,13 @@ class ProductInfo extends StatelessWidget {
                       "参数：",
                       style: TextStyle(color: Colours.app_main, fontSize: 28.f),
                     ),
-                    Text(
-                      "品牌 配置...",
-                      style: TextStyle(
-                          color: Colours.app_normal_grey, fontSize: 28.f),
+                    Container(
+                      width: 550.w,
+                      child: Text(
+                        "品牌 配置...",
+                        style: TextStyle(
+                            color: Colours.app_normal_grey, fontSize: 28.f),
+                      ),
                     ),
                   ],
                 ),
@@ -166,13 +169,30 @@ class ProductInfo extends StatelessWidget {
           ),
           SizedBox(height: 32.h),
           Align(
-            child: Text(
-              "商品详情",
-              style: TextStyle(
-                color: Colours.app_main,
-                fontSize: 32.f,
-                fontWeight: FontWeight.w600,
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image(
+                  width: 42.w,
+                  height: 18.h,
+                  image: AssetImage("images/shop_detail_left.png"),
+                ),
+                SizedBox(width: 24.w),
+                Text(
+                  "商品详情",
+                  style: TextStyle(
+                    color: Colours.app_main,
+                    fontSize: 32.f,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                SizedBox(width: 24.w),
+                Image(
+                  width: 42.w,
+                  height: 18.h,
+                  image: AssetImage("images/shop_detail_right.png"),
+                ),
+              ],
             ),
           ),
           SizedBox(height: 32.h),

@@ -21,6 +21,7 @@ import '../controllers/shop_product_detail_controller.dart';
 part './widgets/product_info.dart';
 part './widgets/safeguard.dart';
 part './widgets/parameter.dart';
+part './widgets/select_product.dart';
 
 class ShopProductDetailView extends GetView<ShopProductDetailController> {
   @override
@@ -38,10 +39,11 @@ class ShopProductDetailView extends GetView<ShopProductDetailController> {
                   [
                     Container(
                       width: Get.width,
-                      height: 622.h,
+                      height: 550.h,
                       child: Swiper(
                         itemBuilder: (BuildContext context, int index) {
                           return Image(
+                            fit: BoxFit.cover,
                             image: AssetImage("images/shop_car_item.png"),
                           );
                         },
@@ -118,7 +120,7 @@ class ShopProductDetailView extends GetView<ShopProductDetailController> {
                       color: Colours.app_normal_grey,
                     ),
                   ),
-                  SizedBox(width: 70.w),
+                  SizedBox(width: 62.w),
                   InkWell(
                     onTap: () {
                       launch("tel://xxx");
@@ -142,13 +144,26 @@ class ShopProductDetailView extends GetView<ShopProductDetailController> {
                       ],
                     ),
                   ),
-                  SizedBox(width: 70.w),
+                  SizedBox(width: 59.w),
                   arBtn(
                       fn: () {
-                        Get.toNamed("submit-order");
+                        // Get.toNamed("submit-order");
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: false,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                            ),
+                          ),
+                          builder: (BuildContext context) {
+                            return SelectProduct();
+                          },
+                        );
                       },
-                      width: 500.w,
-                      height: 88.h,
+                      width: 280,
+                      height: 88,
                       text: "我想要")
                 ],
               ),

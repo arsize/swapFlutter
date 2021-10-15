@@ -31,10 +31,11 @@ class ShopView extends GetView<ShopController> {
             top: 0,
             child: Container(
               width: Get.width,
-              height: 622.h,
+              height: 550.h,
               child: Swiper(
                 itemBuilder: (BuildContext context, int index) {
                   return Image(
+                    fit: BoxFit.cover,
                     image: AssetImage("images/shop_car_item.png"),
                   );
                 },
@@ -52,7 +53,7 @@ class ShopView extends GetView<ShopController> {
             ),
           ),
           Positioned(
-            top: 615.h,
+            top: 540.h,
             bottom: 0,
             child: Container(
               width: Get.width,

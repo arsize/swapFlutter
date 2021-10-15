@@ -191,7 +191,6 @@ class BindContactView extends GetView<BindContactController> {
                             flex: 2,
                             child: TextField(
                               controller: controller.nameTextController,
-                              obscureText: true,
                               decoration: InputDecoration(
                                 hintText: "请输入姓名",
                                 border: InputBorder.none,
@@ -242,7 +241,6 @@ class BindContactView extends GetView<BindContactController> {
                             flex: 2,
                             child: TextField(
                               controller: controller.mobileController,
-                              obscureText: true,
                               decoration: InputDecoration(
                                 hintText: "请输入手机号码",
                                 border: InputBorder.none,

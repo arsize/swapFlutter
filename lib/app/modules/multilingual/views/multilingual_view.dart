@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:raintree/app/colors/colors.dart';
 import 'package:raintree/app/common/widgets/app_bar.dart';
+import 'package:raintree/app/store/store.dart';
 import 'package:raintree/app/utils/utils.dart';
 
 import '../controllers/multilingual_controller.dart';
@@ -15,35 +16,44 @@ import '../controllers/multilingual_controller.dart';
 class MultilingualView extends GetView<MultilingualController> {
   @override
   Widget build(BuildContext context) {
+    final store = Get.find<StoreController>();
     return Scaffold(
       appBar: defaultAppBar(title: "多语言"),
       body: Container(
         padding: EdgeInsets.only(
-          top: Adapt.width(20),
-          left: Adapt.width(32),
-          right: Adapt.width(32),
+          top: 20.w,
+          left: 32.w,
+          right: 32.w,
         ),
         color: Colors.white,
         child: Column(
           children: [
-            Container(
-              padding: EdgeInsets.only(
-                left: Adapt.width(32),
-                right: Adapt.width(32),
-              ),
-              height: Adapt.width(149),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "简体中文",
-                    style: TextStyle(
-                      fontSize: Adapt.font(30),
-                      color: Colours.app_main,
+            InkWell(
+              onTap: () {
+                store.changeLanguage("zh_CN");
+              },
+              child: Container(
+                padding: EdgeInsets.only(
+                  left: 32.w,
+                  right: 32.w,
+                ),
+                height: 149.w,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "简体中文",
+                      style: TextStyle(
+                        fontSize: 30.f,
+                        color: Colours.app_main,
+                      ),
                     ),
-                  ),
-                  Icon(Icons.check)
-                ],
+                    Offstage(
+                      offstage: store.language.value.toString() != 'zh_CN',
+                      child: Icon(Icons.check),
+                    )
+                  ],
+                ),
               ),
             ),
             Container(
@@ -51,40 +61,31 @@ class MultilingualView extends GetView<MultilingualController> {
               height: 1,
               color: Colours.app_bg_grey,
             ),
-            Container(
-              padding: EdgeInsets.only(
-                left: Adapt.width(32),
-                right: Adapt.width(32),
-              ),
-              height: Adapt.width(149),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "English",
-                    style: TextStyle(
-                      fontSize: Adapt.font(30),
-                      color: Colours.app_main,
-                    ),
-                  ),
-                  Icon(Icons.check)
-                ],
-              ),
-            ),
-            Container(
-              height: Adapt.width(98),
-              decoration: BoxDecoration(
-                color: Colours.app_main,
-                borderRadius: ArUtil.border(
-                  Adapt.width(15),
+            InkWell(
+              onTap: () {
+                store.changeLanguage("en_US");
+              },
+              child: Container(
+                padding: EdgeInsets.only(
+                  left: 32.w,
+                  right: 32.w,
                 ),
-              ),
-              alignment: Alignment.center,
-              child: Text(
-                "保存",
-                style: TextStyle(
-                  fontSize: Adapt.font(32),
-                  color: Colours.app_yellow,
+                height: 149.w,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "English",
+                      style: TextStyle(
+                        fontSize: 30.f,
+                        color: Colours.app_main,
+                      ),
+                    ),
+                    Offstage(
+                      offstage: store.language.value.toString() != 'en_US',
+                      child: Icon(Icons.check),
+                    )
+                  ],
                 ),
               ),
             ),

@@ -331,3 +331,30 @@ const BATTERY_HAS_INCOME = 40019;
 
 /// 未绑定电池，暂不能使用换电服务
 const NO_BATTERY_CAN_NOT_CHANGE_ELECTRIC = 40020;
+
+/// 无此车辆信息，请检查后重新输入
+const VEHICLE_NOT_EXIST = 130001;
+
+/// 该车辆尚未入库，请先入库后再给用户绑定
+const VEHICLE_HAS_NO_INCOME = 130002;
+
+/// 车辆已被绑定，请检查后重新输入
+const VEHICLE_HAS_BIND = 130003;
+
+/// 未绑定车辆
+const NOT_BIND_VEHICLE = 130004;
+
+/// 用户已绑定车辆
+const IS_ALREADY_BOUND_VEHICLE = 130005;
+
+/// 无此车辆操作权限
+const NO_VEHICLE_OPERATION_AUTHORITY = 130006;
+
+/// 车辆已入库
+const VEHICLE_HAS_INCOME = 130007;
+
+/// 车辆未分配至门店
+const VEHICLE_IS_NOT_ASSIGNED_TO_THE_STORE = 130008;
+
+/// 该用户未绑定车辆，暂不能绑定套餐
+const USERS_CANNOT_PURCHASE_PACKAGES_WITHOUT_VEHICLE = 130009;

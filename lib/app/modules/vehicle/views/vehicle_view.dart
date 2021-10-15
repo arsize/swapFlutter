@@ -25,7 +25,7 @@ class VehicleView extends GetView<VehicleController> {
             left: 0,
             right: 0,
             child: Container(
-              height: Adapt.height(508),
+              height: 508.h,
               decoration: BoxDecoration(
                 color: Colours.app_main,
               ),
@@ -33,9 +33,9 @@ class VehicleView extends GetView<VehicleController> {
           ),
           Positioned(
             top: 340.h,
-            left: Adapt.width(32),
+            left: 32.w,
             child: Container(
-              width: Adapt.width(686),
+              width: 686.w,
               padding: EdgeInsets.all(33.w),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -57,13 +57,13 @@ class VehicleView extends GetView<VehicleController> {
                         "RDGF34233657",
                         style: TextStyle(
                           color: Colours.app_main,
-                          fontSize: Adapt.font(28),
+                          fontSize: 28.f,
                         ),
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: Adapt.height(16),
+                    height: 16.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -72,20 +72,20 @@ class VehicleView extends GetView<VehicleController> {
                         "陆管局锁头编码：",
                         style: TextStyle(
                           color: Colours.app_normal_grey,
-                          fontSize: Adapt.font(28),
+                          fontSize: 28.f,
                         ),
                       ),
                       Text(
                         "A000001",
                         style: TextStyle(
                           color: Colours.app_main,
-                          fontSize: Adapt.font(28),
+                          fontSize: 28.f,
                         ),
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: Adapt.height(16),
+                    height: 16.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -94,20 +94,20 @@ class VehicleView extends GetView<VehicleController> {
                         "车牌号：",
                         style: TextStyle(
                           color: Colours.app_normal_grey,
-                          fontSize: Adapt.font(28),
+                          fontSize: 28.f,
                         ),
                       ),
                       Text(
                         "23456",
                         style: TextStyle(
                           color: Colours.app_main,
-                          fontSize: Adapt.font(28),
+                          fontSize: 28.f,
                         ),
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: Adapt.height(16),
+                    height: 16.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -116,20 +116,20 @@ class VehicleView extends GetView<VehicleController> {
                         "电池SN码：",
                         style: TextStyle(
                           color: Colours.app_normal_grey,
-                          fontSize: Adapt.font(28),
+                          fontSize: 28.f,
                         ),
                       ),
                       Text(
                         "SN000000001",
                         style: TextStyle(
                           color: Colours.app_main,
-                          fontSize: Adapt.font(28),
+                          fontSize: 28.f,
                         ),
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: Adapt.height(16),
+                    height: 16.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -138,20 +138,20 @@ class VehicleView extends GetView<VehicleController> {
                         "电池型号：",
                         style: TextStyle(
                           color: Colours.app_normal_grey,
-                          fontSize: Adapt.font(28),
+                          fontSize: 28.f,
                         ),
                       ),
                       Text(
                         "48V12AH",
                         style: TextStyle(
                           color: Colours.app_main,
-                          fontSize: Adapt.font(28),
+                          fontSize: 28.f,
                         ),
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: Adapt.height(16),
+                    height: 16.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -160,20 +160,20 @@ class VehicleView extends GetView<VehicleController> {
                         "电压/容量：",
                         style: TextStyle(
                           color: Colours.app_normal_grey,
-                          fontSize: Adapt.font(28),
+                          fontSize: 28.f,
                         ),
                       ),
                       Text(
                         "48V/20Ah",
                         style: TextStyle(
                           color: Colours.app_main,
-                          fontSize: Adapt.font(28),
+                          fontSize: 28.f,
                         ),
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: Adapt.height(16),
+                    height: 16.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -182,14 +182,14 @@ class VehicleView extends GetView<VehicleController> {
                         "绑定日期：",
                         style: TextStyle(
                           color: Colours.app_normal_grey,
-                          fontSize: Adapt.font(28),
+                          fontSize: 28.f,
                         ),
                       ),
                       Text(
                         "2019.10.12 11:02",
                         style: TextStyle(
                           color: Colours.app_main,
-                          fontSize: Adapt.font(28),
+                          fontSize: 28.f,
                         ),
                       ),
                     ],
@@ -199,11 +199,10 @@ class VehicleView extends GetView<VehicleController> {
             ),
           ),
           Positioned(
-            top: Adapt.height(30),
-            left: Adapt.width(145),
+            top: 20.h,
+            left: 145.w,
             child: Image(
-              width: Adapt.width(460),
-              height: Adapt.width(364),
+              width: 410.w,
               image: AssetImage('images/my_car01.png'),
             ),
           ),

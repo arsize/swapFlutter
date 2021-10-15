@@ -44,6 +44,10 @@ import 'package:raintree/app/modules/notice_list/bindings/notice_list_binding.da
 import 'package:raintree/app/modules/notice_list/views/notice_list_view.dart';
 import 'package:raintree/app/modules/order_detail/bindings/order_detail_binding.dart';
 import 'package:raintree/app/modules/order_detail/views/order_detail_view.dart';
+import 'package:raintree/app/modules/pay_order/bindings/pay_order_binding.dart';
+import 'package:raintree/app/modules/pay_order/views/pay_order_view.dart';
+import 'package:raintree/app/modules/pay_order_success/bindings/pay_order_success_binding.dart';
+import 'package:raintree/app/modules/pay_order_success/views/pay_order_success_view.dart';
 import 'package:raintree/app/modules/product_address/bindings/product_address_binding.dart';
 import 'package:raintree/app/modules/product_address/views/product_address_view.dart';
 import 'package:raintree/app/modules/put_money/bindings/put_money_binding.dart';
@@ -259,6 +263,16 @@ class AppPages {
       name: _Paths.SUBMIT_ORDER,
       page: () => SubmitOrderView(),
       binding: SubmitOrderBinding(),
+    ),
+    GetPage(
+      name: _Paths.PAY_ORDER,
+      page: () => PayOrderView(),
+      binding: PayOrderBinding(),
+    ),
+    GetPage(
+      name: _Paths.PAY_ORDER_SUCCESS,
+      page: () => PayOrderSuccessView(),
+      binding: PayOrderSuccessBinding(),
     ),
   ];
 }

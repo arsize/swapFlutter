@@ -8,6 +8,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:dio_http_formatter/dio_http_formatter.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:raintree/app/utils/http/http_util.dart';
 import 'package:raintree/app/utils/storage.dart';
 import 'package:raintree/app/values/result_code.dart';
@@ -26,12 +27,20 @@ void interceptors(dio) {
         handler.next(e);
       } else {
         switch (code) {
+
+          /// token 失效自动重连
           case ACCESS_TOKEN_EXPIRE:
             dio.lock();
             await reLogin();
             var _result = await reApi(e.requestOptions);
             dio.unlock();
             handler.next(_result);
+            break;
+
+          /// 服务器错误
+          case SERVICE_ERROR:
+            EasyLoading.showInfo('服务器错误，请稍后再试');
+            handler.next(e);
             break;
           default:
             handler.next(e);

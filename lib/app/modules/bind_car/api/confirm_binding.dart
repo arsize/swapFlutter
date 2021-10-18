@@ -1,24 +1,32 @@
 /*
  * @Author: Arsize 
- * @Date: 2021-10-15 16:54:35 
- * @Describe: 查询车辆详情
+ * @Date: 2021-10-18 11:12:58 
+ * @Describe: 确认绑定车辆
  */
+
 import 'package:get/get.dart';
 import 'package:raintree/app/common/widgets/common_wigets.dart';
 import 'package:raintree/app/utils/utils.dart';
 import 'package:raintree/app/values/result_code.dart';
 
-Future queryVehicleDetails({numberPlate}) {
+Future confirmBindingVehicle({mobile, name, numberPlate}) {
   return HTTP().request(
-    path: "app/ctl/queryVehicleDetails",
+    path: "app/ctl/confirmBindingVehicle",
     methods: "get",
     params: {
+      "emergencyContactMobile": mobile,
+      "emergencyContactName": name,
       "numberPlate": numberPlate,
     },
   ).then((value) {
-    var _msg = '';
-    if (value["code"] != 200) {
+    if (value["code"] == 200) {
+      return value;
+    } else {
+      var _msg = '';
       switch (value["code"]) {
+        case IS_ALREADY_BOUND_VEHICLE:
+          _msg = "用户已绑定车辆";
+          break;
         case VEHICLE_NOT_EXIST:
           _msg = "无此车辆信息，请检查后重新输入";
           break;
@@ -26,7 +34,6 @@ Future queryVehicleDetails({numberPlate}) {
           _msg = "车辆已被绑定，请检查后重新输入";
           break;
         default:
-          _msg = '';
       }
       arDialog(
         context: Get.context!,
@@ -36,8 +43,6 @@ Future queryVehicleDetails({numberPlate}) {
           Get.back();
         },
       );
-      return value;
-    } else {
       return value;
     }
   });

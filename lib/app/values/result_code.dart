@@ -1,4 +1,7 @@
 /// 应用未授权
+const SERVICE_ERROR = 500;
+
+/// 应用未授权
 const APP_NOT_ACCREDIT = 10001;
 
 /// 暂不支持该类型收费模式

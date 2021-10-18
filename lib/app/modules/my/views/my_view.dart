@@ -125,8 +125,10 @@ class MyView extends GetView<MyController> {
                                     children: [
                                       Text(
                                         store.isLogin.value
-                                            ? store.loginData().userNickname ??
-                                                "--"
+                                            ? store.loginData.value
+                                                    .userNickname ??
+                                                store.loginData.value.uid!
+                                                    .substring(0, 8)
                                             : "未登录",
                                         style: TextStyle(
                                           fontSize: 36.f,

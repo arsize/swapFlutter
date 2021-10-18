@@ -175,129 +175,136 @@ class BindCarView extends GetView<BindCarController> {
                     },
                   ),
                   SizedBox(height: 32.h),
-                  Offstage(
-                    offstage: controller.numberPlate.value == '',
-                    child: Container(
-                      width: 686.w,
-                      padding:
-                          EdgeInsets.only(top: 40.h, left: 32.w, right: 32.w),
-                      color: Colours.app_F7A_grey,
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                width: 225.w,
-                                child: Text(
-                                  "车架号：",
-                                  style: TextStyle(
-                                    fontSize: 28.f,
-                                    color: Colours.app_font_grey,
+                  Obx(() {
+                    return Offstage(
+                      offstage: controller.carModel().data == null,
+                      child: Container(
+                        width: 686.w,
+                        padding:
+                            EdgeInsets.only(top: 40.h, left: 32.w, right: 32.w),
+                        color: Colours.app_F7A_grey,
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  width: 225.w,
+                                  child: Text(
+                                    "车架号：",
+                                    style: TextStyle(
+                                      fontSize: 28.f,
+                                      color: Colours.app_font_grey,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Text(
-                                "RDGF34233657",
-                                style: TextStyle(
-                                  fontSize: 28.f,
-                                  color: Colours.app_main,
-                                ),
-                              )
-                            ],
-                          ),
-                          SizedBox(height: 16.h),
-                          Row(
-                            children: [
-                              Container(
-                                width: 225.w,
-                                child: Text(
-                                  "陆管局锁头编码：",
+                                Text(
+                                  controller.carModel().data?.vehicleSn ?? '--',
                                   style: TextStyle(
                                     fontSize: 28.f,
-                                    color: Colours.app_font_grey,
+                                    color: Colours.app_main,
+                                  ),
+                                )
+                              ],
+                            ),
+                            SizedBox(height: 16.h),
+                            Row(
+                              children: [
+                                Container(
+                                  width: 225.w,
+                                  child: Text(
+                                    "路管局锁头编码：",
+                                    style: TextStyle(
+                                      fontSize: 28.f,
+                                      color: Colours.app_font_grey,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Text(
-                                "A000001",
-                                style: TextStyle(
-                                  fontSize: 28.f,
-                                  color: Colours.app_main,
-                                ),
-                              )
-                            ],
-                          ),
-                          SizedBox(height: 16.h),
-                          Row(
-                            children: [
-                              Container(
-                                width: 225.w,
-                                child: Text(
-                                  "车牌号：",
+                                Text(
+                                  controller.carModel().data?.lockCode ?? '--',
                                   style: TextStyle(
                                     fontSize: 28.f,
-                                    color: Colours.app_font_grey,
+                                    color: Colours.app_main,
+                                  ),
+                                )
+                              ],
+                            ),
+                            SizedBox(height: 16.h),
+                            Row(
+                              children: [
+                                Container(
+                                  width: 225.w,
+                                  child: Text(
+                                    "车牌号：",
+                                    style: TextStyle(
+                                      fontSize: 28.f,
+                                      color: Colours.app_font_grey,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Text(
-                                "222",
-                                style: TextStyle(
-                                  fontSize: 28.f,
-                                  color: Colours.app_main,
-                                ),
-                              )
-                            ],
-                          ),
-                          SizedBox(height: 16.h),
-                          Row(
-                            children: [
-                              Container(
-                                width: 225.w,
-                                child: Text(
-                                  "电池型号：",
+                                Text(
+                                  controller.carModel().data?.numberPlate ??
+                                      '--',
                                   style: TextStyle(
                                     fontSize: 28.f,
-                                    color: Colours.app_font_grey,
+                                    color: Colours.app_main,
+                                  ),
+                                )
+                              ],
+                            ),
+                            SizedBox(height: 16.h),
+                            Row(
+                              children: [
+                                Container(
+                                  width: 225.w,
+                                  child: Text(
+                                    "电池型号：",
+                                    style: TextStyle(
+                                      fontSize: 28.f,
+                                      color: Colours.app_font_grey,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Text(
-                                "48V12AH",
-                                style: TextStyle(
-                                  fontSize: 28.f,
-                                  color: Colours.app_main,
-                                ),
-                              )
-                            ],
-                          ),
-                          SizedBox(height: 16.h),
-                          Row(
-                            children: [
-                              Container(
-                                width: 225.w,
-                                child: Text(
-                                  "电池SN码：",
+                                Text(
+                                  controller.carModel().data?.batteryTypeName ??
+                                      '--',
                                   style: TextStyle(
                                     fontSize: 28.f,
-                                    color: Colours.app_font_grey,
+                                    color: Colours.app_main,
+                                  ),
+                                )
+                              ],
+                            ),
+                            SizedBox(height: 16.h),
+                            Row(
+                              children: [
+                                Container(
+                                  width: 225.w,
+                                  child: Text(
+                                    "电池SN码：",
+                                    style: TextStyle(
+                                      fontSize: 28.f,
+                                      color: Colours.app_font_grey,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Text(
-                                "BT66768877HN778766889",
-                                style: TextStyle(
-                                  fontSize: 28.f,
-                                  color: Colours.app_main,
-                                ),
-                              )
-                            ],
-                          ),
-                          SizedBox(height: 16.h),
-                        ],
+                                Expanded(
+                                  child: Text(
+                                    controller.carModel().data?.batterySn ??
+                                        '--',
+                                    style: TextStyle(
+                                      fontSize: 28.f,
+                                      color: Colours.app_main,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                            SizedBox(height: 16.h),
+                          ],
+                        ),
                       ),
-                    ),
-                  )
+                    );
+                  })
                 ],
               ),
             ),
@@ -307,17 +314,29 @@ class BindCarView extends GetView<BindCarController> {
                 width: Get.width,
               ),
             ),
-            Container(
-              padding: EdgeInsets.only(bottom: 32.h),
-              child: arBtn(
-                width: 686,
-                height: 100,
-                text: "确认绑定",
-                fn: () {
-                  controller.submitTo();
-                },
-              ),
-            )
+            Obx(() {
+              return controller.carModel().data != null
+                  ? Container(
+                      padding: EdgeInsets.only(bottom: 32.h),
+                      child: arBtn(
+                        width: 686,
+                        height: 100,
+                        text: "确认绑定",
+                        fn: () {
+                          controller.submitTo();
+                        },
+                      ),
+                    )
+                  : Container(
+                      padding: EdgeInsets.only(bottom: 32.h),
+                      child: arBtn(
+                        width: 686,
+                        height: 100,
+                        text: "确认绑定",
+                        fn: null,
+                      ),
+                    );
+            }),
           ],
         ),
       ),

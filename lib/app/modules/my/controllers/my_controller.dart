@@ -1,25 +1,23 @@
 import 'package:get/get.dart';
+import 'package:raintree/app/entities/entities.dart';
 import 'package:raintree/app/modules/my/apis/get_user_center.dart';
 import 'package:raintree/app/store/store.dart';
-import 'package:raintree/global.dart';
 
 class MyController extends GetxController {
   final StoreController store = Get.find();
-  RxDouble walletMoney = 0.0.obs;
-  RxInt currentMonthOrderCount = 0.obs;
-  RxInt totalSurplusNum = 0.obs;
+  Rx<UserModel> usr = UserModel().obs;
 
   @override
   void onInit() async {
     super.onInit();
-    Global.currentPage = this;
     if (store.isLogin.value) {
-      var user = await getUserCenterData();
-      walletMoney.value = user["data"]["walletMoney"] ?? 0;
-      currentMonthOrderCount.value =
-          user["data"]["currentMonthOrderCount"] ?? 0;
-      totalSurplusNum.value = user["data"]["totalSurplusNum"] ?? 0;
+      var _value = await getUserCenterData();
+      usr.value = UserModel.fromJson(_value);
     }
+  }
+
+  String handleUserUid(String value) {
+    return value.substring(0, 8);
   }
 
   @override

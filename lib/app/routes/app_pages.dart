@@ -111,6 +111,7 @@ class AppPages {
       name: _Paths.WALLET,
       page: () => WalletView(),
       binding: WalletBinding(),
+      middlewares: [RouteAuthMiddleware()],
     ),
     GetPage(
       name: _Paths.SHOP,

@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:raintree/app/colors/colors.dart';
 import 'package:raintree/app/common/widgets/common_wigets.dart';
+import 'package:raintree/app/modules/my/controllers/my_controller.dart';
 import 'package:raintree/app/store/store.dart';
 import 'package:raintree/app/utils/utils.dart';
 
@@ -18,6 +19,7 @@ class SettingView extends GetView<SettingController> {
   @override
   Widget build(BuildContext context) {
     final StoreController store = Get.find();
+    final MyController my = Get.find();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: defaultAppBar(title: "设置"),
@@ -94,7 +96,8 @@ class SettingView extends GetView<SettingController> {
                         children: [
                           Obx(
                             () => Text(
-                              store.loginData.value.userNickname ?? '--',
+                              store.loginData.value.userNickname ??
+                                  store.loginData.value.uid!.substring(0, 8),
                               style: TextStyle(
                                 color: Colours.app_font_grey6,
                                 fontSize: 28.w,

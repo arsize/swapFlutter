@@ -8,7 +8,7 @@ import 'package:raintree/app/utils/utils.dart';
 
 Future changeNikeName({newNikeName}) {
   return HTTP().request(
-    path: "app/login/changeNikeName",
+    path: "account/changeNikeName",
     methods: "get",
     params: {
       "newNikeName": newNikeName,
@@ -16,6 +16,8 @@ Future changeNikeName({newNikeName}) {
   ).then((value) {
     if (value["code"] == 200) {
       return value;
-    } else {}
+    } else {
+      return value;
+    }
   });
 }

@@ -36,6 +36,10 @@ class StoreController extends GetxController {
     isLogin.value = flag;
   }
 
+  void finishBindVehicle() {
+    loginData.value.isBindVehicle = 1;
+  }
+
   void getLoginData() {
     Map<String, dynamic>? _login = LoacalStorage().getJSON(LOGINDATA);
     if (_login != null) {

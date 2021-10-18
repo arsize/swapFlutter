@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 class BindContactController extends GetxController {
@@ -32,14 +33,14 @@ class BindContactController extends GetxController {
 
   /// 下一步
   submitTo() {
-    // if (name == '') {
-    //   Get.snackbar("提示", "请填写紧急联系人姓名");
-    //   return;
-    // }
-    // if (mobile == '') {
-    //   Get.snackbar("提示", "请填写紧急联系人手机");
-    //   return;
-    // }
+    if (name == '') {
+      EasyLoading.showInfo('请填写紧急联系人姓名');
+      return;
+    }
+    if (mobile == '') {
+      EasyLoading.showInfo('请填写紧急联系人手机');
+      return;
+    }
     Get.offNamed('/bind-car?name=$name&mobile=$mobile');
   }
 

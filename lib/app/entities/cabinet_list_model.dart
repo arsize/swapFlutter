@@ -4,33 +4,33 @@
  * @Describe: 机柜列表数据
  */
 class CabinetListModel {
-  Data? data;
+  CabinetData? data;
   int? code;
   String? msg;
 
   CabinetListModel({this.data, this.code, this.msg});
 
   CabinetListModel.fromJson(Map<String, dynamic> json) {
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? CabinetData.fromJson(json['data']) : null;
     code = json['code'];
     msg = json['msg'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> result = <String, dynamic>{};
-    result['data'] = data!.toJson();
+    result['data'] = data?.toJson();
     result['code'] = code;
     result['msg'] = msg;
     return result;
   }
 }
 
-class Data {
+class CabinetData {
   List<CabinetList>? cabinetList;
 
-  Data({this.cabinetList});
+  CabinetData({this.cabinetList});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  CabinetData.fromJson(Map<String, dynamic> json) {
     if (json['cabinetList'] != null) {
       cabinetList = <CabinetList>[];
       json['cabinetList'].forEach((v) {

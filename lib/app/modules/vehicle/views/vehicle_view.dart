@@ -53,13 +53,15 @@ class VehicleView extends GetView<VehicleController> {
                           fontSize: 28.f,
                         ),
                       ),
-                      Text(
-                        "RDGF34233657",
-                        style: TextStyle(
-                          color: Colours.app_main,
-                          fontSize: 28.f,
+                      Obx(
+                        () => Text(
+                          controller.myCarModel().data?.vehicleSn ?? '--',
+                          style: TextStyle(
+                            color: Colours.app_main,
+                            fontSize: 28.f,
+                          ),
                         ),
-                      ),
+                      )
                     ],
                   ),
                   SizedBox(
@@ -75,11 +77,13 @@ class VehicleView extends GetView<VehicleController> {
                           fontSize: 28.f,
                         ),
                       ),
-                      Text(
-                        "A000001",
-                        style: TextStyle(
-                          color: Colours.app_main,
-                          fontSize: 28.f,
+                      Obx(
+                        () => Text(
+                          controller.myCarModel().data?.lockCode ?? '--',
+                          style: TextStyle(
+                            color: Colours.app_main,
+                            fontSize: 28.f,
+                          ),
                         ),
                       ),
                     ],
@@ -97,11 +101,13 @@ class VehicleView extends GetView<VehicleController> {
                           fontSize: 28.f,
                         ),
                       ),
-                      Text(
-                        "23456",
-                        style: TextStyle(
-                          color: Colours.app_main,
-                          fontSize: 28.f,
+                      Obx(
+                        () => Text(
+                          controller.myCarModel().data?.numberPlate ?? '--',
+                          style: TextStyle(
+                            color: Colours.app_main,
+                            fontSize: 28.f,
+                          ),
                         ),
                       ),
                     ],
@@ -119,11 +125,13 @@ class VehicleView extends GetView<VehicleController> {
                           fontSize: 28.f,
                         ),
                       ),
-                      Text(
-                        "SN000000001",
-                        style: TextStyle(
-                          color: Colours.app_main,
-                          fontSize: 28.f,
+                      Obx(
+                        () => Text(
+                          controller.myCarModel().data?.batterySn ?? '--',
+                          style: TextStyle(
+                            color: Colours.app_main,
+                            fontSize: 28.f,
+                          ),
                         ),
                       ),
                     ],
@@ -141,11 +149,13 @@ class VehicleView extends GetView<VehicleController> {
                           fontSize: 28.f,
                         ),
                       ),
-                      Text(
-                        "48V12AH",
-                        style: TextStyle(
-                          color: Colours.app_main,
-                          fontSize: 28.f,
+                      Obx(
+                        () => Text(
+                          controller.myCarModel().data?.batteryTypeName ?? '--',
+                          style: TextStyle(
+                            color: Colours.app_main,
+                            fontSize: 28.f,
+                          ),
                         ),
                       ),
                     ],
@@ -163,11 +173,45 @@ class VehicleView extends GetView<VehicleController> {
                           fontSize: 28.f,
                         ),
                       ),
-                      Text(
-                        "48V/20Ah",
-                        style: TextStyle(
-                          color: Colours.app_main,
-                          fontSize: 28.f,
+                      Obx(
+                        () => Row(
+                          children: [
+                            Text(
+                              controller.myCarModel().data?.voltage ?? '--',
+                              style: TextStyle(
+                                color: Colours.app_main,
+                                fontSize: 28.f,
+                              ),
+                            ),
+                            Text(
+                              "V",
+                              style: TextStyle(
+                                color: Colours.app_main,
+                                fontSize: 28.f,
+                              ),
+                            ),
+                            Text(
+                              "/",
+                              style: TextStyle(
+                                color: Colours.app_main,
+                                fontSize: 28.f,
+                              ),
+                            ),
+                            Text(
+                              controller.myCarModel().data?.capacity ?? '--',
+                              style: TextStyle(
+                                color: Colours.app_main,
+                                fontSize: 28.f,
+                              ),
+                            ),
+                            Text(
+                              "Ah",
+                              style: TextStyle(
+                                color: Colours.app_main,
+                                fontSize: 28.f,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
@@ -185,11 +229,13 @@ class VehicleView extends GetView<VehicleController> {
                           fontSize: 28.f,
                         ),
                       ),
-                      Text(
-                        "2019.10.12 11:02",
-                        style: TextStyle(
-                          color: Colours.app_main,
-                          fontSize: 28.f,
+                      Obx(
+                        () => Text(
+                          controller.myCarModel().data?.bindingTime ?? '--',
+                          style: TextStyle(
+                            color: Colours.app_main,
+                            fontSize: 28.f,
+                          ),
                         ),
                       ),
                     ],

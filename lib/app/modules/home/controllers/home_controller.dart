@@ -61,7 +61,7 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
       );
     } else if (_isBindVehicle == 1) {
       // 已绑定车辆
-      Get.toNamed("/transit-input");
+      Get.toNamed("/camera-scan");
     }
   }
 

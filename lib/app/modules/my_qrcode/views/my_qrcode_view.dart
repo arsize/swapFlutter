@@ -39,33 +39,30 @@ class MyQrcodeView extends GetView<MyQrcodeController> {
               ),
               child: Column(
                 children: [
-                  Obx(
-                    () {
-                      if (store.loginData.value.userPhoto != null) {
-                        return QrImage(
-                          data: store.loginData.value.account ?? '',
-                          version: QrVersions.auto,
-                          size: 390.w,
-                          embeddedImage:
-                              NetworkImage(store.loginData.value.userPhoto!),
-                          embeddedImageStyle: QrEmbeddedImageStyle(
-                            size: Size(50, 50),
-                          ),
-                        );
-                      } else {
-                        return QrImage(
-                          data: store.loginData.value.account ?? '',
-                          version: QrVersions.auto,
-                          size: 390.w,
-                          embeddedImage:
-                              AssetImage("images/my_avatar_default.png"),
-                          embeddedImageStyle: QrEmbeddedImageStyle(
-                            size: Size(50, 50),
-                          ),
-                        );
-                      }
-                    },
-                  ),
+                  GetBuilder<StoreController>(builder: (_) {
+                    if (_.loginData.userPhoto != null) {
+                      return QrImage(
+                        data: _.loginData.account ?? '',
+                        version: QrVersions.auto,
+                        size: 390.w,
+                        embeddedImage: NetworkImage(_.loginData.userPhoto!),
+                        embeddedImageStyle: QrEmbeddedImageStyle(
+                          size: Size(50, 50),
+                        ),
+                      );
+                    } else {
+                      return QrImage(
+                        data: _.loginData.account ?? '',
+                        version: QrVersions.auto,
+                        size: 390.w,
+                        embeddedImage:
+                            AssetImage("images/my_avatar_default.png"),
+                        embeddedImageStyle: QrEmbeddedImageStyle(
+                          size: Size(50, 50),
+                        ),
+                      );
+                    }
+                  }),
                   SizedBox(
                     height: 50.h,
                   ),

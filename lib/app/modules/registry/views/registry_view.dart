@@ -122,7 +122,6 @@ class RegistryView extends GetView<RegistryController> {
                       "已有账号，立即登录",
                       style: TextStyle(
                         color: Colours.app_green,
-                        fontSize: 28.f,
                       ),
                     ),
                   ),

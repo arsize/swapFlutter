@@ -76,7 +76,6 @@ class InputMobile extends StatelessWidget {
                   hintText: "请输入手机号",
                   border: InputBorder.none,
                   hintStyle: TextStyle(
-                    fontSize: 30.f,
                     color: Colours.app_normal_grey,
                   ),
                 ),

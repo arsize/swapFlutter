@@ -33,7 +33,7 @@ class InputPinCode extends StatelessWidget {
               image: AssetImage("images/input_icon_safe.png"),
             ),
             SizedBox(
-              width: 70.w,
+              width: 55.w,
             ),
             SizedBox(
               width: 244.w,
@@ -45,7 +45,6 @@ class InputPinCode extends StatelessWidget {
                   hintText: "请输入6位验证码",
                   counterText: '',
                   hintStyle: TextStyle(
-                    fontSize: 32.f,
                     color: Colours.app_normal_grey,
                   ),
                   border: InputBorder.none,
@@ -84,7 +83,6 @@ class InputPinCode extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colours.app_green,
-                            fontSize: 28.f,
                           ),
                         );
                       },

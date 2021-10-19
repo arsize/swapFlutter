@@ -103,32 +103,29 @@ class MyView extends GetView<MyController> {
                             },
                             child: Row(
                               children: [
-                                Obx(
-                                  () => Image(
+                                GetBuilder<StoreController>(builder: (_) {
+                                  return Image(
                                     width: 112.w,
                                     height: 112.h,
-                                    image: store.loginData().userPhoto != null
-                                        ? AssetImage(
-                                            store.loginData().userPhoto!)
+                                    image: _.loginData.userPhoto != null
+                                        ? AssetImage(_.loginData.userPhoto!)
                                         : AssetImage(
                                             "images/my_avatar_default.png"),
-                                  ),
-                                ),
+                                  );
+                                }),
                                 SizedBox(
                                   width: 24.w,
                                 ),
-                                Obx(
-                                  () => Column(
+                                GetBuilder<StoreController>(builder: (_) {
+                                  return Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        store.isLogin.value
-                                            ? store.loginData.value
-                                                    .userNickname ??
-                                                store.loginData.value.uid!
-                                                    .substring(0, 8)
+                                        _.isLogin.value
+                                            ? _.loginData.userNickname ??
+                                                _.loginData.uid!.substring(0, 8)
                                             : "未登录",
                                         style: TextStyle(
                                           fontSize: 36.f,
@@ -136,9 +133,9 @@ class MyView extends GetView<MyController> {
                                         ),
                                       ),
                                       Offstage(
-                                        offstage: !store.isLogin.value,
+                                        offstage: !_.isLogin.value,
                                         child: Text(
-                                          store.loginData().account ?? "--",
+                                          _.loginData.account ?? "--",
                                           style: TextStyle(
                                             fontSize: 28.f,
                                             color:
@@ -147,8 +144,8 @@ class MyView extends GetView<MyController> {
                                         ),
                                       ),
                                     ],
-                                  ),
-                                )
+                                  );
+                                })
                               ],
                             ),
                           ),
@@ -244,14 +241,19 @@ class MyView extends GetView<MyController> {
   ) async {
     var dx = details.globalPosition.dx;
     var dy = details.globalPosition.dy;
+    print(dx);
+    print(250.w);
+    print(450.w);
     if (dy > 312.h && dy < 516.h) {
       if (dx > 32.w && dx < 250.w) {
         // 钱包余额
         Get.toNamed("/wallet");
-      } else if (dx > 118.w && dx < 219.w) {
+      } else if (dx > 250.w && dx < 450.w) {
         // 本月换电
-      } else if (dx > 227.w && dx < 339.w) {
+        print("本月换电");
+      } else if (dx > 450.w && dx < 660.w) {
         // 当前套餐剩余
+        Get.toNamed("/user-combo");
       } else {
         return;
       }

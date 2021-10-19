@@ -17,7 +17,7 @@ class InfoItem extends StatelessWidget {
                       ? my.usr().data?.walletMoney?.toString() ?? '0.0'
                       : str == "本月换电(次)"
                           ? my.usr().data?.currentMonthOrderCount?.toString() ??
-                              '0.0'
+                              '0'
                           : my.usr().data?.totalSurplusNum?.toString() ?? '0',
                   style: TextStyle(
                     fontSize: 36.f,

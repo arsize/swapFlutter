@@ -7,7 +7,7 @@
 /// 校验手机号码格式
 bool checkMobile(mobile) {
   RegExp exp = RegExp(r'^(\d{8}|\d{11})$');
-  return exp.hasMatch(mobile);
+  return true;
 }
 
 /// 校验六位验证码

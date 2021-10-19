@@ -15,7 +15,6 @@ import '../controllers/edit_mobile_controller.dart';
 class EditMobileView extends GetView<EditMobileController> {
   @override
   Widget build(BuildContext context) {
-    final StoreController store = Get.find();
     return Scaffold(
       appBar: defaultAppBar(title: "修改手机号"),
       body: Container(
@@ -34,15 +33,15 @@ class EditMobileView extends GetView<EditMobileController> {
                     color: Colours.app_font_grey6,
                   ),
                 ),
-                Obx(
-                  () => Text(
-                    store.loginData.value.account ?? '--',
+                GetBuilder<StoreController>(builder: (_) {
+                  return Text(
+                    _.loginData.account ?? '--',
                     style: TextStyle(
                       fontSize: 28.f,
                       color: Colours.app_font_grey6,
                     ),
-                  ),
-                ),
+                  );
+                })
               ],
             ),
             SizedBox(

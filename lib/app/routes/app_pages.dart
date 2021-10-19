@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import 'package:raintree/app/modules/about_us/bindings/about_us_binding.dart';
 import 'package:raintree/app/modules/about_us/views/about_us_view.dart';
+import 'package:raintree/app/modules/add_address/bindings/add_address_binding.dart';
+import 'package:raintree/app/modules/add_address/views/add_address_view.dart';
 import 'package:raintree/app/modules/admin/bindings/admin_binding.dart';
 import 'package:raintree/app/modules/admin/views/admin_view.dart';
 import 'package:raintree/app/modules/bind_car/bindings/bind_car_binding.dart';
@@ -14,6 +16,8 @@ import 'package:raintree/app/modules/camera_scan/bindings/camera_scan_binding.da
 import 'package:raintree/app/modules/camera_scan/views/camera_scan_view.dart';
 import 'package:raintree/app/modules/customer_service/bindings/customer_service_binding.dart';
 import 'package:raintree/app/modules/customer_service/views/customer_service_view.dart';
+import 'package:raintree/app/modules/edit_address/bindings/edit_address_binding.dart';
+import 'package:raintree/app/modules/edit_address/views/edit_address_view.dart';
 import 'package:raintree/app/modules/edit_mobile/bindings/edit_mobile_binding.dart';
 import 'package:raintree/app/modules/edit_mobile/views/edit_mobile_view.dart';
 import 'package:raintree/app/modules/edit_nickname/bindings/edit_nickname_binding.dart';
@@ -70,6 +74,8 @@ import 'package:raintree/app/modules/transit_input/bindings/transit_input_bindin
 import 'package:raintree/app/modules/transit_input/views/transit_input_view.dart';
 import 'package:raintree/app/modules/urge_cabinets/bindings/urge_cabinets_binding.dart';
 import 'package:raintree/app/modules/urge_cabinets/views/urge_cabinets_view.dart';
+import 'package:raintree/app/modules/user_combo/bindings/user_combo_binding.dart';
+import 'package:raintree/app/modules/user_combo/views/user_combo_view.dart';
 import 'package:raintree/app/modules/vehicle/bindings/vehicle_binding.dart';
 import 'package:raintree/app/modules/vehicle/views/vehicle_view.dart';
 import 'package:raintree/app/modules/wallet/bindings/wallet_binding.dart';
@@ -274,6 +280,21 @@ class AppPages {
       name: _Paths.PAY_ORDER_SUCCESS,
       page: () => PayOrderSuccessView(),
       binding: PayOrderSuccessBinding(),
+    ),
+    GetPage(
+      name: _Paths.USER_COMBO,
+      page: () => UserComboView(),
+      binding: UserComboBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_ADDRESS,
+      page: () => EditAddressView(),
+      binding: EditAddressBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD_ADDRESS,
+      page: () => AddAddressView(),
+      binding: AddAddressBinding(),
     ),
   ];
 }

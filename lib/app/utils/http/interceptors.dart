@@ -4,15 +4,12 @@
  * @Describe: 请求拦截器
  */
 
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:dio_http_formatter/dio_http_formatter.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:raintree/app/common/methods/normal.dart';
 import 'package:raintree/app/utils/http/http_util.dart';
-import 'package:raintree/app/utils/storage.dart';
 import 'package:raintree/app/values/result_code.dart';
-import 'package:raintree/config.dart';
 
 void interceptors(dio) {
   /// 请求日志
@@ -31,7 +28,7 @@ void interceptors(dio) {
           /// token 失效自动重连
           case ACCESS_TOKEN_EXPIRE:
             dio.lock();
-            await reLogin();
+            await reFreshToken();
             var _result = await reApi(e.requestOptions);
             dio.unlock();
             handler.next(_result);
@@ -51,28 +48,6 @@ void interceptors(dio) {
       return handler.next(e);
     }),
   );
-}
-
-/// 重新登录,获取新token
-Future reLogin() async {
-  var accountPw = LoacalStorage().getJSON(ACCOUNTPW);
-  if (accountPw != null) {
-    var _loginDio = Dio(HTTP.baseOptions);
-    _loginDio.interceptors.add(HttpFormatter());
-
-    var result = await _loginDio.post("app/login/appRegister", data: {
-      "account": accountPw["account"],
-      "password": accountPw["password"],
-      "areaCode": accountPw["areaCode"],
-    });
-    await LoacalStorage().setJSON(LOGINDATA, _handleDecodeJson(result)["data"]);
-    print("重新登录成功");
-  }
-}
-
-Map<String, dynamic> _handleDecodeJson(result) {
-  var res = jsonDecode(result.toString());
-  return res;
 }
 
 /// 重新发送接口

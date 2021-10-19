@@ -41,6 +41,9 @@ abstract class Routes {
   static const SUBMIT_ORDER = _Paths.SUBMIT_ORDER;
   static const PAY_ORDER = _Paths.PAY_ORDER;
   static const PAY_ORDER_SUCCESS = _Paths.PAY_ORDER_SUCCESS;
+  static const USER_COMBO = _Paths.USER_COMBO;
+  static const EDIT_ADDRESS = _Paths.EDIT_ADDRESS;
+  static const ADD_ADDRESS = _Paths.ADD_ADDRESS;
 }
 
 abstract class _Paths {
@@ -81,4 +84,7 @@ abstract class _Paths {
   static const SUBMIT_ORDER = '/submit-order';
   static const PAY_ORDER = '/pay-order';
   static const PAY_ORDER_SUCCESS = '/pay-order-success';
+  static const USER_COMBO = '/user-combo';
+  static const EDIT_ADDRESS = '/edit-address';
+  static const ADD_ADDRESS = '/add-address';
 }

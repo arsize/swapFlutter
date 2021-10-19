@@ -49,9 +49,9 @@ class SettingView extends GetView<SettingController> {
                       ),
                       Row(
                         children: [
-                          Obx(
-                            () => Text(
-                              store.loginData.value.account ?? '--',
+                          GetBuilder<StoreController>(
+                            builder: (_) => Text(
+                              _.loginData.account ?? '--',
                               style: TextStyle(
                                 color: Colours.app_font_grey6,
                                 fontSize: 28.f,
@@ -94,16 +94,16 @@ class SettingView extends GetView<SettingController> {
                       ),
                       Row(
                         children: [
-                          Obx(
-                            () => Text(
-                              store.loginData.value.userNickname ??
-                                  store.loginData.value.uid!.substring(0, 8),
+                          GetBuilder<StoreController>(builder: (_) {
+                            return Text(
+                              _.loginData.userNickname ??
+                                  _.loginData.uid!.substring(0, 8),
                               style: TextStyle(
                                 color: Colours.app_font_grey6,
                                 fontSize: 28.w,
                               ),
-                            ),
-                          ),
+                            );
+                          }),
                           SizedBox(
                             width: 21.w,
                           ),

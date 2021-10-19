@@ -42,7 +42,7 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
   }
 
   void gotoNext() {
-    var _isBindVehicle = store.loginData.value.isBindVehicle;
+    var _isBindVehicle = store.loginData.isBindVehicle;
     if (_isBindVehicle == 0) {
       // 未绑定车辆
       arDialog(

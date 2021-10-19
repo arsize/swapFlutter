@@ -9,7 +9,7 @@ import 'dart:ui' as ui;
 class StoreController extends GetxController {
   static StoreController get to => Get.find();
 
-  final loginData = LoginModel(registered: false).obs;
+  var loginData = LoginModel(registered: false);
   final RxBool isLogin = false.obs;
   final RxString language = ui.window.locale.toString().obs;
 
@@ -37,14 +37,21 @@ class StoreController extends GetxController {
   }
 
   void finishBindVehicle() {
-    loginData.value.isBindVehicle = 1;
+    loginData.isBindVehicle = 1;
+    update();
+  }
+
+  void finishEditName(nickName) {
+    loginData.userNickname = nickName;
+    update();
   }
 
   void getLoginData() {
     Map<String, dynamic>? _login = LoacalStorage().getJSON(LOGINDATA);
     if (_login != null) {
-      loginData(LoginModel.fromJson(_login));
+      loginData = LoginModel.fromJson(_login);
       if (_login["appToken"] != null) changeLoginStatus(true);
+      update();
     }
   }
 

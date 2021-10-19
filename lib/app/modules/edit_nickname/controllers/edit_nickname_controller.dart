@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import 'package:raintree/app/common/methods/normal.dart';
 import 'package:raintree/app/modules/edit_nickname/api/change_nike_name.dart';
 import 'package:raintree/app/store/store.dart';
 
@@ -36,9 +37,8 @@ class EditNicknameController extends GetxController {
     }
     var _name = await changeNikeName(newNikeName: nickName);
     if (_name["code"] == 200) {
-      print("nickName");
-      print(nickName);
-      store.loginData.value.userNickname = nickName;
+      store.finishEditName(nickName);
+      reFreshToken();
       EasyLoading.showSuccess('修改成功!');
     }
     Get.back();

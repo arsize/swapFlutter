@@ -5,7 +5,6 @@ class BaseInfoPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final StoreController store = Get.find();
     return Container(
       height: 411.h,
       alignment: Alignment.center,
@@ -61,27 +60,28 @@ class BaseInfoPanel extends StatelessWidget {
                 },
               );
             },
-            child: Obx(() {
-              return Image(
-                width: 112.w,
-                height: 112.w,
-                image: AssetImage(store.loginData.value.userPhoto ??
-                    "images/my_avatar_default.png"),
-              );
-            }),
+            child: GetBuilder<StoreController>(
+              builder: (_) {
+                return Image(
+                    width: 112.w,
+                    height: 112.w,
+                    image: AssetImage(_.loginData.userPhoto ??
+                        "images/my_avatar_default.png"));
+              },
+            ),
           ),
           SizedBox(
             height: 40.h,
           ),
-          Obx(
-            () => Text(
-              store.loginData.value.account ?? '--',
+          GetBuilder<StoreController>(builder: (_) {
+            return Text(
+              _.loginData.account ?? '--',
               style: TextStyle(
                 fontSize: 36.f,
                 color: Colours.app_main,
               ),
-            ),
-          )
+            );
+          })
         ],
       ),
     );

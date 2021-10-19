@@ -1,14 +1,23 @@
 import 'package:get/get.dart';
+import 'package:raintree/app/entities/address_model.dart';
+import 'package:raintree/app/modules/product_address/apis/get_address_list.dart';
 
 class ProductAddressController extends GetxController {
-  final List addressList = [];
+  List addressList = [];
+  AddressModel address = AddressModel();
 
   @override
-  void onInit() {
+  void onInit() async {
+    await getAddressList();
     super.onInit();
-    for (var i = 0; i < 4; i++) {
-      addressList.add(i);
-    }
+  }
+
+  Future getAddressList() async {
+    print(1);
+    var _result = await getDeliveryAddressList();
+    print(2);
+    address = AddressModel.fromJson(_result);
+    update();
   }
 
   @override

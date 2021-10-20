@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-import 'package:raintree/app/common/langs/langs.dart';
 import 'package:raintree/app/modules/add_address/apis/add_address.dart';
+import 'package:raintree/app/modules/product_address/controllers/product_address_controller.dart';
 
 class AddAddressController extends GetxController {
+  final productController = Get.find<ProductAddressController>();
   // 控制器
   late TextEditingController nameInputController;
   late TextEditingController mobileInputController;
@@ -37,8 +38,6 @@ class AddAddressController extends GetxController {
   }
 
   inputOnchange(text, type) {
-    print(text);
-    print(type);
     if (type == "name") {
       name = text;
     }
@@ -51,7 +50,6 @@ class AddAddressController extends GetxController {
     if (type == 'detail_address') {
       detail = text;
     }
-    print("到了这里");
     if (name != '' && mobile != '' && address != '' && detail != '') {
       finish.value = true;
     } else {
@@ -60,14 +58,20 @@ class AddAddressController extends GetxController {
   }
 
   void submitTo() async {
-    var _result = await addDeliveryAddress();
+    var _result = await addDeliveryAddress(
+      consignee: name,
+      consigneePhone: mobile,
+      detailedAddress: detail,
+      takeRegion: address,
+    );
     if (_result["code"] == 200) {
       EasyLoading.showSuccess("新增成功");
+      await Future.delayed(Duration(seconds: 1));
+      productController.getAddressList();
+      Get.back();
     } else {
       EasyLoading.showError("新增失败，请重新填写");
     }
-    await Future.delayed(Duration(seconds: 2));
-    Get.back();
   }
 
   @override

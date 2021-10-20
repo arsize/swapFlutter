@@ -44,6 +44,7 @@ class HTTP {
     required String methods,
     data,
     params,
+    String responseType = 'string',
     Options? options,
   }) async {
     EasyLoading.show(status: '请稍后...');
@@ -60,7 +61,9 @@ class HTTP {
       queryParameters: params,
     );
     EasyLoading.dismiss();
-    return _handleDecodeJson(response);
+    return responseType == "map"
+        ? _handleDecodeJson(response)
+        : response.toString();
   }
 }
 

@@ -21,6 +21,9 @@ Future getCabinetInfoByScan({cabinetId}) {
         case UNPAY_CABINET_AREA_BATTERYRENT:
           _msg = "未开通当前地区换电服务，请稍后再试";
           break;
+        case NO_FULL_CHARGED_BOX:
+          _msg = "暂无满电仓，请稍后再试";
+          break;
         default:
       }
       if (type == 'info') {

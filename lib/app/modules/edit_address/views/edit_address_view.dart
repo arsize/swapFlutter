@@ -17,29 +17,37 @@ class EditAddressView extends GetView<EditAddressController> {
             children: [
               Container(
                 color: Colors.white,
-                width: double.infinity,
+                width: Get.width,
                 height: 132.w,
                 padding: EdgeInsets.only(
                   left: 32.w,
                   right: 32.w,
                 ),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
                       constraints: BoxConstraints(minWidth: 132.w),
                       child: Text(
                         "收货人：",
                         style: TextStyle(
-                          fontSize: 28.f,
                           color: Colours.app_normal_grey,
                         ),
                       ),
                     ),
-                    Text(
-                      "陈一一",
-                      style: TextStyle(
-                        color: Colours.app_main,
-                        fontSize: 28.f,
+                    Expanded(
+                      child: TextField(
+                        controller: controller.nameInputController,
+                        decoration: InputDecoration(
+                          hintText: "请填写收货人姓名",
+                          border: InputBorder.none,
+                          hintStyle: TextStyle(
+                            color: Colours.app_normal_grey,
+                          ),
+                        ),
+                        onChanged: (String text) {
+                          controller.inputOnchange(text, 'name');
+                        },
                       ),
                     )
                   ],
@@ -53,29 +61,37 @@ class EditAddressView extends GetView<EditAddressController> {
               ),
               Container(
                 color: Colors.white,
-                width: double.infinity,
+                width: Get.width,
                 height: 132.w,
                 padding: EdgeInsets.only(
                   left: 32.w,
                   right: 32.w,
                 ),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
                       constraints: BoxConstraints(minWidth: 132.w),
                       child: Text(
                         "手机号码：",
                         style: TextStyle(
-                          fontSize: 28.f,
                           color: Colours.app_normal_grey,
                         ),
                       ),
                     ),
-                    Text(
-                      "13687767897",
-                      style: TextStyle(
-                        color: Colours.app_main,
-                        fontSize: 28.f,
+                    Expanded(
+                      child: TextField(
+                        controller: controller.mobileInputController,
+                        decoration: InputDecoration(
+                          hintText: "请填写收货人手机号码",
+                          border: InputBorder.none,
+                          hintStyle: TextStyle(
+                            color: Colours.app_normal_grey,
+                          ),
+                        ),
+                        onChanged: (String text) {
+                          controller.inputOnchange(text, 'mobile');
+                        },
                       ),
                     )
                   ],
@@ -89,29 +105,37 @@ class EditAddressView extends GetView<EditAddressController> {
               ),
               Container(
                 color: Colors.white,
-                width: double.infinity,
+                width: Get.width,
                 height: 132.w,
                 padding: EdgeInsets.only(
                   left: 32.w,
                   right: 32.w,
                 ),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
                       constraints: BoxConstraints(minWidth: 132.w),
                       child: Text(
                         "所在地区：",
                         style: TextStyle(
-                          fontSize: 28.f,
                           color: Colours.app_normal_grey,
                         ),
                       ),
                     ),
-                    Text(
-                      "广东省深圳市宝安区",
-                      style: TextStyle(
-                        color: Colours.app_main,
-                        fontSize: 28.f,
+                    Expanded(
+                      child: TextField(
+                        controller: controller.addressInputController,
+                        decoration: InputDecoration(
+                          hintText: "省市区县、乡镇等",
+                          border: InputBorder.none,
+                          hintStyle: TextStyle(
+                            color: Colours.app_normal_grey,
+                          ),
+                        ),
+                        onChanged: (String text) {
+                          controller.inputOnchange(text, 'address');
+                        },
                       ),
                     )
                   ],
@@ -125,29 +149,37 @@ class EditAddressView extends GetView<EditAddressController> {
               ),
               Container(
                 color: Colors.white,
-                width: double.infinity,
+                width: Get.width,
                 height: 132.w,
                 padding: EdgeInsets.only(
                   left: 32.w,
                   right: 32.w,
                 ),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
                       constraints: BoxConstraints(minWidth: 132.w),
                       child: Text(
-                        "详细地址：",
+                        "详细地址${controller.id}：",
                         style: TextStyle(
-                          fontSize: 28.f,
                           color: Colours.app_normal_grey,
                         ),
                       ),
                     ),
-                    Text(
-                      "西乡街道南昌第二新村东一巷3号",
-                      style: TextStyle(
-                        color: Colours.app_main,
-                        fontSize: 28.f,
+                    Expanded(
+                      child: TextField(
+                        controller: controller.detailInputController,
+                        decoration: InputDecoration(
+                          hintText: "街道、楼牌号等",
+                          border: InputBorder.none,
+                          hintStyle: TextStyle(
+                            color: Colours.app_normal_grey,
+                          ),
+                        ),
+                        onChanged: (String text) {
+                          controller.inputOnchange(text, 'detail_address');
+                        },
                       ),
                     )
                   ],
@@ -158,11 +190,21 @@ class EditAddressView extends GetView<EditAddressController> {
           Positioned(
             bottom: 40.h,
             left: 32.w,
-            child: arBtn(
-              fn: () {},
-              width: 686,
-              text: "保存",
-            ),
+            child: Obx(() {
+              return controller.finish.value
+                  ? arBtn(
+                      fn: () {
+                        controller.submitTo();
+                      },
+                      width: 686,
+                      text: "保存",
+                    )
+                  : arBtn(
+                      fn: null,
+                      width: 686,
+                      text: "保存",
+                    );
+            }),
           )
         ],
       ),

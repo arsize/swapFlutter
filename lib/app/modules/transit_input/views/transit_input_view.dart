@@ -50,6 +50,7 @@ class TransitInputView extends GetView<TransitInputController> {
             Container(
               height: 90.w,
               child: VerificationBox(
+                itemWidget: 90.w,
                 count: 6,
                 borderWidth: 1,
                 borderRadius: 12,

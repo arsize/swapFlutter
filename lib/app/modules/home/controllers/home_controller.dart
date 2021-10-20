@@ -71,8 +71,6 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
     setMarkersBitmap().then((res) async {
       cabinetResult(await getCabinets());
       setNowPoint();
-      print("走到了这里");
-
       drawCabinetMarkers();
     });
   }
@@ -116,11 +114,11 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
   /// 渲染机柜Marker
   void drawCabinetMarkers() {
     var _cabinetData = cabinetResult.value.data;
-    print("进来了");
-    print(_cabinetData);
-    if (_cabinetData != null && _cabinetData.cabinetList != null) {
-      _cabinetData.cabinetList!.map((item) {
-        if (item.latitude != null && item.longitude != null) {
+    if (_cabinetData != null) {
+      _cabinetData.cabinetList.map((item) {
+        if (item.cabinetDid != null &&
+            item.latitude != null &&
+            item.longitude != null) {
           markers.add(
             Marker(
                 markerId: MarkerId(item.cabinetDid!),
@@ -130,7 +128,6 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
                   currentModle.value = "cabinet";
                 }),
           );
-          print(markers);
         }
       }).toList();
       update();

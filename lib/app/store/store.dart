@@ -9,7 +9,7 @@ import 'dart:ui' as ui;
 class StoreController extends GetxController {
   static StoreController get to => Get.find();
 
-  var loginData = LoginModel(registered: false);
+  var loginData = LoginModel(unregistered: true);
   final RxBool isLogin = false.obs;
   final RxString language = ui.window.locale.toString().obs;
 
@@ -49,7 +49,7 @@ class StoreController extends GetxController {
   void getLoginData() {
     Map<String, dynamic>? _login = LoacalStorage().getJSON(LOGINDATA);
     if (_login != null) {
-      loginData = LoginModel.fromJson(_login);
+      loginData = LoginModel.fromMap(_login);
       if (_login["appToken"] != null) changeLoginStatus(true);
       update();
     }

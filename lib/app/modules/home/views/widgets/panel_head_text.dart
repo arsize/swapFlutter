@@ -13,17 +13,13 @@ class PanelHeadText extends StatelessWidget {
           Positioned(
             bottom: 0,
             left: 20.w,
-            child: GetBuilder<HomeController>(
-              builder: (_) {
-                return Opacity(
-                  opacity: _.selectMenu == str ? 0.8 : 0.0,
-                  child: Container(
-                    width: _.selectMenu == '换电' ? 68.w : 68.w,
-                    height: 15.w,
-                    color: Colours.app_yellow,
-                  ),
-                );
-              },
+            child: Opacity(
+              opacity: str == "换电" ? 0.8 : 0.0,
+              child: Container(
+                width: 68.w,
+                height: 15.w,
+                color: Colours.app_yellow,
+              ),
             ),
           ),
           Positioned(

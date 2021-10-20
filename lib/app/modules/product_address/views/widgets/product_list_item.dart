@@ -1,15 +1,23 @@
 part of product_address;
 
 class ProductListItem extends StatelessWidget {
-  const ProductListItem({Key? key, this.name}) : super(key: key);
+  const ProductListItem(
+      {Key? key, this.name, this.mobile, this.address, this.id, this.detail})
+      : super(key: key);
 
   final String? name;
+  final String? mobile;
+  final String? address;
+  final String? detail;
+  final int? id;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.toNamed("edit-address");
+        Get.toNamed(
+          "/edit-address?id=${id ?? ''}&name=${name ?? ''}&mobile=${mobile ?? ''}&detailedAddress=${detail ?? ''}&address=${address ?? ''}",
+        );
       },
       child: Container(
         width: double.infinity,
@@ -37,7 +45,7 @@ class ProductListItem extends StatelessWidget {
                       width: 30.w,
                     ),
                     Text(
-                      "13244546765",
+                      mobile ?? '--',
                       style: TextStyle(
                         color: Colours.app_font_grey6,
                         fontSize: 28.f,
@@ -51,7 +59,7 @@ class ProductListItem extends StatelessWidget {
               height: 23.h,
             ),
             Text(
-              "深圳市宝安区西乡街道华丰机器人产业园C栋506",
+              address ?? '--',
               style: TextStyle(
                 fontSize: 28.f,
                 color: Colours.app_font_grey6,

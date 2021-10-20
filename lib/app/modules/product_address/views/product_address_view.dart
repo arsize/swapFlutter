@@ -30,9 +30,9 @@ class ProductAddressView extends GetView<ProductAddressController> {
             child: GetBuilder<ProductAddressController>(
               builder: (_) {
                 if (_.address.data != null && _.address.data!.records != null) {
-                  return _.address.data!.records!.isNotEmpty
+                  return _.address.data!.records.isNotEmpty
                       ? ListView(
-                          children: _.address.data!.records!
+                          children: _.address.data!.records
                               .map(
                                 (e) => Container(
                                   width: Get.width,
@@ -44,15 +44,20 @@ class ProductAddressView extends GetView<ProductAddressController> {
                                       //右侧按钮列表
                                       IconSlideAction(
                                         caption: '编辑',
+                                        closeOnTap: true,
                                         color: Colors.black45,
                                         icon: Icons.more_horiz,
-                                        onTap: () {},
+                                        onTap: () {
+                                          Get.toNamed(
+                                            "/edit-address?id=${e.id}&name=${e.consignee}&mobile=${e.consigneePhone}&detailedAddress=${e.detailedAddress}&address=${e.takeRegion}",
+                                          );
+                                        },
                                       ),
                                       IconSlideAction(
                                         caption: '删除',
                                         color: Colors.red,
                                         icon: Icons.delete,
-                                        closeOnTap: false,
+                                        closeOnTap: true,
                                         onTap: () {
                                           arDialog(
                                             context: Get.context,
@@ -62,6 +67,7 @@ class ProductAddressView extends GetView<ProductAddressController> {
                                             },
                                             fn1Text: "取消",
                                             fn2: () {
+                                              controller.delAddress(e.id);
                                               Get.back();
                                             },
                                             fn2Text: "确定",
@@ -71,6 +77,10 @@ class ProductAddressView extends GetView<ProductAddressController> {
                                     ],
                                     child: ProductListItem(
                                       name: e.consignee,
+                                      mobile: e.consigneePhone,
+                                      address: e.takeRegion + e.detailedAddress,
+                                      id: e.id,
+                                      detail: e.detailedAddress,
                                     ),
                                   ),
                                 ),

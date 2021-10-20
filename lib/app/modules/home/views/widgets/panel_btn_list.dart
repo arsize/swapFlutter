@@ -21,22 +21,27 @@ class PanelBtnList extends StatelessWidget {
                 color: Colours.app_normal_grey.withOpacity(0.1),
               ),
               height: 100.h,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image(
-                    width: 38.w,
-                    height: 38.w,
-                    image: AssetImage("images/home_shop.png"),
-                  ),
-                  SizedBox(
-                    width: 14.w,
-                  ),
-                  Text(
-                    "购买代步",
-                    style: TextStyle(fontSize: 28.f),
-                  ),
-                ],
+              child: InkWell(
+                onTap: () {
+                  Get.toNamed("/shop");
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image(
+                      width: 38.w,
+                      height: 38.w,
+                      image: AssetImage("images/home_shop.png"),
+                    ),
+                    SizedBox(
+                      width: 14.w,
+                    ),
+                    Text(
+                      "购买代步",
+                      style: TextStyle(fontSize: 28.f),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

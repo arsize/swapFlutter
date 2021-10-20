@@ -4,9 +4,11 @@
  * @Describe: 登录信息模型
  */
 
+import 'dart:convert';
+
 class LoginModel {
   LoginModel({
-    required this.registered,
+    required this.unregistered,
     this.appToken,
     this.userNickname,
     this.userPhoto,
@@ -16,7 +18,7 @@ class LoginModel {
     this.isBindVehicle,
   });
 
-  bool registered;
+  bool unregistered;
   String? appToken;
   String? userNickname;
   String? userPhoto;
@@ -25,19 +27,23 @@ class LoginModel {
   String? account;
   int? isBindVehicle;
 
-  factory LoginModel.fromJson(Map<String, dynamic> json) => LoginModel(
-        registered: !json["unregistered"],
-        appToken: json["appToken"],
-        userNickname: json["userNickname"],
-        uid: json["uid"],
-        userPhoto: json["userPhoto"],
-        status: json["status"],
-        account: json["account"],
-        isBindVehicle: json["isBindVehicle"],
-      );
+  factory LoginModel.fromMap(Map<String, dynamic> json) {
+    return LoginModel(
+      unregistered: json["unregistered"],
+      appToken: json["appToken"],
+      userNickname: json["userNickname"],
+      uid: json["uid"],
+      userPhoto: json["userPhoto"],
+      status: json["status"],
+      account: json["account"],
+      isBindVehicle: json["isBindVehicle"],
+    );
+  }
+  factory LoginModel.fromJson(String source) =>
+      LoginModel.fromMap(json.decode(source));
 
   Map<String, dynamic> toJson() => {
-        "unregistered": !registered,
+        "unregistered": unregistered,
         "appToken": appToken,
         "userNickname": userNickname,
         "uid": uid,

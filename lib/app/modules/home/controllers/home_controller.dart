@@ -70,12 +70,14 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
     mapController = googleMapController;
     setMarkersBitmap().then((res) async {
       cabinetResult(await getCabinets());
-      await setNowPoint();
+      setNowPoint();
+      print("走到了这里");
+
       drawCabinetMarkers();
     });
   }
 
-  Future setNowPoint() async {
+  void setNowPoint() async {
     LocationData point = await getNowPoint();
     mapCenter = LatLng(point.latitude!, point.longitude!);
     markers.add(
@@ -114,6 +116,8 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
   /// 渲染机柜Marker
   void drawCabinetMarkers() {
     var _cabinetData = cabinetResult.value.data;
+    print("进来了");
+    print(_cabinetData);
     if (_cabinetData != null && _cabinetData.cabinetList != null) {
       _cabinetData.cabinetList!.map((item) {
         if (item.latitude != null && item.longitude != null) {
@@ -126,6 +130,7 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
                   currentModle.value = "cabinet";
                 }),
           );
+          print(markers);
         }
       }).toList();
       update();

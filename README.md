@@ -1,13 +1,13 @@
 <div align="center">
 
-  <h3><strong>Flutter 版 Swap App</strong></h3>
+  <h3><strong>Flutter App</strong></h3>
   <div style="margin-top:10px;"><a href="Dart:;"><img src="https://img.shields.io/badge/language-Dart-brightgreen.svg" /></a>
   <a href="https://opensource.org/licenses/mit-license.php"><img src="https://img.shields.io/badge/license-MIT-blue.svg" /></a></div>
 
   <h1></h1>
 </div>
 
-Support [√] Flutter (Channel stable, v2.2.2).Dart SDK version: 2.14.0（stable）
+Support [√] Flutter (Channel stable, v2.5.2).Dart SDK version: 2.14.4（stable）
 
 ## 注意
 
@@ -16,6 +16,7 @@ Support [√] Flutter (Channel stable, v2.2.2).Dart SDK version: 2.14.0（stable
 ```
 get create page:xx
 ```
+
 <br />
 2.首页地图需要Goole service（科学上网）
 
@@ -34,22 +35,22 @@ app
     ├─colors
     ├─common
     │  ├─langs
-    │  ├─methods        
-    │  └─widgets        
+    │  ├─methods
+    │  └─widgets
     ├─entities
-    ├─middlewares       
+    ├─middlewares
     ├─modules(按路由划分模块)
     │  └─home
-    │      ├─apis       
-    │      ├─bindings   
+    │      ├─apis
+    │      ├─bindings
     │      ├─controllers
-    │      ├─mixins     
-    │      └─views      
+    │      ├─mixins
+    │      └─views
     │          └─widgets
     ├─routes
     ├─store
     ├─utils
-    │  ├─extensions     
+    │  ├─extensions
     │  └─http
     └─values
 ```
@@ -61,7 +62,7 @@ app
 ##### 安卓：android-app-src-main-AndroidManifest.xml
 
 ```
-<meta-data 
+<meta-data
   android:name="com.google.android.geo.API_KEY"
   android:value="这里填写自己的谷歌地图key"/>
 ```
@@ -72,21 +73,34 @@ app
 import GoogleMaps
 GMSServices.provideAPIKey("这里填写自己的谷歌地图key")
 ```
+
 #### 定位
 
 ##### 安卓：android-app-src-main-AndroidManifest.xml
-
 
 ```
   <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
   <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
 ```
 
+##### IOS：ios-Runner-info.plist
+
+```
+  <key>NSLocationWhenInUseUsageDescription</key>
+	<string>需要定位权限</string>
+```
+
 #### 相机
 
 ##### 安卓：android-app-src-main-AndroidManifest.xml
 
-
 ```
   <uses-permission android:name="android.permission.CAMERA" />
+```
+
+##### IOS：ios-Runner-info.plist
+
+```
+  <key>NSCameraUsageDescription</key>
+	<string>This app requires access to the camera.</string>
 ```

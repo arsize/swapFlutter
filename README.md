@@ -104,3 +104,29 @@ GMSServices.provideAPIKey("这里填写自己的谷歌地图key")
   <key>NSCameraUsageDescription</key>
 	<string>This app requires access to the camera.</string>
 ```
+## 工具链
+
+#### GETX
+https://github.com/jonataslaw/get_cli<br />
+GetX™ 框架的官方 CLI<br />
+
+##### 新建项目
+```shell
+  get create project
+```
+用来新建一个项目, 你可以在 Flutter 和 get_server里选一个, 创建默认目录之后, 它会运行一个 get init
+
+##### 初始化
+```shell
+  get init
+```
+这条命令慎用，它会覆盖 lib 文件夹下所有内容。 它允许你在两种结构中二选一, getx_pattern 和 clean.
+
+##### 创建 Page
+```shell
+  get create page:name
+```
+
+#### Dart Data Class Generator
+vscode插件<br />
+Create dart data classes easily, fast and without writing boilerplate or running code generation.

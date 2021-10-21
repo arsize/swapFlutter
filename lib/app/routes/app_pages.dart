@@ -52,6 +52,8 @@ import 'package:raintree/app/modules/pay_order/bindings/pay_order_binding.dart';
 import 'package:raintree/app/modules/pay_order/views/pay_order_view.dart';
 import 'package:raintree/app/modules/pay_order_success/bindings/pay_order_success_binding.dart';
 import 'package:raintree/app/modules/pay_order_success/views/pay_order_success_view.dart';
+import 'package:raintree/app/modules/pay_package_list/bindings/pay_package_list_binding.dart';
+import 'package:raintree/app/modules/pay_package_list/views/pay_package_list_view.dart';
 import 'package:raintree/app/modules/product_address/bindings/product_address_binding.dart';
 import 'package:raintree/app/modules/product_address/views/product_address_view.dart';
 import 'package:raintree/app/modules/put_money/bindings/put_money_binding.dart';
@@ -295,6 +297,11 @@ class AppPages {
       name: _Paths.ADD_ADDRESS,
       page: () => AddAddressView(),
       binding: AddAddressBinding(),
+    ),
+    GetPage(
+      name: _Paths.PAY_PACKAGE_LIST,
+      page: () => PayPackageListView(),
+      binding: PayPackageListBinding(),
     ),
   ];
 }

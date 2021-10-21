@@ -44,6 +44,7 @@ abstract class Routes {
   static const USER_COMBO = _Paths.USER_COMBO;
   static const EDIT_ADDRESS = _Paths.EDIT_ADDRESS;
   static const ADD_ADDRESS = _Paths.ADD_ADDRESS;
+  static const PAY_PACKAGE_LIST = _Paths.PAY_PACKAGE_LIST;
 }
 
 abstract class _Paths {
@@ -87,4 +88,5 @@ abstract class _Paths {
   static const USER_COMBO = '/user-combo';
   static const EDIT_ADDRESS = '/edit-address';
   static const ADD_ADDRESS = '/add-address';
+  static const PAY_PACKAGE_LIST = '/pay-package-list';
 }

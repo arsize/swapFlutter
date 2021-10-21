@@ -8,43 +8,43 @@ import 'user_frequency_card_record.dart';
 import 'user_research.dart';
 
 class Data {
-  final List<CabinetBoxInfoList> cabinetBoxInfoList;
-  final List<CabinetBoxPortInfoList> cabinetBoxPortInfoList;
-  final String cabinetDeviceId;
-  final String cabinetDid;
-  final String cabinetName;
-  final bool cabinetOnline;
-  final int cabinetType;
-  final String cabinetUid;
-  final int exChangeBatteryFee;
-  final int lowestSinglePrice;
-  final int money;
-  final bool powerOff;
-  final String prompt;
-  final bool recommendStatus;
-  final List<dynamic> subTemplateIdList;
-  final int userExchangeCount;
+  final List<CabinetBoxInfoList>? cabinetBoxInfoList;
+  final List<CabinetBoxPortInfoList>? cabinetBoxPortInfoList;
+  final String? cabinetDeviceId;
+  final String? cabinetDid;
+  final String? cabinetName;
+  final bool? cabinetOnline;
+  final int? cabinetType;
+  final String? cabinetUid;
+  final int? exChangeBatteryFee;
+  final int? lowestSinglePrice;
+  final int? money;
+  final bool? powerOff;
+  final String? prompt;
+  final bool? recommendStatus;
+  final List<dynamic>? subTemplateIdList;
+  final int? userExchangeCount;
   final UserFrequencyCardRecord userFrequencyCardRecord;
-  final UserResearch userResearch;
+  final UserResearch? userResearch;
   Data({
-    required this.cabinetBoxInfoList,
-    required this.cabinetBoxPortInfoList,
-    required this.cabinetDeviceId,
-    required this.cabinetDid,
-    required this.cabinetName,
-    required this.cabinetOnline,
-    required this.cabinetType,
-    required this.cabinetUid,
-    required this.exChangeBatteryFee,
-    required this.lowestSinglePrice,
-    required this.money,
-    required this.powerOff,
-    required this.prompt,
-    required this.recommendStatus,
-    required this.subTemplateIdList,
-    required this.userExchangeCount,
+    this.cabinetBoxInfoList,
+    this.cabinetBoxPortInfoList,
+    this.cabinetDeviceId,
+    this.cabinetDid,
+    this.cabinetName,
+    this.cabinetOnline,
+    this.cabinetType,
+    this.cabinetUid,
+    this.exChangeBatteryFee,
+    this.lowestSinglePrice,
+    this.money,
+    this.powerOff,
+    this.prompt,
+    this.recommendStatus,
+    this.subTemplateIdList,
+    this.userExchangeCount,
     required this.userFrequencyCardRecord,
-    required this.userResearch,
+    this.userResearch,
   });
 
   Data copyWith({
@@ -93,9 +93,9 @@ class Data {
 
   Map<String, dynamic> toMap() {
     return {
-      'cabinetBoxInfoList': cabinetBoxInfoList.map((x) => x.toMap()).toList(),
+      'cabinetBoxInfoList': cabinetBoxInfoList?.map((x) => x.toMap()).toList(),
       'cabinetBoxPortInfoList':
-          cabinetBoxPortInfoList.map((x) => x.toMap()).toList(),
+          cabinetBoxPortInfoList?.map((x) => x.toMap()).toList(),
       'cabinetDeviceId': cabinetDeviceId,
       'cabinetDid': cabinetDid,
       'cabinetName': cabinetName,
@@ -111,17 +111,18 @@ class Data {
       'subTemplateIdList': subTemplateIdList,
       'userExchangeCount': userExchangeCount,
       'userFrequencyCardRecord': userFrequencyCardRecord.toMap(),
-      'userResearch': userResearch.toMap(),
+      'userResearch': userResearch?.toMap(),
     };
   }
 
   factory Data.fromMap(Map<String, dynamic> map) {
     return Data(
       cabinetBoxInfoList: List<CabinetBoxInfoList>.from(
-          map['cabinetBoxInfoList']?.map((x) => CabinetBoxInfoList.fromMap(x))),
+          (map['cabinetBoxInfoList'] ?? [])
+              .map((x) => CabinetBoxInfoList.fromMap(x))),
       cabinetBoxPortInfoList: List<CabinetBoxPortInfoList>.from(
-          map['cabinetBoxPortInfoList']
-              ?.map((x) => CabinetBoxPortInfoList.fromMap(x))),
+          (map['cabinetBoxPortInfoList'] ?? [])
+              .map((x) => CabinetBoxPortInfoList.fromMap(x))),
       cabinetDeviceId: map['cabinetDeviceId'],
       cabinetDid: map['cabinetDid'],
       cabinetName: map['cabinetName'],
@@ -134,11 +135,11 @@ class Data {
       powerOff: map['powerOff'],
       prompt: map['prompt'],
       recommendStatus: map['recommendStatus'],
-      subTemplateIdList: List<dynamic>.from(map['subTemplateIdList']),
+      subTemplateIdList: List<dynamic>.from(map['subTemplateIdList'] ?? []),
       userExchangeCount: map['userExchangeCount']?.toInt(),
       userFrequencyCardRecord:
-          UserFrequencyCardRecord.fromMap(map['userFrequencyCardRecord']),
-      userResearch: UserResearch.fromMap(map['userResearch']),
+          UserFrequencyCardRecord.fromMap(map['userFrequencyCardRecord'] ?? {}),
+      userResearch: UserResearch.fromMap(map['userResearch'] ?? {}),
     );
   }
 

@@ -3,13 +3,13 @@ import 'dart:convert';
 import 'data.dart';
 
 class CabinetDetailModel {
-  final int code;
-  final Data data;
-  final String msg;
+  final int? code;
+  final Data? data;
+  final String? msg;
   CabinetDetailModel({
-    required this.code,
-    required this.data,
-    required this.msg,
+    this.code,
+    this.data,
+    this.msg,
   });
 
   CabinetDetailModel copyWith({
@@ -27,7 +27,7 @@ class CabinetDetailModel {
   Map<String, dynamic> toMap() {
     return {
       'code': code,
-      'data': data.toMap(),
+      'data': data?.toMap(),
       'msg': msg,
     };
   }

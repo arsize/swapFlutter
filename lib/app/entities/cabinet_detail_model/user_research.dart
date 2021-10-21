@@ -1,23 +1,23 @@
 import 'dart:convert';
 
 class UserResearch {
-  final String accountUid;
-  final int batteryType;
-  final String ctime;
-  final String electricVehicleBrand;
-  final bool hasItBeenTried;
-  final int id;
-  final String upTime;
-  final String usageTime;
+  final String? accountUid;
+  final int? batteryType;
+  final String? ctime;
+  final String? electricVehicleBrand;
+  final bool? hasItBeenTried;
+  final int? id;
+  final String? upTime;
+  final String? usageTime;
   UserResearch({
-    required this.accountUid,
-    required this.batteryType,
-    required this.ctime,
-    required this.electricVehicleBrand,
-    required this.hasItBeenTried,
-    required this.id,
-    required this.upTime,
-    required this.usageTime,
+    this.accountUid,
+    this.batteryType,
+    this.ctime,
+    this.electricVehicleBrand,
+    this.hasItBeenTried,
+    this.id,
+    this.upTime,
+    this.usageTime,
   });
 
   UserResearch copyWith({
@@ -70,7 +70,8 @@ class UserResearch {
 
   String toJson() => json.encode(toMap());
 
-  factory UserResearch.fromJson(String source) => UserResearch.fromMap(json.decode(source));
+  factory UserResearch.fromJson(String source) =>
+      UserResearch.fromMap(json.decode(source));
 
   @override
   String toString() {
@@ -80,27 +81,27 @@ class UserResearch {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-  
+
     return other is UserResearch &&
-      other.accountUid == accountUid &&
-      other.batteryType == batteryType &&
-      other.ctime == ctime &&
-      other.electricVehicleBrand == electricVehicleBrand &&
-      other.hasItBeenTried == hasItBeenTried &&
-      other.id == id &&
-      other.upTime == upTime &&
-      other.usageTime == usageTime;
+        other.accountUid == accountUid &&
+        other.batteryType == batteryType &&
+        other.ctime == ctime &&
+        other.electricVehicleBrand == electricVehicleBrand &&
+        other.hasItBeenTried == hasItBeenTried &&
+        other.id == id &&
+        other.upTime == upTime &&
+        other.usageTime == usageTime;
   }
 
   @override
   int get hashCode {
     return accountUid.hashCode ^
-      batteryType.hashCode ^
-      ctime.hashCode ^
-      electricVehicleBrand.hashCode ^
-      hasItBeenTried.hashCode ^
-      id.hashCode ^
-      upTime.hashCode ^
-      usageTime.hashCode;
+        batteryType.hashCode ^
+        ctime.hashCode ^
+        electricVehicleBrand.hashCode ^
+        hasItBeenTried.hashCode ^
+        id.hashCode ^
+        upTime.hashCode ^
+        usageTime.hashCode;
   }
 }

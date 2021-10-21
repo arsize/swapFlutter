@@ -37,14 +37,16 @@ class CabinetRound extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    "3",
-                    style: TextStyle(
-                      fontSize: 162.f,
-                      fontWeight: FontWeight.w700,
-                      color: Colours.app_green,
-                    ),
-                  ),
+                  GetBuilder<StoreController>(builder: (_) {
+                    return Text(
+                      _.canUseBattery().toString(),
+                      style: TextStyle(
+                        fontSize: 162.f,
+                        fontWeight: FontWeight.w700,
+                        color: Colours.app_green,
+                      ),
+                    );
+                  }),
                   SizedBox(
                     height: 18.h,
                   ),

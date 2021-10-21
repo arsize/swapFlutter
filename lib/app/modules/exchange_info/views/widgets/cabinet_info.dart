@@ -11,14 +11,16 @@ class CabinetInfo extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "华丰国际02柜",
-            style: TextStyle(
-              fontSize: 32.f,
-              fontWeight: FontWeight.w600,
-              color: Colours.app_main,
-            ),
-          ),
+          GetBuilder<StoreController>(builder: (_) {
+            return Text(
+              _.cabinetDetail.data?.cabinetName ?? '--',
+              style: TextStyle(
+                fontSize: 32.f,
+                fontWeight: FontWeight.w600,
+                color: Colours.app_main,
+              ),
+            );
+          }),
           SizedBox(
             height: 6.h,
           ),
@@ -35,13 +37,15 @@ class CabinetInfo extends StatelessWidget {
               SizedBox(
                 width: 11.w,
               ),
-              Text(
-                "000001",
-                style: TextStyle(
-                  color: Colours.app_normal_grey,
-                  fontSize: 24.f,
-                ),
-              ),
+              GetBuilder<StoreController>(builder: (_) {
+                return Text(
+                  _.cabinetDetail.data?.cabinetDid ?? '--',
+                  style: TextStyle(
+                    color: Colours.app_normal_grey,
+                    fontSize: 24.f,
+                  ),
+                );
+              }),
             ],
           )
         ],

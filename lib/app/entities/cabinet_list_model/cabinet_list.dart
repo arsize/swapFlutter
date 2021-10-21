@@ -137,8 +137,8 @@ class CabinetList {
     return CabinetList(
       agentId: map['agentId']?.toInt(),
       batteryTypeAndNumDtoList: List<BatteryTypeAndNumDtoList>.from(
-          map['batteryTypeAndNumDtoList'] ??
-              [].map((x) => BatteryTypeAndNumDtoList.fromMap(x))),
+          (map['batteryTypeAndNumDtoList'] ?? [])
+              .map((x) => BatteryTypeAndNumDtoList.fromMap(x))),
       boxStatusMap: map['boxStatusMap'],
       cabinetAddress: map['cabinetAddress'],
       cabinetDid: map['cabinetDid'],

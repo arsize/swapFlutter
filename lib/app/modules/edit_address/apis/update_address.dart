@@ -14,7 +14,7 @@ Future updateDeliveryAddress({
   id,
 }) {
   return HTTP().request(
-    responseType: "map",
+    responseType: "json",
     path: "personalCenter/set/updateDeliveryAddress",
     methods: "post",
     data: {

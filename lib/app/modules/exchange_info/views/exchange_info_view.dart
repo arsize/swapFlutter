@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:raintree/app/colors/colors.dart';
+import 'package:raintree/app/store/store.dart';
 import 'package:raintree/app/utils/utils.dart';
 import 'package:raintree/app/common/widgets/common_wigets.dart';
 
@@ -65,13 +66,71 @@ class ExchangeInfoView extends GetView<ExchangeInfoController> {
                   Container(
                     child: Row(
                       children: [
-                        Text(
-                          "0.00元",
-                          style: TextStyle(
-                            color: Colours.app_orange_red,
-                            fontSize: 32.f,
-                          ),
-                        ),
+                        GetBuilder<StoreController>(builder: (_) {
+                          if (_.cabinetDetail.data?.userFrequencyCardRecord
+                                  .id ==
+                              null) {
+                            if (_.cabinetDetail.data!.exChangeBatteryFee == 0) {
+                              return Text(
+                                "0元",
+                                style: TextStyle(
+                                  color: Colours.app_orange_red,
+                                  fontSize: 32.f,
+                                ),
+                              );
+                            } else {
+                              return Text(
+                                _.cabinetDetail.data!.exChangeBatteryFee
+                                        .toString() +
+                                    '元',
+                                style: TextStyle(
+                                  color: Colours.app_orange_red,
+                                  fontSize: 32.f,
+                                ),
+                              );
+                            }
+                          } else {
+                            if (_.cabinetDetail.data?.userFrequencyCardRecord
+                                        .frequencyCardType ==
+                                    1 ||
+                                _.cabinetDetail.data?.userFrequencyCardRecord
+                                        .frequencyCardType ==
+                                    0) {
+                              if (_.cabinetDetail.data!.userFrequencyCardRecord
+                                          .surplusNum !=
+                                      null &&
+                                  _.cabinetDetail.data!.userFrequencyCardRecord
+                                          .surplusNum! >
+                                      0) {
+                                return Text(
+                                  "0元",
+                                  style: TextStyle(
+                                    color: Colours.app_orange_red,
+                                    fontSize: 32.f,
+                                  ),
+                                );
+                              } else {
+                                return Text(
+                                  _.cabinetDetail.data!.exChangeBatteryFee
+                                          .toString() +
+                                      '元',
+                                  style: TextStyle(
+                                    color: Colours.app_orange_red,
+                                    fontSize: 32.f,
+                                  ),
+                                );
+                              }
+                            } else {
+                              return Text(
+                                "0元",
+                                style: TextStyle(
+                                  color: Colours.app_orange_red,
+                                  fontSize: 32.f,
+                                ),
+                              );
+                            }
+                          }
+                        }),
                         SizedBox(width: 21.w),
                         InkWell(
                           onTap: () {

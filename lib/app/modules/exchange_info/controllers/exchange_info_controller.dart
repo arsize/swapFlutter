@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
+import 'package:raintree/app/common/apis/check_before_exchange.dart';
 import 'package:raintree/app/entities/exchange_fee/exchange_fee.dart';
-import 'package:raintree/app/entities/exchange_order/exchange_order.dart';
-import 'package:raintree/app/modules/exchange_info/apis/check_before_exchange.dart';
 import 'package:raintree/app/modules/exchange_info/apis/exchange_charging.dart';
 import 'package:raintree/app/modules/exchange_info/apis/get_fee_exchange.dart';
 import 'package:raintree/app/store/store.dart';
@@ -39,10 +38,9 @@ class ExchangeInfoController extends GetxController {
         cabinetdid: store.cabinetDetail.data?.cabinetDid,
       );
       if (_result != null) {
-        store.exchangeOrder = ExchangeOrder.fromJson(_result);
-        Get.offNamed("/serving");
+        var orderNo = _result["data"]["orderNo"];
+        Get.offNamed("/serving?orderNo=$orderNo");
       }
     }
-    // Get.offNamed("/serving");
   }
 }

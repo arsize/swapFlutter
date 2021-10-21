@@ -19,6 +19,7 @@ part './widgets/serving_panel_line.dart';
 part './widgets/box_info.dart';
 
 class ServingView extends GetView<ServingController> {
+  final ctrl = Get.find<ServingController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

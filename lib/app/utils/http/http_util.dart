@@ -50,8 +50,6 @@ class HTTP {
     EasyLoading.show(status: '请稍后...');
     Options requestOptions = options ?? Options();
     requestOptions.method = methods;
-    print('xx');
-    print(path);
     Map<String, dynamic>? _authorization = getAuthorizationHeader(path: path);
     if (_authorization != null) {
       requestOptions = requestOptions.copyWith(headers: _authorization);

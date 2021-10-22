@@ -29,7 +29,7 @@ class ProductAddressView extends GetView<ProductAddressController> {
             padding: EdgeInsets.only(bottom: 178.h),
             child: GetBuilder<ProductAddressController>(
               builder: (_) {
-                if (_.address.data != null && _.address.data!.records != null) {
+                if (_.address.data != null) {
                   return _.address.data!.records.isNotEmpty
                       ? ListView(
                           children: _.address.data!.records

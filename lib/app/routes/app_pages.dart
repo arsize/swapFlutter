@@ -48,12 +48,16 @@ import 'package:raintree/app/modules/notice_list/bindings/notice_list_binding.da
 import 'package:raintree/app/modules/notice_list/views/notice_list_view.dart';
 import 'package:raintree/app/modules/order_detail/bindings/order_detail_binding.dart';
 import 'package:raintree/app/modules/order_detail/views/order_detail_view.dart';
+import 'package:raintree/app/modules/pay_combo/bindings/pay_combo_binding.dart';
+import 'package:raintree/app/modules/pay_combo/views/pay_combo_view.dart';
 import 'package:raintree/app/modules/pay_order/bindings/pay_order_binding.dart';
 import 'package:raintree/app/modules/pay_order/views/pay_order_view.dart';
 import 'package:raintree/app/modules/pay_order_success/bindings/pay_order_success_binding.dart';
 import 'package:raintree/app/modules/pay_order_success/views/pay_order_success_view.dart';
 import 'package:raintree/app/modules/pay_package_list/bindings/pay_package_list_binding.dart';
 import 'package:raintree/app/modules/pay_package_list/views/pay_package_list_view.dart';
+import 'package:raintree/app/modules/payment/bindings/payment_binding.dart';
+import 'package:raintree/app/modules/payment/views/payment_view.dart';
 import 'package:raintree/app/modules/product_address/bindings/product_address_binding.dart';
 import 'package:raintree/app/modules/product_address/views/product_address_view.dart';
 import 'package:raintree/app/modules/put_money/bindings/put_money_binding.dart';
@@ -302,6 +306,16 @@ class AppPages {
       name: _Paths.PAY_PACKAGE_LIST,
       page: () => PayPackageListView(),
       binding: PayPackageListBinding(),
+    ),
+    GetPage(
+      name: _Paths.PAY_COMBO,
+      page: () => PayComboView(),
+      binding: PayComboBinding(),
+    ),
+    GetPage(
+      name: _Paths.PAYMENT,
+      page: () => PaymentView(),
+      binding: PaymentBinding(),
     ),
   ];
 }

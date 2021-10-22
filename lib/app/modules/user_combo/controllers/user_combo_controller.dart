@@ -1,27 +1,20 @@
 import 'package:get/get.dart';
-
-class TextB {
-  TextB({
-    this.text,
-    this.age,
-  });
-
-  String? text;
-  int? age;
-}
+import 'package:raintree/app/entities/combo_model/combo_model.dart';
+import 'package:raintree/app/modules/user_combo/apis/get_user_frequency_list.dart';
 
 class UserComboController extends GetxController {
-  var text = TextB(age: 0);
-
+  ComboModel combo = ComboModel();
   @override
   void onInit() {
+    getComboList();
     super.onInit();
   }
 
-  changeTo() {
-    text.age = text.age! + 1;
+  /// 获取套餐列表
+  void getComboList() async {
+    var _result = await getUserFrequencyCardList();
+    combo = ComboModel.fromJson(_result);
     update();
-    print("h");
   }
 
   @override

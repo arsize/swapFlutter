@@ -7,15 +7,29 @@ import 'package:flutter/material.dart';
 import 'package:raintree/app/colors/colors.dart';
 import 'package:raintree/app/utils/utils.dart';
 
-arDialog({context, type, content, fn1, fn2, fn1Text, fn2Text}) {
+arDialog({
+  context,
+  type,
+  title,
+  contentWidget,
+  content,
+  height,
+  fn1,
+  fn2,
+  fn1Text,
+  fn2Text,
+}) {
   return showDialog(
     context: context,
     builder: (BuildContext context) {
       return ArDialog(
         type: type ?? "normal",
+        title: title ?? '温馨提示',
         content: content,
         fn1Text: fn1Text ?? '取消',
         fn2Text: fn2Text ?? '确认',
+        contentWidget: contentWidget,
+        height: height,
         fn1: fn1,
         fn2: fn2,
       );
@@ -37,10 +51,13 @@ class ArDialog extends Dialog {
   final bool round;
 
   /// 弹窗标题
-  final String title;
+  final String? title;
 
-  /// 弹窗内容
-  final String content;
+  /// 弹窗文字内容
+  final String? content;
+
+  /// 弹窗widget内容
+  final Widget? contentWidget;
 
   /// 确认回调函数
   final void Function()? fn1;
@@ -58,9 +75,10 @@ class ArDialog extends Dialog {
     Key? key,
     this.type = "normal",
     this.width,
+    this.contentWidget,
     this.height,
     this.round = true,
-    this.title = "温馨提示",
+    this.title,
     this.content = '',
     this.fn2Text,
     this.fn1Text,
@@ -110,7 +128,7 @@ class ArDialog extends Dialog {
                     : BorderRadius.circular(16.w),
               ),
               child: Text(
-                title,
+                title ?? '',
                 style: TextStyle(
                   fontSize: 32.f,
                   color: Colours.app_main,
@@ -121,16 +139,18 @@ class ArDialog extends Dialog {
               height: 56.h,
             ),
             Center(
-              child: Text(
-                content,
-                style: TextStyle(
-                  fontSize: 28.f,
-                  color: Colours.app_font_grey6,
-                ),
-              ),
+              child: contentWidget == null
+                  ? Text(
+                      content ?? '',
+                      style: TextStyle(
+                        fontSize: 28.f,
+                        color: Colours.app_font_grey6,
+                      ),
+                    )
+                  : contentWidget!,
             ),
             SizedBox(
-              height: 56.h,
+              height: 50.h,
             ),
             Padding(
               padding: EdgeInsets.only(

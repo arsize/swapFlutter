@@ -40,6 +40,8 @@ dependencies:
   url_launcher: ^6.0.12
   # 滑动按钮
   flutter_slidable: ^0.6.0
+  # flutter_pay
+  pay: ^1.0.6
   
   flutter: 
     sdk: flutter

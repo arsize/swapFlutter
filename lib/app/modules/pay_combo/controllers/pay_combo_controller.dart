@@ -64,7 +64,7 @@ class PayComboController extends GetxController {
                 fn1Text: "以后再说",
                 fn2: () {
                   Get.back();
-                  Get.toNamed("/payment");
+                  Get.toNamed("/payment?money=${money.value}");
                 },
                 fn2Text: "去充值",
                 content: "钱包余额不足，请先充值",

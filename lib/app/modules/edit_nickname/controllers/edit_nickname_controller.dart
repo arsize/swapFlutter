@@ -36,11 +36,11 @@ class EditNicknameController extends GetxController {
       return;
     }
     var _name = await changeNikeName(newNikeName: nickName);
-    if (_name["code"] == 200) {
+    if (_name != null) {
       store.finishEditName(nickName);
       reFreshToken();
       EasyLoading.showSuccess('修改成功!');
+      Get.back();
     }
-    Get.back();
   }
 }

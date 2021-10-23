@@ -32,7 +32,7 @@ class TransitInputView extends GetView<TransitInputController> {
                 ),
                 InkWell(
                   onTap: () {
-                    Get.toNamed("/bind-contact");
+                    Get.offNamed("/camera-scan");
                   },
                   child: Text(
                     "切换扫码",

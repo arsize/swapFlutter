@@ -1,11 +1,21 @@
+/*
+ * @Author: Arsize 
+ * @Date: 2021-10-23 11:02:33 
+ * @Describe: 余额充值
+ */
+library put_money_view;
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:raintree/app/colors/colors.dart';
 import 'package:raintree/app/common/widgets/app_bar.dart';
+import 'package:raintree/app/modules/wallet/controllers/wallet_controller.dart';
 import 'package:raintree/app/utils/utils.dart';
 
 import '../controllers/put_money_controller.dart';
+
+part './widgets/money_list.dart';
 
 class PutMoneyView extends GetView<PutMoneyController> {
   @override
@@ -17,7 +27,7 @@ class PutMoneyView extends GetView<PutMoneyController> {
       body: Stack(
         children: [
           Container(
-            width: double.infinity,
+            width: Get.width,
             color: Colours.app_bg_grey,
           ),
           Positioned(
@@ -25,8 +35,8 @@ class PutMoneyView extends GetView<PutMoneyController> {
             left: 0,
             right: 0,
             child: Container(
-              padding: EdgeInsets.all(Adapt.width(32)),
-              height: Adapt.height(562),
+              padding: EdgeInsets.all(32.w),
+              height: 562.h,
               color: Colors.white,
               child: Column(
                 children: [
@@ -36,26 +46,36 @@ class PutMoneyView extends GetView<PutMoneyController> {
                       Text(
                         "选择充值金额",
                         style: TextStyle(
-                          fontSize: Adapt.font(32),
+                          fontSize: 32.f,
                           color: Colours.app_font_grey,
                         ),
                       ),
-                      Text(
-                        "当前余额：0.00元",
-                        style: TextStyle(
-                          fontSize: Adapt.font(28),
-                          color: Colours.app_font_grey,
-                        ),
-                      )
+                      GetBuilder<WalletController>(builder: (_) {
+                        return Text(
+                          "当前余额：${_.walletMoney.value.toString()}元",
+                          style: TextStyle(
+                            fontSize: 28.f,
+                            color: Colours.app_font_grey,
+                          ),
+                        );
+                      })
                     ],
                   ),
                   SizedBox(
-                    height: Adapt.height(40),
+                    height: 40.h,
                   ),
-                  // Wrap(
-                  //   spacing: Adapt.width(20),
-                  //   children: _getWrapList(),
-                  // )
+                  Wrap(
+                    spacing: 20.w,
+                    runSpacing: 28.h,
+                    children: [
+                      MoneyList(money: "100"),
+                      MoneyList(money: "50"),
+                      MoneyList(money: "20"),
+                      MoneyList(money: "10"),
+                      MoneyList(money: "5"),
+                      MoneyList(money: "0.1"),
+                    ],
+                  )
                 ],
               ),
             ),
@@ -63,24 +83,65 @@ class PutMoneyView extends GetView<PutMoneyController> {
           Positioned(
             left: 0,
             right: 0,
-            bottom: Adapt.height(150),
+            bottom: 150.h,
             child: Container(
               child: Column(
                 children: [
-                  Text(
-                    "我已认真阅读并同意《充值协议》",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: Adapt.font(24),
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GetBuilder<PutMoneyController>(builder: (_) {
+                        return InkWell(
+                          onTap: () {
+                            _.changeHasRead();
+                          },
+                          child: _.hasRead
+                              ? Image(
+                                  width: 32.w,
+                                  height: 32.w,
+                                  image: AssetImage("images/put_check_yes.png"),
+                                )
+                              : Image(
+                                  width: 32.w,
+                                  height: 32.w,
+                                  image:
+                                      AssetImage("images/put_check_none.png"),
+                                ),
+                        );
+                      }),
+                      SizedBox(width: 16.w),
+                      Row(
+                        children: [
+                          Text(
+                            "我已认真阅读并同意",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 24.f,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Get.toNamed("/agreement?type=charge");
+                            },
+                            child: Text(
+                              "《充值协议》",
+                              style: TextStyle(
+                                color: Colours.app_green,
+                                fontSize: 24.f,
+                              ),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
                   ),
                   SizedBox(
-                    height: Adapt.height(13),
+                    height: 13.h,
                   ),
                   Text(
                     "一经充值，不支持退款、提现，请合理选择充值金额",
                     style: TextStyle(
-                      fontSize: Adapt.font(24),
+                      fontSize: 24.f,
                       color: Colours.app_normal_grey,
                     ),
                   ),
@@ -101,36 +162,43 @@ class PutMoneyView extends GetView<PutMoneyController> {
                     spreadRadius: 1.0 //阴影扩散程度
                     ),
               ]),
-              height: Adapt.height(112),
+              height: 112.h,
               padding: EdgeInsets.only(
-                left: Adapt.width(32),
-                right: Adapt.width(32),
-                top: Adapt.height(12),
-                bottom: Adapt.height(12),
+                left: 32.w,
+                right: 32.w,
+                top: 12.h,
+                bottom: 12.h,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "0.00元",
-                    style: TextStyle(
-                      color: Colours.app_orange_red,
-                      fontSize: Adapt.font(32),
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: Adapt.width(280),
-                    height: Adapt.width(88),
-                    decoration: BoxDecoration(
-                      color: Colours.app_main,
-                      borderRadius: ArUtil.border(15),
-                    ),
-                    child: Text(
-                      "立即充值",
+                  GetBuilder<PutMoneyController>(builder: (_) {
+                    return Text(
+                      "${_.selectMoney}元",
                       style: TextStyle(
-                        fontSize: Adapt.font(32),
-                        color: Colours.app_yellow,
+                        color: Colours.app_orange_red,
+                        fontSize: 32.f,
+                      ),
+                    );
+                  }),
+                  InkWell(
+                    onTap: () {
+                      Get.offNamed("/payment?money=${controller.selectMoney}");
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: 280.w,
+                      height: 88.w,
+                      decoration: BoxDecoration(
+                        color: Colours.app_main,
+                        borderRadius: ArUtil.border(15),
+                      ),
+                      child: Text(
+                        "立即充值",
+                        style: TextStyle(
+                          fontSize: 32.f,
+                          color: Colours.app_yellow,
+                        ),
                       ),
                     ),
                   ),

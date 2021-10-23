@@ -88,8 +88,8 @@ class HomeView extends GetView<HomeController> {
             topLeft: Radius.circular(10.0),
             topRight: Radius.circular(10.0),
           ),
-          minHeight: 380.h,
-          maxHeight: controller.currentModle.value == 'cabinet' ? 620.h : 560.h,
+          minHeight: 400.h,
+          maxHeight: controller.currentModle.value == 'cabinet' ? 680.h : 560.h,
           panel: controller.currentModle.value == 'cabinet'
               ? CabinetPanel()
               : Panel(),

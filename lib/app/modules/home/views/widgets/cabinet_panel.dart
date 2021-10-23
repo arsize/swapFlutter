@@ -36,21 +36,45 @@ class CabinetPanel extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 24.h),
-                          Text(
-                            "000001",
-                            style: TextStyle(
-                              fontSize: 32.f,
-                              color: Colours.app_font_grey6,
-                            ),
+                          Row(
+                            children: [
+                              Image(
+                                width: 24.w,
+                                height: 24.w,
+                                image: AssetImage(
+                                  "images/cabinet_location.png",
+                                ),
+                              ),
+                              SizedBox(width: 10.w),
+                              Text(
+                                "000001",
+                                style: TextStyle(
+                                  fontSize: 28.f,
+                                  color: Colours.app_font_grey6,
+                                ),
+                              )
+                            ],
                           ),
                           SizedBox(height: 10.h),
-                          Text(
-                            "深圳市宝安区华丰国际机器人产业园",
-                            style: TextStyle(
-                              fontSize: 32.f,
-                              color: Colours.app_font_grey6,
-                            ),
-                          ),
+                          Row(
+                            children: [
+                              Image(
+                                width: 24.w,
+                                height: 24.w,
+                                image: AssetImage(
+                                  "images/cabinet_id.png",
+                                ),
+                              ),
+                              SizedBox(width: 10.w),
+                              Text(
+                                "深圳市宝安区华丰国际机器人产业园",
+                                style: TextStyle(
+                                  fontSize: 28.f,
+                                  color: Colours.app_font_grey6,
+                                ),
+                              ),
+                            ],
+                          )
                         ],
                       ),
                       Container(
@@ -117,8 +141,8 @@ class CabinetPanel extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Image(
-                                width: 20.w,
-                                height: 30.w,
+                                width: 39.w,
+                                height: 39.w,
                                 image: AssetImage("images/cabinet_battery.png"),
                               ),
                               SizedBox(
@@ -147,9 +171,9 @@ class CabinetPanel extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Image(
-                                width: 20.w,
-                                height: 30.w,
-                                image: AssetImage("images/cabinet_battery.png"),
+                                width: 39.w,
+                                height: 39.w,
+                                image: AssetImage("images/cabinet_box.png"),
                               ),
                               SizedBox(
                                 width: 12.w,

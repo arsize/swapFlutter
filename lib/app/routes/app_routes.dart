@@ -47,6 +47,10 @@ abstract class Routes {
   static const PAY_PACKAGE_LIST = _Paths.PAY_PACKAGE_LIST;
   static const PAY_COMBO = _Paths.PAY_COMBO;
   static const PAYMENT = _Paths.PAYMENT;
+  static const AGREEMENT = _Paths.AGREEMENT;
+  static const USE_RECORDS = _Paths.USE_RECORDS;
+  static const USE_RECORDS_DETAIL = _Paths.USE_RECORDS_DETAIL;
+  static const SHOP_ORDER_LIST = _Paths.SHOP_ORDER_LIST;
 }
 
 abstract class _Paths {
@@ -93,4 +97,8 @@ abstract class _Paths {
   static const PAY_PACKAGE_LIST = '/pay-package-list';
   static const PAY_COMBO = '/pay-combo';
   static const PAYMENT = '/payment';
+  static const AGREEMENT = '/agreement';
+  static const USE_RECORDS = '/use-records';
+  static const USE_RECORDS_DETAIL = '/use-records-detail';
+  static const SHOP_ORDER_LIST = '/shop-order-list';
 }

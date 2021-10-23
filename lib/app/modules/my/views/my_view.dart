@@ -175,19 +175,19 @@ class MyView extends GetView<MyController> {
                   MenuItem(
                       icon: "images/my_icons01.png",
                       itemText: "待付款",
-                      route: "/order-detail"),
+                      route: "/shop-order-list"),
                   MenuItem(
                       icon: "images/my_icons02.png",
                       itemText: "待发货",
-                      route: "/order-detail"),
+                      route: "/shop-order-list"),
                   MenuItem(
                       icon: "images/my_icons03.png",
                       itemText: "待收货",
-                      route: "/order-detail"),
+                      route: "/shop-order-list"),
                   MenuItem(
                       icon: "images/my_icons04.png",
                       itemText: "全部订单",
-                      route: "/order-detail"),
+                      route: "/shop-order-list"),
                 ],
               ),
               SizedBox(
@@ -241,16 +241,13 @@ class MyView extends GetView<MyController> {
   ) async {
     var dx = details.globalPosition.dx;
     var dy = details.globalPosition.dy;
-    print(dx);
-    print(250.w);
-    print(450.w);
     if (dy > 312.h && dy < 516.h) {
       if (dx > 32.w && dx < 250.w) {
         // 钱包余额
         Get.toNamed("/wallet");
       } else if (dx > 250.w && dx < 450.w) {
         // 本月换电
-        print("本月换电");
+        Get.toNamed("/use-records");
       } else if (dx > 450.w && dx < 660.w) {
         // 当前套餐剩余
         Get.toNamed("/user-combo");

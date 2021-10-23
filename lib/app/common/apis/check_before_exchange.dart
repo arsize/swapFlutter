@@ -27,6 +27,10 @@ Future checkBeforeExchange() {
             _msg = "存在进行中的换电订单,请稍后再试";
 
             break;
+          case EXISTED_CONTINUOUS_MONTHLY_FREQUENCY_CARD:
+            _msg = "电池类型未设置单次收费套餐,请稍后再试";
+
+            break;
           default:
         }
         arDialog(

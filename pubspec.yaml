@@ -19,8 +19,8 @@ dependencies:
   sliding_up_panel: ^2.0.0+1
    # 图片选择
   image_picker: 0.8.3+3
-  # 日期
-  intl: ^0.17.0
+  date_time_format: ^2.0.1
+
   # loading
   flutter_easyloading: ^3.0.3
   # 扫码

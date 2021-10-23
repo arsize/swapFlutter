@@ -7,6 +7,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
+import 'package:date_time_format/date_time_format.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 import 'package:raintree/app/utils/utils.dart';
@@ -49,4 +50,10 @@ Future reFreshToken() async {
 Map<String, dynamic> _handleDecodeJson(result) {
   var res = jsonDecode(result.toString());
   return res;
+}
+
+/// 格式化时间
+String formateTime(time) {
+  DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(time);
+  return DateTimeFormat.format(dateTime);
 }

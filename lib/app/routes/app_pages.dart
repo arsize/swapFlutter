@@ -6,6 +6,8 @@ import 'package:raintree/app/modules/add_address/bindings/add_address_binding.da
 import 'package:raintree/app/modules/add_address/views/add_address_view.dart';
 import 'package:raintree/app/modules/admin/bindings/admin_binding.dart';
 import 'package:raintree/app/modules/admin/views/admin_view.dart';
+import 'package:raintree/app/modules/agreement/bindings/agreement_binding.dart';
+import 'package:raintree/app/modules/agreement/views/agreement_view.dart';
 import 'package:raintree/app/modules/bind_car/bindings/bind_car_binding.dart';
 import 'package:raintree/app/modules/bind_car/views/bind_car_view.dart';
 import 'package:raintree/app/modules/bind_contact/bindings/bind_contact_binding.dart';
@@ -72,6 +74,8 @@ import 'package:raintree/app/modules/setting/bindings/setting_binding.dart';
 import 'package:raintree/app/modules/setting/views/setting_view.dart';
 import 'package:raintree/app/modules/shop/bindings/shop_binding.dart';
 import 'package:raintree/app/modules/shop/views/shop_view.dart';
+import 'package:raintree/app/modules/shop_order_list/bindings/shop_order_list_binding.dart';
+import 'package:raintree/app/modules/shop_order_list/views/shop_order_list_view.dart';
 import 'package:raintree/app/modules/shop_product_detail/bindings/shop_product_detail_binding.dart';
 import 'package:raintree/app/modules/shop_product_detail/views/shop_product_detail_view.dart';
 import 'package:raintree/app/modules/submit_order/bindings/submit_order_binding.dart';
@@ -80,6 +84,10 @@ import 'package:raintree/app/modules/transit_input/bindings/transit_input_bindin
 import 'package:raintree/app/modules/transit_input/views/transit_input_view.dart';
 import 'package:raintree/app/modules/urge_cabinets/bindings/urge_cabinets_binding.dart';
 import 'package:raintree/app/modules/urge_cabinets/views/urge_cabinets_view.dart';
+import 'package:raintree/app/modules/use_records/bindings/use_records_binding.dart';
+import 'package:raintree/app/modules/use_records/views/use_records_view.dart';
+import 'package:raintree/app/modules/use_records_detail/bindings/use_records_detail_binding.dart';
+import 'package:raintree/app/modules/use_records_detail/views/use_records_detail_view.dart';
 import 'package:raintree/app/modules/user_combo/bindings/user_combo_binding.dart';
 import 'package:raintree/app/modules/user_combo/views/user_combo_view.dart';
 import 'package:raintree/app/modules/vehicle/bindings/vehicle_binding.dart';
@@ -316,6 +324,26 @@ class AppPages {
       name: _Paths.PAYMENT,
       page: () => PaymentView(),
       binding: PaymentBinding(),
+    ),
+    GetPage(
+      name: _Paths.AGREEMENT,
+      page: () => AgreementView(),
+      binding: AgreementBinding(),
+    ),
+    GetPage(
+      name: _Paths.USE_RECORDS,
+      page: () => UseRecordsView(),
+      binding: UseRecordsBinding(),
+    ),
+    GetPage(
+      name: _Paths.USE_RECORDS_DETAIL,
+      page: () => UseRecordsDetailView(),
+      binding: UseRecordsDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.SHOP_ORDER_LIST,
+      page: () => ShopOrderListView(),
+      binding: ShopOrderListBinding(),
     ),
   ];
 }

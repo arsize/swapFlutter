@@ -9,8 +9,6 @@ class TransitInputController extends GetxController {
 
   onSubmitted(value) async {
     var _check = await checkBeforeExchange();
-    print("这里");
-    print(_check);
     if (_check != null) {
       String? _cabinet = await getCabinetInfoByScan(cabinetId: value);
       if (_cabinet != null) {

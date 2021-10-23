@@ -34,4 +34,5 @@ class Colours {
   static const Color app_DB_grey = Color(0xFFDBDBDB);
   static const Color app_F7A_grey = Color(0xFFF7F9FA);
   static const Color light_yellow = Color(0x66FFE286);
+  static const Color D563_yellow = Color(0xFFF9D563);
 }

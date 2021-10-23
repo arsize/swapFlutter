@@ -77,11 +77,13 @@ class WalletView extends GetView<WalletController> {
                           SizedBox(
                             height: Adapt.height(16),
                           ),
-                          Text(
-                            "199.00",
-                            style: TextStyle(
-                              fontSize: 56.f,
-                              color: Colors.white,
+                          Obx(
+                            () => Text(
+                              controller.walletMoney.value.toString(),
+                              style: TextStyle(
+                                fontSize: 56.f,
+                                color: Colors.white,
+                              ),
                             ),
                           )
                         ],

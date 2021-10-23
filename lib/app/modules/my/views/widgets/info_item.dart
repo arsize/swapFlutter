@@ -14,9 +14,9 @@ class InfoItem extends StatelessWidget {
           () => store.isLogin.value
               ? Text(
                   str == "钱包余额(元)"
-                      ? my.usr().data?.walletMoney?.toString() ?? '0.0'
+                      ? my.usr().data?.walletMoney.toString() ?? '0.0'
                       : str == "本月换电(次)"
-                          ? my.usr().data?.currentMonthOrderCount?.toString() ??
+                          ? my.usr().data?.currentMonthOrderCount.toString() ??
                               '0'
                           : my.usr().data?.totalSurplusNum?.toString() ?? '0',
                   style: TextStyle(

@@ -49,9 +49,14 @@ class Panel extends StatelessWidget {
                 left: 16.w,
                 right: 16.w,
               ),
-              child: Image(
-                width: 686.w,
-                image: AssetImage("images/home_panel_banner.png"),
+              child: InkWell(
+                onTap: () {
+                  Get.toNamed("/shop");
+                },
+                child: Image(
+                  width: 686.w,
+                  image: AssetImage("images/home_panel_banner.png"),
+                ),
               ),
             ),
           ],

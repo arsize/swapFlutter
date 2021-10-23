@@ -64,6 +64,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.3"
+  date_time_format:
+    dependency: "direct main"
+    description:
+      name: date_time_format
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.0.1"
   dio:
     dependency: "direct main"
     description:
@@ -232,7 +239,7 @@ packages:
     source: hosted
     version: "2.4.1"
   intl:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: intl
       url: "https://pub.flutter-io.cn"

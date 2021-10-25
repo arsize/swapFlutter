@@ -6,6 +6,8 @@ import 'package:raintree/app/modules/add_address/bindings/add_address_binding.da
 import 'package:raintree/app/modules/add_address/views/add_address_view.dart';
 import 'package:raintree/app/modules/admin/bindings/admin_binding.dart';
 import 'package:raintree/app/modules/admin/views/admin_view.dart';
+import 'package:raintree/app/modules/admin_cabinet_list/bindings/admin_cabinet_list_binding.dart';
+import 'package:raintree/app/modules/admin_cabinet_list/views/admin_cabinet_list_view.dart';
 import 'package:raintree/app/modules/agreement/bindings/agreement_binding.dart';
 import 'package:raintree/app/modules/agreement/views/agreement_view.dart';
 import 'package:raintree/app/modules/bind_car/bindings/bind_car_binding.dart';
@@ -16,6 +18,8 @@ import 'package:raintree/app/modules/bind_success/bindings/bind_success_binding.
 import 'package:raintree/app/modules/bind_success/views/bind_success_view.dart';
 import 'package:raintree/app/modules/camera_scan/bindings/camera_scan_binding.dart';
 import 'package:raintree/app/modules/camera_scan/views/camera_scan_view.dart';
+import 'package:raintree/app/modules/common_problem/bindings/common_problem_binding.dart';
+import 'package:raintree/app/modules/common_problem/views/common_problem_view.dart';
 import 'package:raintree/app/modules/customer_service/bindings/customer_service_binding.dart';
 import 'package:raintree/app/modules/customer_service/views/customer_service_view.dart';
 import 'package:raintree/app/modules/edit_address/bindings/edit_address_binding.dart';
@@ -344,6 +348,16 @@ class AppPages {
       name: _Paths.SHOP_ORDER_LIST,
       page: () => ShopOrderListView(),
       binding: ShopOrderListBinding(),
+    ),
+    GetPage(
+      name: _Paths.COMMON_PROBLEM,
+      page: () => CommonProblemView(),
+      binding: CommonProblemBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_CABINET_LIST,
+      page: () => AdminCabinetListView(),
+      binding: AdminCabinetListBinding(),
     ),
   ];
 }

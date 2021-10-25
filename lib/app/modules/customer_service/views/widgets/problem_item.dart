@@ -6,32 +6,37 @@ class ProblemItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(bottom: 18.h, top: 18.h, left: 10.w),
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            style: BorderStyle.solid,
-            width: 1.w,
-            color: Colours.app_light_grey,
-          ),
-        ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              color: Colours.app_main,
-              fontSize: 28.f,
+    return InkWell(
+      onTap: () {
+        Get.toNamed("/common-problem?title=$title");
+      },
+      child: Container(
+        padding: EdgeInsets.only(bottom: 18.h, top: 18.h, left: 10.w),
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(
+              style: BorderStyle.solid,
+              width: 1.w,
+              color: Colours.app_light_grey,
             ),
           ),
-          Icon(
-            Icons.keyboard_arrow_right_outlined,
-            color: Colours.app_FC_grey,
-          ),
-        ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                color: Colours.app_main,
+                fontSize: 28.f,
+              ),
+            ),
+            Icon(
+              Icons.keyboard_arrow_right_outlined,
+              color: Colours.app_FC_grey,
+            ),
+          ],
+        ),
       ),
     );
   }

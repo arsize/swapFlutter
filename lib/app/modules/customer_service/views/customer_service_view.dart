@@ -159,8 +159,8 @@ class CustomerServiceView extends GetView<CustomerServiceController> {
                         launch("tel://xxx");
                       },
                       text: "拨打客服电话",
-                      width: 296.w,
-                      height: 80.h,
+                      width: 296,
+                      height: 80,
                     ),
                   )
                 ],

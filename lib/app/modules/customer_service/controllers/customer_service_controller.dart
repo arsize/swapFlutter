@@ -17,8 +17,6 @@ class CustomerServiceController extends GetxController {
 
   changeProblem() {
     problem.shuffle();
-    print(problem);
-    print("zheli");
     update();
   }
 }

@@ -15,6 +15,7 @@ class ProductOrderItem extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(32.w),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "交易成功",

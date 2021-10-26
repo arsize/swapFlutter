@@ -73,59 +73,74 @@ class AdminView extends GetView<AdminController> {
                       ],
                     ),
                   ),
-                  Column(
-                    children: [
-                      Image(
-                        width: 106.w,
-                        height: 106.w,
-                        image: AssetImage(
-                          "images/admin_icon02.png",
+                  InkWell(
+                    onTap: () {
+                      Get.toNamed("/anomalies-alarm");
+                    },
+                    child: Column(
+                      children: [
+                        Image(
+                          width: 106.w,
+                          height: 106.w,
+                          image: AssetImage(
+                            "images/admin_icon02.png",
+                          ),
                         ),
-                      ),
-                      Text(
-                        "异常告警",
-                        style: TextStyle(
-                          fontSize: 30.f,
-                          color: Colours.app_font_grey6,
-                        ),
-                      )
-                    ],
+                        Text(
+                          "异常告警",
+                          style: TextStyle(
+                            fontSize: 30.f,
+                            color: Colours.app_font_grey6,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                  Column(
-                    children: [
-                      Image(
-                        width: 106.w,
-                        height: 106.w,
-                        image: AssetImage(
-                          "images/admin_icon03.png",
+                  InkWell(
+                    onTap: () {
+                      Get.toNamed("/admin-bind-combo");
+                    },
+                    child: Column(
+                      children: [
+                        Image(
+                          width: 106.w,
+                          height: 106.w,
+                          image: AssetImage(
+                            "images/admin_icon03.png",
+                          ),
                         ),
-                      ),
-                      Text(
-                        "绑定套餐",
-                        style: TextStyle(
-                          fontSize: 30.f,
-                          color: Colours.app_font_grey6,
-                        ),
-                      )
-                    ],
+                        Text(
+                          "绑定套餐",
+                          style: TextStyle(
+                            fontSize: 30.f,
+                            color: Colours.app_font_grey6,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                  Column(
-                    children: [
-                      Image(
-                        width: 106.w,
-                        height: 106.w,
-                        image: AssetImage(
-                          "images/admin_icon04.png",
+                  InkWell(
+                    onTap: () {
+                      Get.toNamed("/admin-unbind-battery");
+                    },
+                    child: Column(
+                      children: [
+                        Image(
+                          width: 106.w,
+                          height: 106.w,
+                          image: AssetImage(
+                            "images/admin_icon04.png",
+                          ),
                         ),
-                      ),
-                      Text(
-                        "解绑电池",
-                        style: TextStyle(
-                          fontSize: 30.f,
-                          color: Colours.app_font_grey6,
-                        ),
-                      )
-                    ],
+                        Text(
+                          "解绑电池",
+                          style: TextStyle(
+                            fontSize: 30.f,
+                            color: Colours.app_font_grey6,
+                          ),
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),

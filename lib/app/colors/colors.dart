@@ -36,4 +36,5 @@ class Colours {
   static const Color light_yellow = Color(0x66FFE286);
   static const Color D563_yellow = Color(0xFFF9D563);
   static const Color app_search_grey = Color(0xFFF2F4F6);
+  static const Color app_admin_blue = Color(0xFF1A6EFF);
 }

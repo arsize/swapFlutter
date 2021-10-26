@@ -6,10 +6,18 @@ import 'package:raintree/app/modules/add_address/bindings/add_address_binding.da
 import 'package:raintree/app/modules/add_address/views/add_address_view.dart';
 import 'package:raintree/app/modules/admin/bindings/admin_binding.dart';
 import 'package:raintree/app/modules/admin/views/admin_view.dart';
+import 'package:raintree/app/modules/admin_bind_combo/bindings/admin_bind_combo_binding.dart';
+import 'package:raintree/app/modules/admin_bind_combo/views/admin_bind_combo_view.dart';
+import 'package:raintree/app/modules/admin_cabinet_detail/bindings/admin_cabinet_detail_binding.dart';
+import 'package:raintree/app/modules/admin_cabinet_detail/views/admin_cabinet_detail_view.dart';
 import 'package:raintree/app/modules/admin_cabinet_list/bindings/admin_cabinet_list_binding.dart';
 import 'package:raintree/app/modules/admin_cabinet_list/views/admin_cabinet_list_view.dart';
+import 'package:raintree/app/modules/admin_unbind_battery/bindings/admin_unbind_battery_binding.dart';
+import 'package:raintree/app/modules/admin_unbind_battery/views/admin_unbind_battery_view.dart';
 import 'package:raintree/app/modules/agreement/bindings/agreement_binding.dart';
 import 'package:raintree/app/modules/agreement/views/agreement_view.dart';
+import 'package:raintree/app/modules/anomalies_alarm/bindings/anomalies_alarm_binding.dart';
+import 'package:raintree/app/modules/anomalies_alarm/views/anomalies_alarm_view.dart';
 import 'package:raintree/app/modules/bind_car/bindings/bind_car_binding.dart';
 import 'package:raintree/app/modules/bind_car/views/bind_car_view.dart';
 import 'package:raintree/app/modules/bind_contact/bindings/bind_contact_binding.dart';
@@ -358,6 +366,26 @@ class AppPages {
       name: _Paths.ADMIN_CABINET_LIST,
       page: () => AdminCabinetListView(),
       binding: AdminCabinetListBinding(),
+    ),
+    GetPage(
+      name: _Paths.ANOMALIES_ALARM,
+      page: () => AnomaliesAlarmView(),
+      binding: AnomaliesAlarmBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_BIND_COMBO,
+      page: () => AdminBindComboView(),
+      binding: AdminBindComboBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_UNBIND_BATTERY,
+      page: () => AdminUnbindBatteryView(),
+      binding: AdminUnbindBatteryBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_CABINET_DETAIL,
+      page: () => AdminCabinetDetailView(),
+      binding: AdminCabinetDetailBinding(),
     ),
   ];
 }

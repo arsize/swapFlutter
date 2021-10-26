@@ -53,6 +53,10 @@ abstract class Routes {
   static const SHOP_ORDER_LIST = _Paths.SHOP_ORDER_LIST;
   static const COMMON_PROBLEM = _Paths.COMMON_PROBLEM;
   static const ADMIN_CABINET_LIST = _Paths.ADMIN_CABINET_LIST;
+  static const ANOMALIES_ALARM = _Paths.ANOMALIES_ALARM;
+  static const ADMIN_BIND_COMBO = _Paths.ADMIN_BIND_COMBO;
+  static const ADMIN_UNBIND_BATTERY = _Paths.ADMIN_UNBIND_BATTERY;
+  static const ADMIN_CABINET_DETAIL = _Paths.ADMIN_CABINET_DETAIL;
 }
 
 abstract class _Paths {
@@ -105,4 +109,8 @@ abstract class _Paths {
   static const SHOP_ORDER_LIST = '/shop-order-list';
   static const COMMON_PROBLEM = '/common-problem';
   static const ADMIN_CABINET_LIST = '/admin-cabinet-list';
+  static const ANOMALIES_ALARM = '/anomalies-alarm';
+  static const ADMIN_BIND_COMBO = '/admin-bind-combo';
+  static const ADMIN_UNBIND_BATTERY = '/admin-unbind-battery';
+  static const ADMIN_CABINET_DETAIL = '/admin-cabinet-detail';
 }

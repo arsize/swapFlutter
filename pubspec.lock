@@ -413,6 +413,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.1"
+  popover:
+    dependency: "direct main"
+    description:
+      name: popover
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.2.6+3"
   process:
     dependency: transitive
     description:

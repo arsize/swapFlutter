@@ -24,12 +24,13 @@ class PanelHeadRow extends StatelessWidget {
                   ctrl.changeMenu("换电"),
                 },
               ),
-              InkWell(
+              Bounce(
+                duration: Duration(milliseconds: 110),
                 child: Container(
                   width: 90.w,
                   child: PanelHeadText(str: '商城'),
                 ),
-                onTap: () => {
+                onPressed: () => {
                   ctrl.changeMenu("商城"),
                   Get.toNamed("/shop"),
                 },

@@ -14,6 +14,7 @@ import 'package:get/get.dart';
 import 'package:raintree/app/colors/colors.dart';
 import 'package:raintree/app/common/widgets/app_bar.dart';
 import 'package:raintree/app/utils/utils.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 import '../controllers/shop_controller.dart';
 
@@ -25,39 +26,36 @@ class ShopView extends GetView<ShopController> {
     return Scaffold(
       appBar: defaultAppBar(title: "商城"),
       body: Stack(
-        fit: StackFit.expand,
         children: [
-          Positioned(
-            top: 0,
-            child: Container(
-              width: Get.width,
-              height: 550.h,
-              child: Swiper(
-                itemBuilder: (BuildContext context, int index) {
-                  return Image(
-                    fit: BoxFit.cover,
-                    image: AssetImage("images/shop_car_item.png"),
-                  );
-                },
-                itemCount: 3,
-                autoplay: true,
-                pagination: SwiperPagination(
-                  builder: DotSwiperPaginationBuilder(
-                    size: 6.0,
-                    activeSize: 6.0,
-                    space: 10.0,
-                    activeColor: Colours.app_green,
-                  ),
+          Container(
+            width: Get.width,
+            height: 550.h,
+            child: Swiper(
+              itemBuilder: (BuildContext context, int index) {
+                return Image(
+                  fit: BoxFit.cover,
+                  image: AssetImage("images/shop_car_item.png"),
+                );
+              },
+              itemCount: 3,
+              autoplay: true,
+              pagination: SwiperPagination(
+                builder: DotSwiperPaginationBuilder(
+                  size: 6.0,
+                  activeSize: 6.0,
+                  space: 10.0,
+                  activeColor: Colours.app_green,
                 ),
               ),
             ),
           ),
-          Positioned(
-            top: 540.h,
-            bottom: 0,
-            child: Container(
+          SlidingUpPanel(
+            minHeight: 670.h,
+            maxHeight: Get.height - 135.h,
+            borderRadius: ArUtil.border(25),
+            panel: Container(
               width: Get.width,
-              padding: EdgeInsets.all(32.w),
+              padding: EdgeInsets.only(left: 32.w, right: 32.w, bottom: 32.w),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -65,34 +63,50 @@ class ShopView extends GetView<ShopController> {
                   topRight: Radius.circular(30.w),
                 ),
               ),
-              child: AnimationLimiter(
-                child: GridView.builder(
-                  itemCount: 10,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 30.w,
-                    crossAxisSpacing: 30.w,
-                    childAspectRatio: 0.75,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Positioned(
+                    top: 10.h,
+                    child: Image(
+                      width: 72.w,
+                      height: 24.w,
+                      image: AssetImage("images/scrolling_line.png"),
+                    ),
                   ),
-                  itemBuilder: (context, index) {
-                    return AnimationConfiguration.staggeredGrid(
-                      columnCount: 2,
-                      position: index,
-                      duration: Duration(milliseconds: 375),
-                      child: SlideAnimation(
-                        verticalOffset: 50.0,
-                        child: FadeInAnimation(
-                          child: InkWell(
-                            onTap: () {
-                              Get.toNamed("/shop-product-detail");
-                            },
-                            child: ProductItem(),
-                          ),
+                  Container(
+                    padding: EdgeInsets.only(top: 50.h),
+                    child: AnimationLimiter(
+                      child: GridView.builder(
+                        itemCount: 10,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 30.w,
+                          crossAxisSpacing: 30.w,
+                          childAspectRatio: 0.75,
                         ),
+                        itemBuilder: (context, index) {
+                          return AnimationConfiguration.staggeredGrid(
+                            columnCount: 2,
+                            position: index,
+                            duration: Duration(milliseconds: 375),
+                            child: SlideAnimation(
+                              verticalOffset: 50.0,
+                              child: FadeInAnimation(
+                                child: InkWell(
+                                  onTap: () {
+                                    Get.toNamed("/shop-product-detail");
+                                  },
+                                  child: ProductItem(),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
                       ),
-                    );
-                  },
-                ),
+                    ),
+                  )
+                ],
               ),
             ),
           ),

@@ -1,6 +1,7 @@
 library camera_scan_view;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bounce/flutter_bounce.dart';
 
 import 'package:get/get.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -69,8 +70,9 @@ class CameraScanView extends GetView<CameraScanController> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      InkWell(
-                        onTap: () {
+                      Bounce(
+                        duration: Duration(milliseconds: 110),
+                        onPressed: () {
                           Get.offNamed("/transit-input");
                         },
                         child: Column(
@@ -94,8 +96,9 @@ class CameraScanView extends GetView<CameraScanController> {
                           ],
                         ),
                       ),
-                      InkWell(
-                        onTap: () {
+                      Bounce(
+                        duration: Duration(milliseconds: 110),
+                        onPressed: () {
                           controller.toggleFlash();
                         },
                         child: Column(

@@ -60,6 +60,7 @@ class AdminCabinetListView extends GetView<AdminCabinetListController> {
                                 ),
                                 hintStyle: TextStyle(
                                   color: Colours.app_font_grey,
+                                  fontSize: 28.f,
                                 ),
                               ),
                               onChanged: (String text) {},

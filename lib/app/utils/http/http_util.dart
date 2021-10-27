@@ -44,10 +44,14 @@ class HTTP {
     required String methods,
     data,
     params,
+    loading = true,
     String responseType = 'string',
     Options? options,
   }) async {
-    EasyLoading.show(status: '请稍后...');
+    if (loading) {
+      EasyLoading.show(status: '请稍后...');
+    }
+
     Options requestOptions = options ?? Options();
     requestOptions.method = methods;
     Map<String, dynamic>? _authorization = getAuthorizationHeader(path: path);
@@ -60,7 +64,10 @@ class HTTP {
       data: data,
       queryParameters: params,
     );
-    EasyLoading.dismiss();
+    if (loading) {
+      EasyLoading.dismiss();
+    }
+
     return responseType == "json"
         ? _handleDecodeJson(response)
         : response.toString();

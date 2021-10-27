@@ -1,3 +1,4 @@
+import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -39,11 +40,14 @@ class NoticeDetailView extends GetView<NoticeDetailController> {
               SizedBox(
                 height: Adapt.height(32),
               ),
-              Text(
-                "为提供更好的服务，我们将于6月6日0时至24时进行系统升级，升级过程中平台将无法访问，请提前做好充换电准备，若提前完成升级会及时通知大家，升级过程中给大家带来的不便敬请谅解。",
-                style: TextStyle(
-                  fontSize: Adapt.font(28),
-                  color: Colours.app_main,
+              DelayedDisplay(
+                delay: Duration(microseconds: 300),
+                child: Text(
+                  "为提供更好的服务，我们将于6月6日0时至24时进行系统升级，升级过程中平台将无法访问，请提前做好充换电准备，若提前完成升级会及时通知大家，升级过程中给大家带来的不便敬请谅解。",
+                  style: TextStyle(
+                    fontSize: Adapt.font(28),
+                    color: Colours.app_main,
+                  ),
                 ),
               )
             ],

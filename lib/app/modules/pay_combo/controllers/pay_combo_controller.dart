@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:raintree/app/colors/colors.dart';
+import 'package:raintree/app/common/langs/langs.dart';
 import 'package:raintree/app/modules/pay_combo/apis/pay_frequency_card.dart';
+import 'package:raintree/app/modules/user_combo/controllers/user_combo_controller.dart';
 import 'package:raintree/app/utils/utils.dart';
 import 'package:raintree/app/common/widgets/common_wigets.dart';
 import 'package:raintree/app/entities/entities.dart';
@@ -10,6 +13,7 @@ import 'package:raintree/app/values/result_code.dart';
 
 class PayComboController extends GetxController {
   CanUseComboModel comoModel = CanUseComboModel();
+  final userComboController = Get.find<UserComboController>();
   RxBool show = false.obs;
   RxDouble money = 0.0.obs;
   int selectId = 0;
@@ -53,9 +57,11 @@ class PayComboController extends GetxController {
       fn1: () async {
         var _result = await payFrequencyCard(frequencyCardId: selectId);
         Get.back();
+        var _msg = '';
         if (_result["code"] != 200) {
           switch (_result["code"]) {
             case WALLET_BALANCE_NOT_ENOUGH:
+              _msg = "钱包余额不足，请先充值";
               arDialog(
                 context: Get.context,
                 fn1: () {
@@ -67,11 +73,26 @@ class PayComboController extends GetxController {
                   Get.toNamed("/payment?money=${money.value}");
                 },
                 fn2Text: "去充值",
-                content: "钱包余额不足，请先充值",
+                content: _msg,
+              );
+              break;
+            case DEPOSIT_TYPES_DO_NOT_MATCH:
+              _msg = "押金类型不匹配";
+              arDialog(
+                context: Get.context,
+                fn1: () {
+                  Get.back();
+                },
+                fn1Text: "我知道了",
+                content: _msg,
               );
               break;
             default:
           }
+        } else {
+          userComboController.getComboList();
+          Get.back();
+          EasyLoading.showSuccess("购买成功");
         }
       },
       height: 450.h,

@@ -17,7 +17,6 @@ Future getCabinetInfoByScan({cabinetId}) {
     if (value["code"] != 200) {
       var _msg = '';
       var type = 'info';
-      print(value["code"]);
       switch (value["code"]) {
         case CABINET_DONT_EXISTS:
           _msg = "电柜未开通，请稍后再试";

@@ -71,6 +71,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.1"
+  delayed_display:
+    dependency: "direct main"
+    description:
+      name: delayed_display
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.0.0"
   dio:
     dependency: "direct main"
     description:
@@ -111,6 +118,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_bounce:
+    dependency: "direct main"
+    description:
+      name: flutter_bounce
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.1.0"
   flutter_easyloading:
     dependency: "direct main"
     description:
@@ -308,6 +322,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.12.10"
+  material_floating_search_bar:
+    dependency: "direct main"
+    description:
+      name: material_floating_search_bar
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.3.6"
   meta:
     dependency: transitive
     description:

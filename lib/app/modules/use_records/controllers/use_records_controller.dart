@@ -1,4 +1,3 @@
-import 'package:date_time_format/date_time_format.dart';
 import 'package:get/get.dart';
 import 'package:raintree/app/entities/exchange_record_model/exchange_record_model.dart';
 import 'package:raintree/app/modules/use_records/apis/exchange_record.dart';
@@ -18,12 +17,6 @@ class UseRecordsController extends GetxController {
       exchangeRecord = ExchangeRecordModel.fromJson(_result);
     }
     update();
-    print(_result);
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
   }
 
   @override

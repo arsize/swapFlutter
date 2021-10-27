@@ -5,13 +5,13 @@ class CurrentPackage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final store = Get.find<StoreController>();
     return Container(
       color: Colors.white,
       width: Get.width,
       padding: EdgeInsets.all(32.w),
       child: GetBuilder<StoreController>(
         builder: (_) {
-          print(_.cabinetDetail.data?.userFrequencyCardRecord);
           return _.cabinetDetail.data?.userFrequencyCardRecord.id != null
               ? Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +43,7 @@ class CurrentPackage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "剩余4次",
+                                "剩余${store.cabinetDetail.data?.userFrequencyCardRecord.surplusNum ?? '--'}次",
                                 style: TextStyle(
                                   fontSize: 30.f,
                                   color: Colours.app_over_yellow,
@@ -54,7 +54,7 @@ class CurrentPackage extends StatelessWidget {
                                 height: 3.h,
                               ),
                               Text(
-                                "有效期：2020.04.01",
+                                "有效期：${formateTime(store.cabinetDetail.data?.userFrequencyCardRecord.takeEffectTime, second: false)} - ${formateTime(store.cabinetDetail.data?.userFrequencyCardRecord.loseEffectTime, second: false)}",
                                 style: TextStyle(
                                   fontSize: 24.f,
                                   color: Colours.app_normal_grey,

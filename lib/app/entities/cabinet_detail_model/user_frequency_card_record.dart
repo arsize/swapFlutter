@@ -17,7 +17,7 @@ class UserFrequencyCardRecord {
   final int? frequencyCardPrice;
   final int? frequencyCardType;
   final int? id;
-  final String? loseEffectTime;
+  final int? loseEffectTime;
   final int? numberOfFulfilledContracts;
   final int? oldFrequencyCardId;
   final String? orderNumber;
@@ -25,7 +25,7 @@ class UserFrequencyCardRecord {
   final int? payType;
   final int? status;
   final int? surplusNum;
-  final String? takeEffectTime;
+  final int? takeEffectTime;
   UserFrequencyCardRecord({
     this.accountId,
     this.accountUid,
@@ -71,7 +71,7 @@ class UserFrequencyCardRecord {
     int? frequencyCardPrice,
     int? frequencyCardType,
     int? id,
-    String? loseEffectTime,
+    int? loseEffectTime,
     int? numberOfFulfilledContracts,
     int? oldFrequencyCardId,
     String? orderNumber,
@@ -79,7 +79,7 @@ class UserFrequencyCardRecord {
     int? payType,
     int? status,
     int? surplusNum,
-    String? takeEffectTime,
+    int? takeEffectTime,
   }) {
     return UserFrequencyCardRecord(
       accountId: accountId ?? this.accountId,

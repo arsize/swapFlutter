@@ -9,6 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:raintree/app/colors/colors.dart';
@@ -89,7 +90,7 @@ class HomeView extends GetView<HomeController> {
             topRight: Radius.circular(10.0),
           ),
           minHeight: 400.h,
-          maxHeight: controller.currentModle.value == 'cabinet' ? 680.h : 560.h,
+          maxHeight: controller.currentModle.value == 'cabinet' ? 680.h : 580.h,
           panel: controller.currentModle.value == 'cabinet'
               ? CabinetPanel()
               : Panel(),

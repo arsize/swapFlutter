@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:raintree/app/colors/colors.dart';
+import 'package:raintree/app/common/methods/normal.dart';
 import 'package:raintree/app/store/store.dart';
 import 'package:raintree/app/utils/utils.dart';
 import 'package:raintree/app/common/widgets/common_wigets.dart';
@@ -21,6 +22,7 @@ class ExchangeInfoView extends GetView<ExchangeInfoController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: defaultAppBar(title: "换电"),
       body: Container(
         width: Get.width,

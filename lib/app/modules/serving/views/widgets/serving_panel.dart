@@ -5,6 +5,7 @@ class ServingPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ctrl = Get.find<ServingController>();
     return Container(
       padding: EdgeInsets.all(32.w),
       width: 686.w,
@@ -34,11 +35,13 @@ class ServingPanel extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 15.h),
-              Text(
-                "请在120s内完成换电操作",
-                style: TextStyle(
-                  color: Colours.app_normal_grey,
-                  fontSize: 28.f,
+              Obx(
+                () => Text(
+                  "请在${ctrl.countdown.value}s内完成换电操作",
+                  style: TextStyle(
+                    color: Colours.app_normal_grey,
+                    fontSize: 28.f,
+                  ),
                 ),
               ),
               SizedBox(height: 60.h)

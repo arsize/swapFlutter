@@ -36,6 +36,8 @@ import 'package:raintree/app/modules/edit_mobile/bindings/edit_mobile_binding.da
 import 'package:raintree/app/modules/edit_mobile/views/edit_mobile_view.dart';
 import 'package:raintree/app/modules/edit_nickname/bindings/edit_nickname_binding.dart';
 import 'package:raintree/app/modules/edit_nickname/views/edit_nickname_view.dart';
+import 'package:raintree/app/modules/exchange_end_error/bindings/exchange_end_error_binding.dart';
+import 'package:raintree/app/modules/exchange_end_error/views/exchange_end_error_view.dart';
 import 'package:raintree/app/modules/exchange_finish/bindings/exchange_finish_binding.dart';
 import 'package:raintree/app/modules/exchange_finish/views/exchange_finish_view.dart';
 import 'package:raintree/app/modules/exchange_info/bindings/exchange_info_binding.dart';
@@ -52,8 +54,6 @@ import 'package:raintree/app/modules/multilingual/bindings/multilingual_binding.
 import 'package:raintree/app/modules/multilingual/views/multilingual_view.dart';
 import 'package:raintree/app/modules/my/bindings/my_binding.dart';
 import 'package:raintree/app/modules/my/views/my_view.dart';
-import 'package:raintree/app/modules/my_package/bindings/my_package_binding.dart';
-import 'package:raintree/app/modules/my_package/views/my_package_view.dart';
 import 'package:raintree/app/modules/my_qrcode/bindings/my_qrcode_binding.dart';
 import 'package:raintree/app/modules/my_qrcode/views/my_qrcode_view.dart';
 import 'package:raintree/app/modules/notice_detail/bindings/notice_detail_binding.dart';
@@ -171,11 +171,6 @@ class AppPages {
       name: _Paths.ABOUT_US,
       page: () => AboutUsView(),
       binding: AboutUsBinding(),
-    ),
-    GetPage(
-      name: _Paths.MY_PACKAGE,
-      page: () => MyPackageView(),
-      binding: MyPackageBinding(),
     ),
     GetPage(
       name: _Paths.CAMERA_SCAN,
@@ -363,11 +358,6 @@ class AppPages {
       binding: CommonProblemBinding(),
     ),
     GetPage(
-      name: _Paths.ADMIN_CABINET_LIST,
-      page: () => AdminCabinetListView(),
-      binding: AdminCabinetListBinding(),
-    ),
-    GetPage(
       name: _Paths.ANOMALIES_ALARM,
       page: () => AnomaliesAlarmView(),
       binding: AnomaliesAlarmBinding(),
@@ -386,6 +376,16 @@ class AppPages {
       name: _Paths.ADMIN_CABINET_DETAIL,
       page: () => AdminCabinetDetailView(),
       binding: AdminCabinetDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_CABINET_LIST,
+      page: () => AdminCabinetListView(),
+      binding: AdminCabinetListBinding(),
+    ),
+    GetPage(
+      name: _Paths.EXCHANGE_END_ERROR,
+      page: () => ExchangeEndErrorView(),
+      binding: ExchangeEndErrorBinding(),
     ),
   ];
 }

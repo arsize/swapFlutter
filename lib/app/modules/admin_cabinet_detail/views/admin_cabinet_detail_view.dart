@@ -10,6 +10,7 @@ import 'package:raintree/app/utils/utils.dart';
 
 part './widgets/box_info.dart';
 part './widgets/cabinet_info.dart';
+part './widgets/popover.dart';
 
 class AdminCabinetDetailView extends StatefulWidget {
   const AdminCabinetDetailView({Key? key}) : super(key: key);

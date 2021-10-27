@@ -1,6 +1,7 @@
 library transit_input_view;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_verification_box/verification_box.dart';
 
 import 'package:get/get.dart';
@@ -14,6 +15,7 @@ class TransitInputView extends GetView<TransitInputController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: defaultAppBar(title: "输入电柜ID"),
       body: Padding(
         padding: EdgeInsets.all(32.w),
@@ -76,6 +78,7 @@ class TransitInputView extends GetView<TransitInputController> {
                 width: double.infinity,
                 color: Colours.app_bg_grey,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -87,41 +90,53 @@ class TransitInputView extends GetView<TransitInputController> {
                             color: Colours.app_normal_grey,
                           ),
                         ),
-                        Icon(
-                          Icons.delete,
-                          size: 35.f,
-                          color: Colours.app_normal_grey,
+                        Bounce(
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              left: 40,
+                            ),
+                            child: Icon(
+                              Icons.delete,
+                              size: 35.f,
+                              color: Colours.app_normal_grey,
+                            ),
+                          ),
+                          duration: Duration(milliseconds: 110),
+                          onPressed: () {
+                            controller.delHistory();
+                          },
                         )
                       ],
                     ),
                     SizedBox(
                       height: 32.h,
                     ),
-                    Wrap(
-                      alignment: WrapAlignment.spaceBetween,
-                      spacing: 22.w,
-                      runSpacing: 22.h,
-                      children: controller.history
-                          .map(
-                            (e) => Container(
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: ArUtil.border(6),
-                              ),
-                              alignment: Alignment.center,
-                              width: 214.w,
-                              height: 80.h,
-                              child: Text(
-                                e.toString(),
-                                style: TextStyle(
-                                  color: Colours.app_normal_grey,
-                                  fontSize: 28.f,
+                    GetBuilder<TransitInputController>(builder: (_) {
+                      return Wrap(
+                        spacing: 10,
+                        runSpacing: 10,
+                        children: _.history
+                            .map(
+                              (e) => Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: ArUtil.border(6),
+                                ),
+                                alignment: Alignment.center,
+                                width: 214.w,
+                                height: 80.h,
+                                child: Text(
+                                  e.toString(),
+                                  style: TextStyle(
+                                    color: Colours.app_normal_grey,
+                                    fontSize: 28.f,
+                                  ),
                                 ),
                               ),
-                            ),
-                          )
-                          .toList(),
-                    )
+                            )
+                            .toList(),
+                      );
+                    })
                   ],
                 ),
               ),

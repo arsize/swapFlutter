@@ -15,16 +15,17 @@ class PanelBtnList extends StatelessWidget {
         children: [
           Expanded(
             flex: 1,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(5)),
-                color: Colours.app_normal_grey.withOpacity(0.1),
-              ),
-              height: 100.h,
-              child: InkWell(
-                onTap: () {
-                  Get.toNamed("/shop");
-                },
+            child: Bounce(
+              onPressed: () {
+                Get.toNamed("/shop");
+              },
+              duration: Duration(milliseconds: 110),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  color: Colours.app_normal_grey.withOpacity(0.1),
+                ),
+                height: 100.h,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -50,14 +51,15 @@ class PanelBtnList extends StatelessWidget {
           ),
           Expanded(
             flex: 1,
-            child: InkWell(
-              onTap: () {
+            child: Bounce(
+              duration: Duration(milliseconds: 110),
+              onPressed: () {
                 Get.toNamed("/wallet");
               },
               child: Container(
                 height: 100.h,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
                   color: Colours.app_normal_grey.withOpacity(0.1),
                 ),
                 child: Row(

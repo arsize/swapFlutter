@@ -13,6 +13,7 @@ Future exchangeResult({orderNo}) {
     responseType: "json",
     path: "app/ctl/exchangeResult",
     methods: "get",
+    loading: false,
     params: {
       "exchangeOrderNo": orderNo,
     },

@@ -361,3 +361,30 @@ const VEHICLE_IS_NOT_ASSIGNED_TO_THE_STORE = 130008;
 
 /// 该用户未绑定车辆，暂不能绑定套餐
 const USERS_CANNOT_PURCHASE_PACKAGES_WITHOUT_VEHICLE = 130009;
+
+/// 押金已支付
+const DEPOSIT_HAS_BEEN_PAID = 20001;
+
+///无押金收费标准
+const NO_DEPOSIT_CHARGE_STANDARD = 20002;
+
+///无押金记录
+const NO_DEPOSIT_RECORD = 20003;
+
+///退还押金异常
+const REFUND_DEPOSIT_EXCEPTION = 20004;
+
+///押金类型不匹配
+const DEPOSIT_TYPES_DO_NOT_MATCH = 20005;
+
+///押金已退
+const DEPOSIT_HAS_BEEN_BACK = 20006;
+
+///押金退还中
+const DEPOSIT_REFUNDING = 20007;
+
+///无待退押金
+const NOT_EXIST_RETURN_OF_DEPOSIT = 20008;
+
+///押金收费规则不存在
+const DEPOSIT_NOT_EXISTS = 20009;

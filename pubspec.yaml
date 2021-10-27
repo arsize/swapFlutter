@@ -46,6 +46,12 @@ dependencies:
   gzx_dropdown_menu: ^3.1.0
   # 气泡式对话框
   popover: ^0.2.6+3
+  # 在延迟后以漂亮的淡入淡出和滑动动画显示子项
+  delayed_display: ^2.0.0
+  # 用于在任何小部件上点击弹跳动画。
+  flutter_bounce: ^1.1.0
+  # 浮动搜索栏
+  material_floating_search_bar: ^0.3.6
   
   flutter: 
     sdk: flutter

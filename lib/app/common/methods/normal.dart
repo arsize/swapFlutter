@@ -53,7 +53,12 @@ Map<String, dynamic> _handleDecodeJson(result) {
 }
 
 /// 格式化时间
-String formateTime(time) {
-  DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(time);
-  return DateTimeFormat.format(dateTime);
+String formateTime(time, {second = true}) {
+  if (time != null) {
+    DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(time);
+    return DateTimeFormat.format(dateTime,
+        format: second ? r'Y.m.d H:i:s' : r'Y.m.d');
+  } else {
+    return '--';
+  }
 }

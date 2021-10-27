@@ -17,7 +17,7 @@ class Data {
   final int? frequencyCardPrice;
   final int? frequencyCardType;
   final int? id;
-  final String? loseEffectTime;
+  final int? loseEffectTime;
   final int? numberOfFulfilledContracts;
   final int? oldFrequencyCardId;
   final String? orderNumber;
@@ -25,7 +25,7 @@ class Data {
   final int? payType;
   final int? status;
   final int? surplusNum;
-  final String? takeEffectTime;
+  final int? takeEffectTime;
   Data({
     this.accountId,
     this.accountUid,
@@ -71,7 +71,7 @@ class Data {
     int? frequencyCardPrice,
     int? frequencyCardType,
     int? id,
-    String? loseEffectTime,
+    int? loseEffectTime,
     int? numberOfFulfilledContracts,
     int? oldFrequencyCardId,
     String? orderNumber,
@@ -79,7 +79,7 @@ class Data {
     int? payType,
     int? status,
     int? surplusNum,
-    String? takeEffectTime,
+    int? takeEffectTime,
   }) {
     return Data(
       accountId: accountId ?? this.accountId,

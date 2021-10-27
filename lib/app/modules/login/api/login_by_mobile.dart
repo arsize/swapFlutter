@@ -7,6 +7,7 @@ import 'package:raintree/app/utils/http/http_util.dart';
 
 Future loginByMobile({account, password, areaCode}) {
   return HTTP().request(
+    responseType: "json",
     path: "app/login/appRegister",
     methods: "post",
     data: {

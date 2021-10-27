@@ -54,35 +54,31 @@ class BoxInfo extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: 10.w),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "点击以下仓位编号，可对相应的仓位进行管理操作。",
-                      style: TextStyle(
-                        fontSize: 28.f,
-                        color: Colours.app_font_grey,
-                      ),
-                    ),
-                    Row(
+                Expanded(
+                  child: Container(
+                    child: Wrap(
                       children: [
-                        Text(
-                          "如需快捷操作，请点击",
-                          style: TextStyle(
-                            fontSize: 28.f,
-                            color: Colours.app_font_grey,
-                          ),
+                        RichText(
+                          text: TextSpan(children: [
+                            TextSpan(
+                              text: "点击以下仓位编号，可对相应的仓位进行管理操作。如需快捷操作，请点击",
+                              style: TextStyle(
+                                fontSize: 28.f,
+                                color: Colours.app_font_grey,
+                              ),
+                            ),
+                            TextSpan(
+                              text: "“一键开仓”",
+                              style: TextStyle(
+                                fontSize: 28.f,
+                                color: Colours.app_green,
+                              ),
+                            ),
+                          ]),
                         ),
-                        Text(
-                          "“一键开仓”",
-                          style: TextStyle(
-                            fontSize: 28.f,
-                            color: Colours.app_green,
-                          ),
-                        )
                       ],
-                    )
-                  ],
+                    ),
+                  ),
                 )
               ],
             ),
@@ -144,26 +140,8 @@ class BoxInfo extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 8.w),
-                    InkWell(
-                      onTap: () {
-                        showPopover(
-                          context: Get.context!,
-                          backgroundColor: Colours.app_main,
-                          transitionDuration: Duration(milliseconds: 150),
-                          bodyBuilder: (context) => Container(
-                            width: 506.w,
-                            height: 70.h,
-                            color: Colours.app_main,
-                            child: Text("用户电池被吞并后系统自动锁定仓"),
-                          ),
-                          onPop: () => print('Popover was popped!'),
-                          direction: PopoverDirection.bottom,
-                          width: 506.w,
-                          height: 70.h,
-                          arrowHeight: 15,
-                          arrowWidth: 30,
-                        );
-                      },
+                    Popover(
+                      popText: "用户电池被吞并后系统自动锁定仓",
                       child: Image(
                         width: 32.w,
                         height: 32.w,
@@ -188,8 +166,8 @@ class BoxInfo extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 8.w),
-                    InkWell(
-                      onTap: () {},
+                    Popover(
+                      popText: "当仓内温度高于170℃会自动启用灭火器",
                       child: Image(
                         width: 32.w,
                         height: 32.w,
@@ -215,7 +193,7 @@ class BoxInfo extends StatelessWidget {
                     crossAxisCount: 2,
                     mainAxisSpacing: 30.w,
                     crossAxisSpacing: 30.w,
-                    childAspectRatio: 0.95,
+                    childAspectRatio: 0.89,
                   ),
                   itemBuilder: (context, index) {
                     return AnimationConfiguration.staggeredGrid(
@@ -232,7 +210,10 @@ class BoxInfo extends StatelessWidget {
                             child: Container(
                               width: 327.w,
                               height: 296.h,
-                              padding: EdgeInsets.all(32.w),
+                              padding: EdgeInsets.only(
+                                right: 32.w,
+                                bottom: 32.h,
+                              ),
                               decoration: BoxDecoration(
                                   borderRadius: ArUtil.border(15),
                                   border: Border.all(
@@ -243,57 +224,93 @@ class BoxInfo extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    "BT1060…413086",
-                                    style: TextStyle(
-                                      fontSize: 28.f,
-                                      color: Colours.app_blue,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.only(
+                                          top: 14.h,
+                                          left: 14.w,
+                                        ),
+                                        width: 24.w,
+                                        height: 24.w,
+                                        alignment: Alignment.center,
+                                        decoration: BoxDecoration(
+                                          borderRadius: ArUtil.border(24.w),
+                                          color: Color(0xFFDDDDDD),
+                                        ),
+                                        child: Text(
+                                          index.toString(),
+                                          style: TextStyle(
+                                            fontSize: 20.f,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                  SizedBox(height: 12.h),
-                                  Text(
-                                    "型号：60V20Ah",
-                                    style: TextStyle(
-                                      fontSize: 26.f,
-                                      color: Colours.app_font_grey6,
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      left: 32.w,
+                                      top: 10.h,
                                     ),
-                                  ),
-                                  Text(
-                                    "电量：80%",
-                                    style: TextStyle(
-                                      fontSize: 26.f,
-                                      color: Colours.app_font_grey6,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "BT1060…413086",
+                                          style: TextStyle(
+                                            fontSize: 28.f,
+                                            color: Colours.app_blue,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                        SizedBox(height: 12.h),
+                                        Text(
+                                          "型号：60V20Ah",
+                                          style: TextStyle(
+                                            fontSize: 26.f,
+                                            color: Colours.app_font_grey6,
+                                          ),
+                                        ),
+                                        Text(
+                                          "电量：80%",
+                                          style: TextStyle(
+                                            fontSize: 26.f,
+                                            color: Colours.app_font_grey6,
+                                          ),
+                                        ),
+                                        Text(
+                                          "电池电压：60V",
+                                          style: TextStyle(
+                                            fontSize: 26.f,
+                                            color: Colours.app_font_grey6,
+                                          ),
+                                        ),
+                                        Text(
+                                          "仓内温度：36℃",
+                                          style: TextStyle(
+                                            fontSize: 26.f,
+                                            color: Colours.app_font_grey6,
+                                          ),
+                                        ),
+                                        Text(
+                                          "充电电流：0A",
+                                          style: TextStyle(
+                                            fontSize: 26.f,
+                                            color: Colours.app_font_grey6,
+                                          ),
+                                        ),
+                                        Text(
+                                          "充电状态：已充满",
+                                          style: TextStyle(
+                                            fontSize: 26.f,
+                                            color: Colours.app_font_grey6,
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                  Text(
-                                    "电池电压：60V",
-                                    style: TextStyle(
-                                      fontSize: 26.f,
-                                      color: Colours.app_font_grey6,
-                                    ),
-                                  ),
-                                  Text(
-                                    "仓内温度：36℃",
-                                    style: TextStyle(
-                                      fontSize: 26.f,
-                                      color: Colours.app_font_grey6,
-                                    ),
-                                  ),
-                                  Text(
-                                    "充电电流：0A",
-                                    style: TextStyle(
-                                      fontSize: 26.f,
-                                      color: Colours.app_font_grey6,
-                                    ),
-                                  ),
-                                  Text(
-                                    "充电状态：已充满",
-                                    style: TextStyle(
-                                      fontSize: 26.f,
-                                      color: Colours.app_font_grey6,
-                                    ),
-                                  ),
+                                  )
                                 ],
                               ),
                             ),

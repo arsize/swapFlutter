@@ -13,6 +13,7 @@ Widget arBtn({
   double borderRadius = 15.0,
   double fontSize = 32.0,
   backgroundColor = Colours.app_main,
+  textColor = Colours.app_yellow,
   String text = '默认',
   String leftIcon = '',
   required void Function()? fn,
@@ -53,7 +54,7 @@ Widget arBtn({
         ),
         Text(
           text,
-          style: TextStyle(fontSize: fontSize.f),
+          style: TextStyle(fontSize: fontSize.f, color: textColor),
         )
       ],
     ),

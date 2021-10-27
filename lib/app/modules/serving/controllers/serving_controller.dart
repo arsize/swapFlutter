@@ -7,6 +7,7 @@ class ServingController extends GetxController {
   int? borrowBox;
   int? returnBox;
   Timer? exchangeTimer;
+  RxInt countdown = 120.obs;
 
   @override
   void onInit() {
@@ -17,6 +18,7 @@ class ServingController extends GetxController {
 
   @override
   void dispose() {
+    print("清除定时器disposexxxxxxxxxxxxxxxxxxxxxxxxxxx");
     exchangeTimer?.cancel();
     super.dispose();
   }
@@ -26,6 +28,13 @@ class ServingController extends GetxController {
     Map<String, dynamic>? _result;
     exchangeTimer = Timer.periodic(timeout, (timer) async {
       print("换电过程定时器工作中...");
+      countdown.value = countdown.value - 1;
+      if (countdown.value <= 0) {
+        timer.cancel(); //停止轮询
+        print("取消定时器");
+        Get.offNamed("/exchange-end-error");
+        return;
+      }
       _result = await exchangeResult(orderNo: orderNo);
       if (_result?["data"] == null) {
         timer.cancel(); //停止轮询
@@ -35,11 +44,12 @@ class ServingController extends GetxController {
             print("操作中");
             if (_result!["data"]!["status"] == 1) {
               print("换电完成，取消定时器");
-              Get.toNamed("/exchange-finish");
+              Get.offNamed("/exchange-finish");
               timer.cancel(); // 取消定时器
             } else {
               print("换电失败，取消定时器");
               timer.cancel(); // 取消定时器
+              Get.offNamed("/exchange-end-error");
             }
           }
         } else {
@@ -50,5 +60,8 @@ class ServingController extends GetxController {
   }
 
   @override
-  void onClose() {}
+  void onClose() {
+    exchangeTimer?.cancel();
+    print("清除定时器onClosexxxxxxxxxxxxxxxxxxxxxxxxxxx");
+  }
 }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:raintree/app/colors/colors.dart';
+import 'package:raintree/app/common/methods/normal.dart';
 import 'package:raintree/app/common/widgets/common_wigets.dart';
 import 'package:raintree/app/utils/utils.dart';
 import '../controllers/user_combo_controller.dart';
@@ -19,7 +20,7 @@ class UserComboView extends GetView<UserComboController> {
         fit: StackFit.expand,
         children: [
           Container(
-            padding: EdgeInsets.only(bottom: 178.h),
+            padding: EdgeInsets.only(bottom: 178.h, left: 32.w, right: 32.w),
             child: GetBuilder<UserComboController>(
               builder: (_) {
                 if (_.combo.data != null) {
@@ -27,12 +28,13 @@ class UserComboView extends GetView<UserComboController> {
                       ? ListView(
                           children: _.combo.data!
                               .map(
-                                (e) => Container(
-                                  width: Get.width,
-                                  margin: EdgeInsets.only(bottom: 30.h),
-                                  child: ProductListItem(
-                                    frequencyCardType: e.frequencyCardType,
-                                  ),
+                                (e) => ProductListItem(
+                                  frequencyCardType: e.frequencyCardType,
+                                  status: e.status,
+                                  frequencyCardName: e.frequencyCardName,
+                                  surplusNum: e.surplusNum,
+                                  takeEffectTime: e.takeEffectTime,
+                                  loseEffectTime: e.loseEffectTime,
                                 ),
                               )
                               .toList(),

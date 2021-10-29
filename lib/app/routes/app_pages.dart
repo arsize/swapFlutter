@@ -6,6 +6,8 @@ import 'package:raintree/app/modules/add_address/bindings/add_address_binding.da
 import 'package:raintree/app/modules/add_address/views/add_address_view.dart';
 import 'package:raintree/app/modules/admin/bindings/admin_binding.dart';
 import 'package:raintree/app/modules/admin/views/admin_view.dart';
+import 'package:raintree/app/modules/admin_battery_detail/bindings/admin_battery_detail_binding.dart';
+import 'package:raintree/app/modules/admin_battery_detail/views/admin_battery_detail_view.dart';
 import 'package:raintree/app/modules/admin_bind_combo/bindings/admin_bind_combo_binding.dart';
 import 'package:raintree/app/modules/admin_bind_combo/views/admin_bind_combo_view.dart';
 import 'package:raintree/app/modules/admin_cabinet_detail/bindings/admin_cabinet_detail_binding.dart';
@@ -386,6 +388,11 @@ class AppPages {
       name: _Paths.EXCHANGE_END_ERROR,
       page: () => ExchangeEndErrorView(),
       binding: ExchangeEndErrorBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_BATTERY_DETAIL,
+      page: () => AdminBatteryDetailView(),
+      binding: AdminBatteryDetailBinding(),
     ),
   ];
 }

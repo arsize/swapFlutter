@@ -58,6 +58,7 @@ abstract class Routes {
   static const ADMIN_UNBIND_BATTERY = _Paths.ADMIN_UNBIND_BATTERY;
   static const ADMIN_CABINET_DETAIL = _Paths.ADMIN_CABINET_DETAIL;
   static const EXCHANGE_END_ERROR = _Paths.EXCHANGE_END_ERROR;
+  static const ADMIN_BATTERY_DETAIL = _Paths.ADMIN_BATTERY_DETAIL;
 }
 
 abstract class _Paths {
@@ -115,4 +116,5 @@ abstract class _Paths {
   static const ADMIN_UNBIND_BATTERY = '/admin-unbind-battery';
   static const ADMIN_CABINET_DETAIL = '/admin-cabinet-detail';
   static const EXCHANGE_END_ERROR = '/exchange-end-error';
+  static const ADMIN_BATTERY_DETAIL = '/admin-battery-detail';
 }

@@ -66,7 +66,7 @@ class AdminView extends GetView<AdminController> {
                         Text(
                           "电柜管理",
                           style: TextStyle(
-                            fontSize: 30.f,
+                            fontSize: 28.f,
                             color: Colours.app_font_grey6,
                           ),
                         )
@@ -89,7 +89,7 @@ class AdminView extends GetView<AdminController> {
                         Text(
                           "异常告警",
                           style: TextStyle(
-                            fontSize: 30.f,
+                            fontSize: 28.f,
                             color: Colours.app_font_grey6,
                           ),
                         )
@@ -112,7 +112,7 @@ class AdminView extends GetView<AdminController> {
                         Text(
                           "绑定套餐",
                           style: TextStyle(
-                            fontSize: 30.f,
+                            fontSize: 28.f,
                             color: Colours.app_font_grey6,
                           ),
                         )
@@ -135,7 +135,7 @@ class AdminView extends GetView<AdminController> {
                         Text(
                           "解绑电池",
                           style: TextStyle(
-                            fontSize: 30.f,
+                            fontSize: 28.f,
                             color: Colours.app_font_grey6,
                           ),
                         )

@@ -205,7 +205,7 @@ class BoxInfo extends StatelessWidget {
                         child: FadeInAnimation(
                           child: InkWell(
                             onTap: () {
-                              Get.toNamed("/shop-product-detail");
+                              Get.toNamed("/admin-battery-detail");
                             },
                             child: Container(
                               width: 327.w,

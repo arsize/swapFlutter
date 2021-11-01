@@ -1,12 +1,11 @@
 import 'package:get/get.dart';
 
 class ExchangeEndErrorController extends GetxController {
-  //TODO: Implement ExchangeEndErrorController
-
-  final count = 0.obs;
+  String err = '因操作超时，换电终止';
   @override
   void onInit() {
     super.onInit();
+    err = Get.parameters["err"]!;
   }
 
   @override
@@ -16,5 +15,4 @@ class ExchangeEndErrorController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
 }

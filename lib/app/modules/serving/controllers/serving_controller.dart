@@ -49,7 +49,17 @@ class ServingController extends GetxController {
             } else {
               print("换电失败，取消定时器");
               timer.cancel(); // 取消定时器
-              Get.offNamed("/exchange-end-error");
+              if (_result!["data"]!["status"] == -3) {
+                Get.offNamed("/exchange-end-error?err=未检测到电池，换电终止");
+              } else if (_result!["data"]!["status"] == -4) {
+                Get.offNamed("/exchange-end-error?err=因仓门打开失败，换电终止");
+              } else if (_result!["data"]!["status"] == -5) {
+                Get.offNamed("/exchange-end-error?err=因操作超时，换电终止");
+              } else if (_result!["data"]!["status"] == -2) {
+                Get.offNamed("/exchange-end-error?err=因电池SN码不匹配，已被电柜吞并，换电终止");
+              } else {
+                Get.offNamed("/exchange-end-error?err=其它换电终止");
+              }
             }
           }
         } else {

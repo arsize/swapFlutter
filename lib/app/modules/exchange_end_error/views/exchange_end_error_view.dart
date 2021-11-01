@@ -28,7 +28,7 @@ class ExchangeEndErrorView extends GetView<ExchangeEndErrorController> {
           Positioned(
             top: 300.h,
             child: Text(
-              "因操作超时，换电终止",
+              controller.err,
               style: TextStyle(
                 fontSize: 32.f,
                 fontWeight: FontWeight.w600,

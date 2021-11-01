@@ -28,10 +28,13 @@ class ServingView extends GetView<ServingController> {
         alignment: Alignment.center,
         fit: StackFit.expand,
         children: [
-          Image(
-            width: Get.width,
-            height: 560.h,
-            image: AssetImage("images/serving_view_topimg.png"),
+          Positioned(
+            top: 0,
+            child: Image(
+              width: Get.width,
+              height: 560.h,
+              image: AssetImage("images/serving_view_topimg.png"),
+            ),
           ),
           Positioned(
             top: 324.h,

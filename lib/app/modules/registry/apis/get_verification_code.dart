@@ -7,6 +7,7 @@ import 'package:raintree/app/utils/http/http_util.dart';
 
 Future getVerificationCode({account, areaCode}) {
   return HTTP().request(
+    responseType: 'json',
     path: "app/login/getVerificationCode",
     methods: "post",
     data: {

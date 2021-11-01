@@ -29,7 +29,6 @@ class TransitInputController extends GetxController {
       update();
       if (_cabinet != null) {
         store.updateCabinetDetail(_cabinet);
-
         Get.offNamed("/exchange-info");
       }
     }

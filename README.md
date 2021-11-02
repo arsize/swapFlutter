@@ -21,6 +21,8 @@ get create page:xx
 2.首页地图需要Goole service（科学上网）
 
 <br />
+3.接口数据为测试服mock，不会长期维护
+<br />
 
 ## 启动
 
@@ -104,29 +106,47 @@ GMSServices.provideAPIKey("这里填写自己的谷歌地图key")
   <key>NSCameraUsageDescription</key>
 	<string>This app requires access to the camera.</string>
 ```
-## 工具链
 
-#### GETX
-https://github.com/jonataslaw/get_cli<br />
-GetX™ 框架的官方 CLI<br />
+### 已完成功能
+- [x] 基于GetX的路由系统，依赖、状态管理
+- [x] 基于 dio4.0网络请求封装
+- [x] 自定义 Dialog/Toast
+- [x] token添加，失效自动刷新
+- [x] 登录/注册/获取验证码/退出登录
+- [x] 修改昵称/收货地址
+- [x] 个人中心
+- [x] 客服中心/常见问题/拨打电话
+- [x] 套餐卡券购买
+- [x] 公告消息列表页面
+- [x] 钱包余额
+- [x] GoogleMap、market渲染
+- [x] 获取用户实时定位
+- [x] 商城页面/货物列表/上拉卡片/轮播
+- [x] 扫码页面/扫描动画
+- [x] 手动输入6位ID
+- [x] 局部浮动弹窗
 
-##### 新建项目
-```shell
-  get create project
-```
-用来新建一个项目, 你可以在 Flutter 和 get_server里选一个, 创建默认目录之后, 它会运行一个 get init
+### 后续计划
+- [ ] 国际化翻译
+- [ ] 修改手机号
+- [ ] 更换用户头像
+- [ ] 扫码逻辑
+- [ ] ApplePay支付对接
+- [ ] 商城订单管理
+- [ ] GoogleMap地图运动轨迹
 
-##### 初始化
-```shell
-  get init
-```
-这条命令慎用，它会覆盖 lib 文件夹下所有内容。 它允许你在两种结构中二选一, getx_pattern 和 clean.
+### 回馈和建议
 
-##### 创建 Page
-```shell
-  get create page:name
-```
+如果你有更好的想法或者你想参与到这个项目中来，欢迎提交 PR!!
 
-#### Dart Data Class Generator
-vscode插件<br />
-Create dart data classes easily, fast and without writing boilerplate or running code generation.
+### 预览
+
+部分页面效果如下：
+
+| ![](./screenshot/01.png)  | ![](./screenshot/02.png)  | ![](./screenshot/03.png)  | ![](./screenshot/04.png)  |
+| :---------------------------------: | :---------------------------------: | :---------------------------------: | :---------------------------------: |
+| ![](./screenshot/05.png)  | ![](./screenshot/06.png)  | ![](./screenshot/07.png)  | ![](./screenshot/08.png)  |
+| ![](./screenshot/09.png)  | ![](./screenshot/10.png) | ![](./screenshot/11.png) | ![](./screenshot/12.png) |
+| ![](./screenshot/13.png) | ![](./screenshot/14.png) | ![](./screenshot/15.png) | ![](./screenshot/16.png) |
+| ![](./screenshot/17.png) | ![](./screenshot/18.png) | ![](./screenshot/19.png) | ![](./screenshot/20.png) |
+| ![](./screenshot/21.jpg) | ![](./screenshot/22.jpg) | ![](./screenshot/23.jpg) |

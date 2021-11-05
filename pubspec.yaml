@@ -54,6 +54,8 @@ dependencies:
   flutter_bounce: ^1.1.0
   # 浮动搜索栏
   material_floating_search_bar: ^0.3.6
+  map_launcher: ^2.1.1
+  flutter_svg: ^0.22.0
   
   flutter: 
     sdk: flutter
@@ -72,4 +74,5 @@ flutter:
   assets:
     - images/
     - assets/sounds/
+    - assets/icons/
 

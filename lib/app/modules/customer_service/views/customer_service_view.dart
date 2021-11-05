@@ -156,7 +156,19 @@ class CustomerServiceView extends GetView<CustomerServiceController> {
                   Expanded(
                     child: arBtn(
                       fn: () {
-                        launch("tel://xxx");
+                        arDialog(
+                          context: Get.context,
+                          content: "确定要拨打客服电话吗？",
+                          fn1: () {
+                            Get.back();
+                          },
+                          fn1Text: "取消",
+                          fn2: () {
+                            Get.back();
+                            launch("tel://xxx");
+                          },
+                          fn2Text: "确定",
+                        );
                       },
                       text: "拨打客服电话",
                       width: 296,

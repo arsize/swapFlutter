@@ -3,10 +3,13 @@
  * @Date: 2021-11-04 16:02:35 
  * @Describe: 管理员-机柜列表
  */
+import 'dart:convert';
+
 import 'package:raintree/app/utils/utils.dart';
 
 Future queryCabinetList() {
   return HTTP().request(
+    responseType: "json",
     path: "cabinetAdmin/queryCabinetList",
     methods: "post",
     data: {
@@ -16,7 +19,10 @@ Future queryCabinetList() {
     },
   ).then(
     (value) {
-      return value;
+      if (value["code"] != 200) {
+      } else {
+        return jsonEncode(value);
+      }
     },
   );
 }

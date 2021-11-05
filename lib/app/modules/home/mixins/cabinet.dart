@@ -20,7 +20,7 @@ mixin Cabinet {
   /// offline-离线
   /// forbidden-禁用
   String cabinetBoxStatus(item) {
-    if (item.powerOff == false) {
+    if (item.powerOff == true) {
       return 'failure';
     }
     if (item.line == 0) {

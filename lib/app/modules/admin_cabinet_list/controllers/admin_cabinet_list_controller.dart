@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:gzx_dropdown_menu/gzx_dropdown_menu.dart';
+import 'package:raintree/app/entities/query_cabinet_list_model/query_cabinet_list_model.dart';
 import 'package:raintree/app/modules/admin_cabinet_list/apis/query_cabinet_list.dart';
 
 class SortCondition {
@@ -19,6 +20,7 @@ class AdminCabinetListController extends GetxController {
   late List<SortCondition> distanceSortConditions = [];
   late SortCondition selectDistanceSortCondition;
   late ScrollController scrollController;
+  QueryCabinetListModel cabinetList = QueryCabinetListModel();
 
   late List records = [1, 1, 1, 1, 1, 1];
 
@@ -45,7 +47,8 @@ class AdminCabinetListController extends GetxController {
 
   void getCabinetList() async {
     var _result = await queryCabinetList();
-    print(_result);
+    cabinetList = QueryCabinetListModel.fromJson(_result);
+    update();
   }
 
   void selectDropItem(index) {

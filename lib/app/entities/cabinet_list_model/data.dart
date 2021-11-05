@@ -1,17 +1,16 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-
-import 'cabinet_list.dart';
+import 'cabinet_item.dart';
 
 class Data {
-  final List<CabinetList> cabinetList;
+  final List<CabinetItem> cabinetList;
   Data({
     required this.cabinetList,
   });
 
   Data copyWith({
-    List<CabinetList>? cabinetList,
+    List<CabinetItem>? cabinetList,
   }) {
     return Data(
       cabinetList: cabinetList ?? this.cabinetList,
@@ -26,8 +25,8 @@ class Data {
 
   factory Data.fromMap(Map<String, dynamic> map) {
     return Data(
-      cabinetList: List<CabinetList>.from(
-          map['cabinetList']?.map((x) => CabinetList.fromMap(x))),
+      cabinetList: List<CabinetItem>.from(
+          map['cabinetList']?.map((x) => CabinetItem.fromMap(x))),
     );
   }
 

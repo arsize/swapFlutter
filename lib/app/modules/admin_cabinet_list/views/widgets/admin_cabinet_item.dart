@@ -7,7 +7,9 @@
 part of admin_cabinet_list;
 
 class AdminCabinetItem extends StatelessWidget {
-  const AdminCabinetItem({Key? key}) : super(key: key);
+  final int index;
+
+  const AdminCabinetItem({Key? key, required this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,32 +32,40 @@ class AdminCabinetItem extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "华盟讲民宿（十里画廊）",
-                    style: TextStyle(
-                      fontSize: 32.f,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 136.w,
-                    height: 76.h,
-                    decoration: BoxDecoration(
-                        color: Colours.app_yellow,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(50),
-                          bottomLeft: Radius.circular(50),
-                        )),
-                    child: Text(
-                      "在线",
+                  GetBuilder<AdminCabinetListController>(builder: (_) {
+                    return Text(
+                      _.cabinetList.data!.records![index].name ?? '--',
                       style: TextStyle(
-                        fontSize: 28.f,
-                        color: Colours.app_main,
+                        fontSize: 32.f,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
                       ),
-                    ),
-                  )
+                    );
+                  }),
+                  GetBuilder<AdminCabinetListController>(builder: (_) {
+                    return Container(
+                      alignment: Alignment.center,
+                      width: 136.w,
+                      height: 76.h,
+                      decoration: BoxDecoration(
+                          color: _.cabinetList.data!.records![index].line == 1
+                              ? Colours.app_yellow
+                              : Colours.app_E1_grey,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(50),
+                            bottomLeft: Radius.circular(50),
+                          )),
+                      child: Text(
+                        _.cabinetList.data!.records![index].line == 1
+                            ? "在线"
+                            : "离线",
+                        style: TextStyle(
+                          fontSize: 28.f,
+                          color: Colours.app_main,
+                        ),
+                      ),
+                    );
+                  })
                 ],
               ),
             ),
@@ -85,29 +95,35 @@ class AdminCabinetItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 35.h),
-                  Text(
-                    "电柜ID：000234",
-                    style: TextStyle(
-                      fontSize: 28.f,
-                      color: Colours.app_font_grey,
-                    ),
-                  ),
+                  GetBuilder<AdminCabinetListController>(builder: (_) {
+                    return Text(
+                      "电柜ID：${_.cabinetList.data!.records![index].qrCodeDid}",
+                      style: TextStyle(
+                        fontSize: 28.f,
+                        color: Colours.app_font_grey,
+                      ),
+                    );
+                  }),
                   SizedBox(height: 16.h),
-                  Text(
-                    "设备ID：SZ0120212154",
-                    style: TextStyle(
-                      fontSize: 28.f,
-                      color: Colours.app_font_grey,
-                    ),
-                  ),
+                  GetBuilder<AdminCabinetListController>(builder: (_) {
+                    return Text(
+                      "设备ID：${_.cabinetList.data!.records![index].did}",
+                      style: TextStyle(
+                        fontSize: 28.f,
+                        color: Colours.app_font_grey,
+                      ),
+                    );
+                  }),
                   SizedBox(height: 16.h),
-                  Text(
-                    "电柜地址：000234",
-                    style: TextStyle(
-                      fontSize: 28.f,
-                      color: Colours.app_font_grey,
-                    ),
-                  ),
+                  GetBuilder<AdminCabinetListController>(builder: (_) {
+                    return Text(
+                      "电柜地址：${_.cabinetList.data!.records![index].address}",
+                      style: TextStyle(
+                        fontSize: 28.f,
+                        color: Colours.app_font_grey,
+                      ),
+                    );
+                  }),
                   SizedBox(height: 16.h),
                 ],
               ),

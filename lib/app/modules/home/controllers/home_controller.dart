@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
+import 'package:map_launcher/map_launcher.dart';
 import 'package:raintree/app/common/widgets/common_wigets.dart';
+import 'package:raintree/app/entities/cabinet_list_model/cabinet_item.dart';
 import 'package:raintree/app/entities/entities.dart';
 import 'package:raintree/app/store/store.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -23,6 +26,7 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
 
   // 普通变量
   String selectMenu = "换电";
+  late CabinetItem currentCabinetItem;
   LatLng mapCenter = LatLng(22.52898852325926, 113.83500415831804);
 
   final LayerLink layerLink = LayerLink();
@@ -44,7 +48,7 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
     update();
   }
 
-  void gotoNext() {
+  void gotoNext() async {
     var _isBindVehicle = store.loginData.isBindVehicle;
     if (_isBindVehicle == 0) {
       // 未绑定车辆
@@ -64,6 +68,8 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
       );
     } else if (_isBindVehicle == 1) {
       // 已绑定车辆
+      resetPanelStatus();
+      await Future.delayed(Duration(milliseconds: 500));
       Get.toNamed("/camera-scan");
     }
   }
@@ -128,6 +134,8 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
                 position: LatLng(item.latitude!, item.longitude!),
                 icon: markerBts[cabinetBoxStatus(item)]!,
                 onTap: () async {
+                  currentCabinetItem = item;
+                  update();
                   panelController.animatePanelToPosition(
                     0.5,
                     duration: Duration(milliseconds: 300),
@@ -155,10 +163,12 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
   }
 
   /// 地图点击事件
-  void onMapTap(e) async {
-    print("点击了地图");
-    print(e);
+  void onMapTap(e) {
+    resetPanelStatus();
+  }
 
+  /// 恢复panel状态
+  void resetPanelStatus() async {
     if (currentModle.value == 'cabinet') {
       panelController.animatePanelToPosition(
         0.5,
@@ -172,6 +182,45 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
         duration: Duration(milliseconds: 300),
         curve: Curves.ease,
       );
+    }
+  }
+
+  void showMap({title, latitude, longitude}) async {
+    try {
+      final description = "asia";
+      final coords = Coords(latitude, longitude);
+      final availableMaps = await MapLauncher.installedMaps;
+      showModalBottomSheet(
+        context: Get.context!,
+        builder: (BuildContext context) {
+          return SafeArea(
+            child: SingleChildScrollView(
+              child: Container(
+                child: Wrap(
+                  children: [
+                    for (var map in availableMaps)
+                      ListTile(
+                        onTap: () => map.showMarker(
+                          coords: coords,
+                          title: title,
+                          description: description,
+                        ),
+                        title: Text(map.mapName),
+                        leading: SvgPicture.asset(
+                          map.icon,
+                          height: 30.0,
+                          width: 30.0,
+                        ),
+                      )
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      );
+    } catch (e) {
+      print(e);
     }
   }
 }

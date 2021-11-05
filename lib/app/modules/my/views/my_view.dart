@@ -221,10 +221,13 @@ class MyView extends GetView<MyController> {
                       icon: "images/my_icons10.png",
                       itemText: "更多",
                       route: "/more"),
-                  MenuItem(
-                      icon: "images/my_icons11.png",
-                      itemText: "管理员",
-                      route: "/admin"),
+                  Offstage(
+                    offstage: store.loginData.isAdmin == 0,
+                    child: MenuItem(
+                        icon: "images/my_icons11.png",
+                        itemText: "管理员",
+                        route: "/admin"),
+                  ),
                 ],
               ),
             ],

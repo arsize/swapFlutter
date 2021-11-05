@@ -40,7 +40,7 @@ class CommonProblem extends StatelessWidget {
             return AnimationLimiter(
               child: Column(
                 children: AnimationConfiguration.toStaggeredList(
-                  duration: const Duration(milliseconds: 275),
+                  duration: Duration(milliseconds: 275),
                   childAnimationBuilder: (widget) => SlideAnimation(
                     verticalOffset: 50.0,
                     child: FadeInAnimation(
@@ -49,7 +49,10 @@ class CommonProblem extends StatelessWidget {
                   ),
                   children: _.problem
                       .sublist(0, 4)
-                      .map((e) => ProblemItem(title: e["title"]))
+                      .map((e) => ProblemItem(
+                            title: e["title"],
+                            content: e["content"],
+                          ))
                       .toList(),
                 ),
               ),

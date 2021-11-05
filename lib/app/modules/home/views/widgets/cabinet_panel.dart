@@ -11,7 +11,6 @@ class CabinetPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final HomeController home = Get.find();
-    final StoreController store = Get.find();
     return CompositedTransformTarget(
       link: home.layerLink,
       child: Container(
@@ -27,14 +26,16 @@ class CabinetPanel extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "华丰国际机器人产业园02柜",
-                            style: TextStyle(
-                              fontSize: 32.f,
-                              fontWeight: FontWeight.w600,
-                              color: Colours.app_main,
-                            ),
-                          ),
+                          GetBuilder<HomeController>(builder: (_) {
+                            return Text(
+                              _.currentCabinetItem.cabinetName ?? '--',
+                              style: TextStyle(
+                                fontSize: 32.f,
+                                fontWeight: FontWeight.w600,
+                                color: Colours.app_main,
+                              ),
+                            );
+                          }),
                           SizedBox(height: 24.h),
                           Row(
                             children: [
@@ -46,13 +47,15 @@ class CabinetPanel extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(width: 10.w),
-                              Text(
-                                "000001",
-                                style: TextStyle(
-                                  fontSize: 28.f,
-                                  color: Colours.app_font_grey6,
-                                ),
-                              )
+                              GetBuilder<HomeController>(builder: (_) {
+                                return Text(
+                                  _.currentCabinetItem.qrCodeDid ?? '--',
+                                  style: TextStyle(
+                                    fontSize: 28.f,
+                                    color: Colours.app_font_grey6,
+                                  ),
+                                );
+                              })
                             ],
                           ),
                           SizedBox(height: 10.h),
@@ -66,40 +69,51 @@ class CabinetPanel extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(width: 10.w),
-                              Text(
-                                "深圳市宝安区华丰国际机器人产业园",
-                                style: TextStyle(
-                                  fontSize: 28.f,
-                                  color: Colours.app_font_grey6,
-                                ),
-                              ),
+                              GetBuilder<HomeController>(builder: (_) {
+                                return Text(
+                                  _.currentCabinetItem.cabinetAddress ?? '--',
+                                  style: TextStyle(
+                                    fontSize: 28.f,
+                                    color: Colours.app_font_grey6,
+                                  ),
+                                );
+                              }),
                             ],
                           )
                         ],
                       ),
-                      Container(
-                        margin: EdgeInsets.only(right: 25.w),
-                        child: Column(
-                          children: [
-                            Image(
-                              width: 40.w,
-                              height: 40.w,
-                              image: AssetImage(
-                                "images/cabinet_right_point.png",
+                      InkWell(
+                        onTap: () {
+                          home.showMap(
+                            title: home.currentCabinetItem.cabinetName,
+                            latitude: home.currentCabinetItem.latitude,
+                            longitude: home.currentCabinetItem.longitude,
+                          );
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(right: 25.w),
+                          child: Column(
+                            children: [
+                              Image(
+                                width: 40.w,
+                                height: 40.w,
+                                image: AssetImage(
+                                  "images/cabinet_right_point.png",
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 14.h,
-                            ),
-                            Text(
-                              "导航",
-                              style: TextStyle(
-                                fontSize: 30.f,
-                                color: Colours.app_main,
-                                fontWeight: FontWeight.w600,
+                              SizedBox(
+                                height: 14.h,
                               ),
-                            )
-                          ],
+                              Text(
+                                "导航",
+                                style: TextStyle(
+                                  fontSize: 30.f,
+                                  color: Colours.app_main,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       )
                     ],
@@ -115,20 +129,24 @@ class CabinetPanel extends StatelessWidget {
                   SizedBox(
                     height: 32.h,
                   ),
-                  Offstage(
-                    offstage: false,
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        "该电柜区暂不能提供服务，请前往其他电柜换电",
-                        style: TextStyle(
-                          fontSize: 26.f,
-                          color: Colours.app_lignt_red,
-                          fontWeight: FontWeight.w600,
+                  GetBuilder<HomeController>(builder: (_) {
+                    return Offstage(
+                      offstage: _.currentCabinetItem.line == 1 &&
+                          _.currentCabinetItem.status == 0 &&
+                          _.currentCabinetItem.powerOff == false,
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "该电柜区暂不能提供服务，请前往其他电柜换电",
+                          style: TextStyle(
+                            fontSize: 26.f,
+                            color: Colours.app_lignt_red,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
-                    ),
-                  ),
+                    );
+                  }),
                   SizedBox(
                     height: 15.h,
                   ),
@@ -155,13 +173,21 @@ class CabinetPanel extends StatelessWidget {
                                   color: Colours.app_font_grey6,
                                 ),
                               ),
-                              Text(
-                                "2",
-                                style: TextStyle(
-                                  fontSize: 30.f,
-                                  color: Colours.app_main,
-                                ),
-                              )
+                              GetBuilder<HomeController>(builder: (_) {
+                                return Text(
+                                  _.currentCabinetItem
+                                              .canUseExchangeBatteryNum ==
+                                          null
+                                      ? '--'
+                                      : _.currentCabinetItem
+                                          .canUseExchangeBatteryNum
+                                          .toString(),
+                                  style: TextStyle(
+                                    fontSize: 30.f,
+                                    color: Colours.app_main,
+                                  ),
+                                );
+                              })
                             ],
                           ),
                           SizedBox(
@@ -185,34 +211,44 @@ class CabinetPanel extends StatelessWidget {
                                   color: Colours.app_font_grey6,
                                 ),
                               ),
-                              Text(
-                                "0",
-                                style: TextStyle(
-                                  fontSize: 30.f,
-                                  color: Colours.app_main,
-                                ),
-                              )
+                              GetBuilder<HomeController>(builder: (_) {
+                                return Text(
+                                  _.currentCabinetItem.emptyBoxNum == null
+                                      ? '--'
+                                      : _.currentCabinetItem.emptyBoxNum
+                                          .toString(),
+                                  style: TextStyle(
+                                    fontSize: 30.f,
+                                    color: Colours.app_main,
+                                  ),
+                                );
+                              })
                             ],
                           )
                         ],
                       ),
-                      Container(
-                        alignment: Alignment.center,
-                        width: 173.w,
-                        height: 80.h,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colours.app_main,
-                            width: 2.w,
-                            style: BorderStyle.solid,
+                      InkWell(
+                        onTap: () {
+                          home.gotoNext();
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: 173.w,
+                          height: 80.h,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colours.app_main,
+                              width: 2.w,
+                              style: BorderStyle.solid,
+                            ),
+                            borderRadius: ArUtil.border(15),
                           ),
-                          borderRadius: ArUtil.border(15),
-                        ),
-                        child: Text(
-                          "扫码换电",
-                          style: TextStyle(
-                            fontSize: 28.f,
-                            color: Colours.app_main,
+                          child: Text(
+                            "扫码换电",
+                            style: TextStyle(
+                              fontSize: 28.f,
+                              color: Colours.app_main,
+                            ),
                           ),
                         ),
                       )

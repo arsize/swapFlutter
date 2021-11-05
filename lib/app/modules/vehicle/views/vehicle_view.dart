@@ -18,6 +18,7 @@ class VehicleView extends GetView<VehicleController> {
     return Scaffold(
       appBar: defaultAppBar(title: "我的车辆", elevation: 0),
       body: Stack(
+        alignment: Alignment.center,
         fit: StackFit.expand,
         children: [
           Positioned(
@@ -245,8 +246,7 @@ class VehicleView extends GetView<VehicleController> {
             ),
           ),
           Positioned(
-            top: 8.h,
-            left: 145.w,
+            top: 5.h,
             child: Image(
               height: 364.h,
               image: AssetImage('images/my_car01.png'),

@@ -7,6 +7,7 @@ class CommonProblemController extends GetxController {
   void onInit() {
     super.onInit();
     title = Get.parameters["title"] ?? '';
+    content = Get.parameters["content"] ?? '';
   }
 
   @override

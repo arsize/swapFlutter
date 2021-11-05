@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 
 import 'battery_type_and_num_dto_list.dart';
 
-class CabinetList {
+class CabinetItem {
   final int agentId;
   final List<BatteryTypeAndNumDtoList>? batteryTypeAndNumDtoList;
   final Map<dynamic, dynamic>? boxStatusMap;
@@ -27,7 +27,7 @@ class CabinetList {
   final String? qrCodeDid;
   final int? status;
   final double? userFromDistance;
-  CabinetList({
+  CabinetItem({
     required this.agentId,
     this.batteryTypeAndNumDtoList,
     this.boxStatusMap,
@@ -52,7 +52,7 @@ class CabinetList {
     this.userFromDistance,
   });
 
-  CabinetList copyWith({
+  CabinetItem copyWith({
     int? agentId,
     List<BatteryTypeAndNumDtoList>? batteryTypeAndNumDtoList,
     Map<dynamic, dynamic>? boxStatusMap,
@@ -76,7 +76,7 @@ class CabinetList {
     int? status,
     double? userFromDistance,
   }) {
-    return CabinetList(
+    return CabinetItem(
       agentId: agentId ?? this.agentId,
       batteryTypeAndNumDtoList:
           batteryTypeAndNumDtoList ?? this.batteryTypeAndNumDtoList,
@@ -133,8 +133,8 @@ class CabinetList {
     };
   }
 
-  factory CabinetList.fromMap(Map<String, dynamic> map) {
-    return CabinetList(
+  factory CabinetItem.fromMap(Map<String, dynamic> map) {
+    return CabinetItem(
       agentId: map['agentId']?.toInt(),
       batteryTypeAndNumDtoList: List<BatteryTypeAndNumDtoList>.from(
           (map['batteryTypeAndNumDtoList'] ?? [])
@@ -164,19 +164,19 @@ class CabinetList {
 
   String toJson() => json.encode(toMap());
 
-  factory CabinetList.fromJson(String source) =>
-      CabinetList.fromMap(json.decode(source));
+  factory CabinetItem.fromJson(String source) =>
+      CabinetItem.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'CabinetList(agentId: $agentId, batteryTypeAndNumDtoList: $batteryTypeAndNumDtoList, boxStatusMap: $boxStatusMap, cabinetAddress: $cabinetAddress, cabinetDid: $cabinetDid, cabinetName: $cabinetName, cabinetUid: $cabinetUid, canUseChargingPortNum: $canUseChargingPortNum, canUseExchangeBatteryNum: $canUseExchangeBatteryNum, chargingPortNum: $chargingPortNum, emptyBoxNum: $emptyBoxNum, fullBatteryStd: $fullBatteryStd, latitude: $latitude, line: $line, longitude: $longitude, nearbyPicurl: $nearbyPicurl, organizationId: $organizationId, portStatusMap: $portStatusMap, powerOff: $powerOff, qrCodeDid: $qrCodeDid, status: $status, userFromDistance: $userFromDistance)';
+    return 'CabinetItem(agentId: $agentId, batteryTypeAndNumDtoList: $batteryTypeAndNumDtoList, boxStatusMap: $boxStatusMap, cabinetAddress: $cabinetAddress, cabinetDid: $cabinetDid, cabinetName: $cabinetName, cabinetUid: $cabinetUid, canUseChargingPortNum: $canUseChargingPortNum, canUseExchangeBatteryNum: $canUseExchangeBatteryNum, chargingPortNum: $chargingPortNum, emptyBoxNum: $emptyBoxNum, fullBatteryStd: $fullBatteryStd, latitude: $latitude, line: $line, longitude: $longitude, nearbyPicurl: $nearbyPicurl, organizationId: $organizationId, portStatusMap: $portStatusMap, powerOff: $powerOff, qrCodeDid: $qrCodeDid, status: $status, userFromDistance: $userFromDistance)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is CabinetList &&
+    return other is CabinetItem &&
         other.agentId == agentId &&
         listEquals(other.batteryTypeAndNumDtoList, batteryTypeAndNumDtoList) &&
         other.boxStatusMap == boxStatusMap &&

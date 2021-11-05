@@ -16,6 +16,7 @@ class LoginModel {
     this.status,
     this.account,
     this.isBindVehicle,
+    this.isAdmin,
   });
 
   bool unregistered;
@@ -26,6 +27,7 @@ class LoginModel {
   int? status;
   String? account;
   int? isBindVehicle;
+  int? isAdmin;
 
   factory LoginModel.fromMap(Map<String, dynamic> json) {
     return LoginModel(
@@ -37,6 +39,7 @@ class LoginModel {
       status: json["status"],
       account: json["account"],
       isBindVehicle: json["isBindVehicle"],
+      isAdmin: json["isAdmin"],
     );
   }
   factory LoginModel.fromJson(String source) =>
@@ -51,5 +54,6 @@ class LoginModel {
         "status": status,
         "account": account,
         "isBindVehicle": isBindVehicle,
+        "isAdmin": isAdmin,
       };
 }

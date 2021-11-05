@@ -114,13 +114,41 @@ class AdminCabinetListView extends GetView<AdminCabinetListController> {
             bottom: 0,
             child: GetBuilder<AdminCabinetListController>(
               builder: (_) {
-                return ListView.builder(
-                  itemBuilder: (BuildContext context, int index) {
-                    return AdminCabinetItem();
-                  },
-                  itemCount: _.records.length,
-                  controller: _.scrollController,
-                );
+                return (_.cabinetList.data?.records != null &&
+                        _.cabinetList.data!.records!.isNotEmpty)
+                    ? ListView.builder(
+                        itemBuilder: (BuildContext context, int index) {
+                          return AdminCabinetItem(
+                            index: index,
+                          );
+                        },
+                        itemCount: _.cabinetList.data!.records!.length,
+                        controller: _.scrollController,
+                      )
+                    : Align(
+                        alignment: Alignment.center,
+                        child: Column(
+                          children: [
+                            Image(
+                              width: 320.w,
+                              height: 320.w,
+                              image: AssetImage(
+                                "images/no_recode.png",
+                              ),
+                            ),
+                            Text(
+                              "暂无电柜列表",
+                              style: TextStyle(
+                                fontSize: 28.f,
+                                color: Colours.app_font_grey,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 50.h,
+                            )
+                          ],
+                        ),
+                      );
               },
             ),
           ),

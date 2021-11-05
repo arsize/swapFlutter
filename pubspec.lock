@@ -187,7 +187,7 @@ packages:
     source: hosted
     version: "1.0.0"
   flutter_svg:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_svg
       url: "https://pub.flutter-io.cn"
@@ -329,6 +329,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.1.0"
+  map_launcher:
+    dependency: "direct main"
+    description:
+      name: map_launcher
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.1.1"
   matcher:
     dependency: transitive
     description:

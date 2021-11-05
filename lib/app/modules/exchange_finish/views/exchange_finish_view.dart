@@ -34,7 +34,6 @@ class ExchangeFinishView extends GetView<ExchangeFinishController> {
               right: 0,
               child: Image(
                 width: Get.width,
-                height: 560.h,
                 image: AssetImage("images/finish_panel_img.png"),
               ),
             ),

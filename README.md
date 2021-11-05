@@ -24,12 +24,6 @@ get create page:xx
 3.接口数据为测试服mock，不会长期维护
 <br />
 
-## 启动
-
-```
-flutter run
-```
-
 ## 目录结构
 
 ```

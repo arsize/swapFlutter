@@ -6,6 +6,7 @@ import 'package:location/location.dart';
 import 'package:raintree/app/common/widgets/common_wigets.dart';
 import 'package:raintree/app/entities/entities.dart';
 import 'package:raintree/app/store/store.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 import '../mixins/point.dart';
 import '../mixins/marker.dart';
@@ -15,6 +16,7 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
   // 控制器
   final store = Get.find<StoreController>();
   final cabinetResult = CabinetListModel().obs;
+  late final PanelController panelController;
   GoogleMapController? mapController;
   // 响应式
   RxString currentModle = 'default'.obs;
@@ -27,6 +29,7 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
 
   @override
   void onInit() {
+    panelController = PanelController();
     super.onInit();
   }
 
@@ -124,8 +127,19 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
                 markerId: MarkerId(item.cabinetDid!),
                 position: LatLng(item.latitude!, item.longitude!),
                 icon: markerBts[cabinetBoxStatus(item)]!,
-                onTap: () {
+                onTap: () async {
+                  panelController.animatePanelToPosition(
+                    0.5,
+                    duration: Duration(milliseconds: 300),
+                    curve: Curves.ease,
+                  );
                   currentModle.value = "cabinet";
+                  await Future.delayed(Duration(milliseconds: 300));
+                  panelController.animatePanelToPosition(
+                    0,
+                    duration: Duration(milliseconds: 300),
+                    curve: Curves.ease,
+                  );
                 }),
           );
         }
@@ -141,9 +155,23 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
   }
 
   /// 地图点击事件
-  void onMapTap(e) {
+  void onMapTap(e) async {
     print("点击了地图");
     print(e);
-    currentModle.value = "default";
+
+    if (currentModle.value == 'cabinet') {
+      panelController.animatePanelToPosition(
+        0.5,
+        duration: Duration(milliseconds: 300),
+        curve: Curves.ease,
+      );
+      currentModle.value = "default";
+      await Future.delayed(Duration(milliseconds: 300));
+      panelController.animatePanelToPosition(
+        0,
+        duration: Duration(milliseconds: 300),
+        curve: Curves.ease,
+      );
+    }
   }
 }

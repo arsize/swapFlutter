@@ -49,7 +49,7 @@ class ProductListItem extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "剩$surplusNum次",
+                      "${surplusNum == -1 ? '无限' : "剩" + surplusNum.toString()}次",
                       style: TextStyle(
                         fontSize: 36.f,
                         color: Colours.app_main,

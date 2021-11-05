@@ -13,6 +13,7 @@ class FeedbackView extends GetView<FeedbackController> {
     return Scaffold(
       appBar: defaultAppBar(title: "意见反馈"),
       body: Container(
+        color: Colors.white,
         padding: EdgeInsets.only(
           top: 40.h,
           bottom: 35.h,
@@ -26,10 +27,10 @@ class FeedbackView extends GetView<FeedbackController> {
                 alignment: Alignment.center,
                 child: Container(
                   width: 686.w,
-                  height: 390.h,
                   padding: EdgeInsets.all(32.w),
                   color: Colours.app_F5_grey,
                   child: TextField(
+                    controller: controller.feedBackInputController,
                     maxLength: 200,
                     maxLines: 7,
                     decoration: InputDecoration.collapsed(
@@ -39,11 +40,19 @@ class FeedbackView extends GetView<FeedbackController> {
                         fontSize: 28.f,
                       ),
                     ),
+                    onChanged: (String text) {
+                      controller.textOnchange(text);
+                    },
                   ),
                 ),
               ),
             ),
-            arBtn(fn: () {}, text: "提交"),
+            arBtn(
+              fn: () {
+                controller.submitTo();
+              },
+              text: "提交",
+            ),
           ],
         ),
       ),

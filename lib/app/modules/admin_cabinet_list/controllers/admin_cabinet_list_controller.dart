@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:gzx_dropdown_menu/gzx_dropdown_menu.dart';
+import 'package:raintree/app/modules/admin_cabinet_list/apis/query_cabinet_list.dart';
 
 class SortCondition {
   String name;
@@ -30,6 +31,7 @@ class AdminCabinetListController extends GetxController {
     distanceSortConditions.add(SortCondition(name: '在线', isSelected: false));
     distanceSortConditions.add(SortCondition(name: '离线', isSelected: false));
     selectDistanceSortCondition = distanceSortConditions[0];
+    getCabinetList();
     super.onInit();
   }
 
@@ -39,6 +41,11 @@ class AdminCabinetListController extends GetxController {
     dropdownMenuController.dispose();
     scrollController.dispose();
     super.dispose();
+  }
+
+  void getCabinetList() async {
+    var _result = await queryCabinetList();
+    print(_result);
   }
 
   void selectDropItem(index) {

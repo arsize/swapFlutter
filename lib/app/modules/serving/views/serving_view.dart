@@ -32,7 +32,6 @@ class ServingView extends GetView<ServingController> {
             top: 0,
             child: Image(
               width: Get.width,
-              height: 560.h,
               image: AssetImage("images/serving_view_topimg.png"),
             ),
           ),
@@ -66,7 +65,7 @@ class ServingView extends GetView<ServingController> {
             bottom: 32.h,
             child: InkWell(
               onTap: () {
-                Get.offAllNamed("/exchange-finish");
+                Get.offAllNamed("/home");
               },
               child: Container(
                 width: 686.w,

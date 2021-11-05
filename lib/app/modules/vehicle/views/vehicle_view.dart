@@ -245,10 +245,10 @@ class VehicleView extends GetView<VehicleController> {
             ),
           ),
           Positioned(
-            top: 20.h,
+            top: 8.h,
             left: 145.w,
             child: Image(
-              width: 410.w,
+              height: 364.h,
               image: AssetImage('images/my_car01.png'),
             ),
           ),

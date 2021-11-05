@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:raintree/app/colors/colors.dart';
-import 'package:raintree/app/common/langs/langs.dart';
 import 'package:raintree/app/modules/pay_combo/apis/pay_frequency_card.dart';
 import 'package:raintree/app/modules/user_combo/controllers/user_combo_controller.dart';
 import 'package:raintree/app/utils/utils.dart';
@@ -31,11 +30,15 @@ class PayComboController extends GetxController {
   /// 获取套餐列表
   void getCanUseCombo() async {
     var _result = await getFrequencyCardList();
-    comoModel = CanUseComboModel.fromJson(_result);
-    if (comoModel.data != null && comoModel.data!.isNotEmpty) {
-      selectId = comoModel.data![0].id!;
-      money.value = comoModel.data![0].price!;
+
+    if (_result != null) {
+      comoModel = CanUseComboModel.fromJson(_result);
+      if (comoModel.data != null && comoModel.data!.isNotEmpty) {
+        selectId = comoModel.data![0].id!;
+        money.value = comoModel.data![0].price!;
+      }
     }
+
     update();
   }
 

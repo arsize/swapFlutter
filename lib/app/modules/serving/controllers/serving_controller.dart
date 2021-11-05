@@ -13,7 +13,7 @@ class ServingController extends GetxController {
   void onInit() {
     super.onInit();
     orderNo = Get.parameters["orderNo"];
-    setTimeInterval();
+    // setTimeInterval();
   }
 
   @override

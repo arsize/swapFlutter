@@ -82,6 +82,7 @@ class HomeView extends GetView<HomeController> {
       ),
       body: Obx(() {
         return SlidingUpPanel(
+          controller: controller.panelController,
           margin: controller.currentModle.value == 'cabinet'
               ? EdgeInsets.only(left: 0, right: 0)
               : EdgeInsets.only(left: 13, right: 13),

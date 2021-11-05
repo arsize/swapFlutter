@@ -27,7 +27,7 @@ class UseRecordsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.toNamed("/use-records-detail");
+        Get.toNamed("/use-records-detail?orderNo=$orderNo");
       },
       child: Container(
         decoration: BoxDecoration(

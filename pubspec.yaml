@@ -20,6 +20,8 @@ dependencies:
    # 图片选择
   image_picker: 0.8.3+3
   date_time_format: ^2.0.1
+  # 音频播放
+  audioplayers: ^0.20.1
 
   # loading
   flutter_easyloading: ^3.0.3
@@ -69,4 +71,5 @@ flutter:
   uses-material-design: true
   assets:
     - images/
+    - assets/sounds/
 

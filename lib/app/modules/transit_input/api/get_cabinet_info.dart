@@ -2,10 +2,11 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:raintree/app/common/widgets/common_wigets.dart';
+import 'package:raintree/app/modules/camera_scan/controllers/camera_scan_controller.dart';
 import 'package:raintree/app/utils/utils.dart';
 import 'package:raintree/app/values/result_code.dart';
 
-Future getCabinetInfoByScan({cabinetId}) {
+Future getCabinetInfoByScan({cabinetId, from}) {
   return HTTP().request(
     responseType: "json",
     path: "cabinet/getCabinetInfoByScan",
@@ -38,6 +39,10 @@ Future getCabinetInfoByScan({cabinetId}) {
           content: _msg,
           fn1Text: "我知道了",
           fn1: () {
+            if (from == 'camera') {
+              final camera = Get.find<CameraScanController>();
+              camera.qrController?.resumeCamera();
+            }
             Get.back();
           },
         );

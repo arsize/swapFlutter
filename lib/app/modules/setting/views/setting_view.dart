@@ -1,11 +1,15 @@
 library setting_view;
 
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:raintree/app/colors/colors.dart';
+import 'package:raintree/app/common/methods/upload_image.dart';
 import 'package:raintree/app/common/widgets/common_wigets.dart';
 import 'package:raintree/app/modules/my/controllers/my_controller.dart';
 import 'package:raintree/app/store/store.dart';
@@ -44,7 +48,7 @@ class SettingView extends GetView<SettingController> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "修改手机号",
+                        "修改手机号".tr,
                         style: TextStyle(fontSize: 28.f),
                       ),
                       Row(
@@ -89,7 +93,7 @@ class SettingView extends GetView<SettingController> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "修改昵称",
+                        "修改昵称".tr,
                         style: TextStyle(fontSize: 28.f),
                       ),
                       Row(
@@ -135,7 +139,7 @@ class SettingView extends GetView<SettingController> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "收获地址",
+                        "收货地址".tr,
                         style: TextStyle(fontSize: 28.f),
                       ),
                       Row(
@@ -178,7 +182,7 @@ class SettingView extends GetView<SettingController> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "多语言",
+                        "多语言".tr,
                         style: TextStyle(fontSize: 28.f),
                       ),
                       Row(
@@ -228,7 +232,7 @@ class SettingView extends GetView<SettingController> {
                 height: 100.h,
                 color: Colors.white,
                 child: Text(
-                  "退出登录",
+                  "退出登录".tr,
                   style: TextStyle(
                     fontSize: 30.f,
                     color: Colours.app_main,

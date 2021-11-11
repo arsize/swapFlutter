@@ -62,3 +62,12 @@ String formateTime(time, {second = true}) {
     return '--';
   }
 }
+
+/// 格式化距离m/km
+String formateDis(int dis) {
+  if (dis > 1000) {
+    return (dis / 1000).toStringAsFixed(1) + 'km';
+  } else {
+    return dis.toString() + 'm';
+  }
+}

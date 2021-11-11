@@ -23,7 +23,7 @@ class _ScanAnimateState extends State<ScanAnimate>
       }
     });
     animation =
-        Tween(begin: Offset(0, 0), end: Offset(0, 14)).animate(controller);
+        Tween(begin: Offset(0, 0), end: Offset(0, 12)).animate(controller);
     controller.forward();
   }
 
@@ -41,9 +41,8 @@ class _ScanAnimateState extends State<ScanAnimate>
         child: Opacity(
           opacity: 0.6,
           child: Container(
-            margin: EdgeInsets.only(left: 90.w),
             child: Image(
-              width: 573.w,
+              width: 500.w,
               height: 40.h,
               image: AssetImage("images/scan_line_view.png"),
             ),

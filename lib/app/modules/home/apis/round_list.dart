@@ -2,6 +2,7 @@ import 'package:raintree/app/utils/utils.dart';
 
 Future roundList() {
   return HTTP().request(
+    loading: false,
     path: "cabinet/map/roundList",
     methods: "get",
     params: {

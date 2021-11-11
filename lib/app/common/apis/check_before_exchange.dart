@@ -31,6 +31,9 @@ Future checkBeforeExchange() {
             _msg = "电池类型未设置单次收费套餐,请稍后再试";
 
             break;
+          case NO_BATTERY_CAN_NOT_CHANGE_ELECTRIC:
+            _msg = "未绑定电池，暂不能使用换电服务";
+            break;
           default:
         }
         arDialog(

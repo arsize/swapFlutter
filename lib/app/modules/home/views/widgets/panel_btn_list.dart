@@ -38,7 +38,7 @@ class PanelBtnList extends StatelessWidget {
                       width: 14.w,
                     ),
                     Text(
-                      "购买代步",
+                      "购买代步".tr,
                       style: TextStyle(fontSize: 28.f),
                     ),
                   ],
@@ -74,7 +74,7 @@ class PanelBtnList extends StatelessWidget {
                       width: 14.w,
                     ),
                     Text(
-                      "钱包余额",
+                      "钱包余额".tr,
                       style: TextStyle(fontSize: 28.f),
                     ),
                   ],

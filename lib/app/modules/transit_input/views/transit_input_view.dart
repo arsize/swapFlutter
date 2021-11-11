@@ -117,19 +117,25 @@ class TransitInputView extends GetView<TransitInputController> {
                         runSpacing: 10,
                         children: _.history
                             .map(
-                              (e) => Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: ArUtil.border(6),
-                                ),
-                                alignment: Alignment.center,
-                                width: 214.w,
-                                height: 80.h,
-                                child: Text(
-                                  e.toString(),
-                                  style: TextStyle(
-                                    color: Colours.app_normal_grey,
-                                    fontSize: 28.f,
+                              (e) => Bounce(
+                                onPressed: () {
+                                  _.onSubmitted(e.toString());
+                                },
+                                duration: Duration(milliseconds: 110),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: ArUtil.border(6),
+                                  ),
+                                  alignment: Alignment.center,
+                                  width: 214.w,
+                                  height: 80.h,
+                                  child: Text(
+                                    e.toString(),
+                                    style: TextStyle(
+                                      color: Colours.app_normal_grey,
+                                      fontSize: 28.f,
+                                    ),
                                   ),
                                 ),
                               ),

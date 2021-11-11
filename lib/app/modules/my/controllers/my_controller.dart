@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:raintree/app/entities/entities.dart';
 import 'package:raintree/app/modules/my/apis/get_user_center.dart';
 import 'package:raintree/app/store/store.dart';
+import 'package:raintree/global.dart';
 
 class MyController extends GetxController {
   final StoreController store = Get.find();
@@ -10,6 +11,7 @@ class MyController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
+    Global.currentPage = this;
     if (store.isLogin.value) {
       var _value = await getUserCenterData();
       usr.value = UserModel.fromJson(_value);

@@ -4,14 +4,12 @@
  * @Describe: 修改用户昵称
  */
 
-import 'dart:convert';
-
 import 'package:raintree/app/utils/utils.dart';
 
 Future changeNikeName({newNikeName}) {
   return HTTP().request(
     responseType: 'json',
-    path: "account/changeNikeName",
+    path: "account/changeUserInfo",
     methods: "get",
     params: {
       "newNikeName": newNikeName,

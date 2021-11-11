@@ -26,7 +26,7 @@ class BaseInfoPanel extends StatelessWidget {
                         child: Text(
                           "从手机相册选择",
                           style: TextStyle(
-                            fontSize: Adapt.font(34),
+                            fontSize: 34.f,
                           ),
                         ),
                         isDefaultAction: true,
@@ -90,8 +90,16 @@ class BaseInfoPanel extends StatelessWidget {
   /// 从相册选择照片
   _openGallery() async {
     final ImagePicker _picker = ImagePicker();
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-    print(image);
+    final image = await _picker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      List<int> bytes = await image.readAsBytes();
+      String bs64 = base64Encode(bytes);
+      var _result = await upLoadImage(
+          base64Data: "data:image/png;base64," + bs64, floderName: "xx");
+      if (_result != null) {
+        EasyLoading.showSuccess("上传成功");
+      }
+    }
   }
 
   /// 拍照

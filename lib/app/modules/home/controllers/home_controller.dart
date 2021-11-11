@@ -50,6 +50,7 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
 
   void gotoNext() async {
     var _isBindVehicle = store.loginData.isBindVehicle;
+    print(_isBindVehicle);
     if (_isBindVehicle == 0) {
       // 未绑定车辆
       arDialog(
@@ -66,7 +67,7 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
         },
         fn2Text: "有车，去绑定",
       );
-    } else if (_isBindVehicle == 1) {
+    } else {
       // 已绑定车辆
       resetPanelStatus();
       await Future.delayed(Duration(milliseconds: 500));
@@ -79,7 +80,7 @@ class HomeController extends GetxController with Point, Markers, Cabinet {
     mapController = googleMapController;
     setMarkersBitmap().then((res) async {
       cabinetResult(await getCabinets());
-      setNowPoint();
+      // setNowPoint();
       drawCabinetMarkers();
     });
   }

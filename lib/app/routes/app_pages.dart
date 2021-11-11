@@ -14,6 +14,8 @@ import 'package:raintree/app/modules/admin_cabinet_detail/bindings/admin_cabinet
 import 'package:raintree/app/modules/admin_cabinet_detail/views/admin_cabinet_detail_view.dart';
 import 'package:raintree/app/modules/admin_cabinet_list/bindings/admin_cabinet_list_binding.dart';
 import 'package:raintree/app/modules/admin_cabinet_list/views/admin_cabinet_list_view.dart';
+import 'package:raintree/app/modules/admin_scan/bindings/admin_scan_binding.dart';
+import 'package:raintree/app/modules/admin_scan/views/admin_scan_view.dart';
 import 'package:raintree/app/modules/admin_unbind_battery/bindings/admin_unbind_battery_binding.dart';
 import 'package:raintree/app/modules/admin_unbind_battery/views/admin_unbind_battery_view.dart';
 import 'package:raintree/app/modules/agreement/bindings/agreement_binding.dart';
@@ -82,6 +84,8 @@ import 'package:raintree/app/modules/records/bindings/records_binding.dart';
 import 'package:raintree/app/modules/records/views/records_view.dart';
 import 'package:raintree/app/modules/registry/bindings/registry_binding.dart';
 import 'package:raintree/app/modules/registry/views/registry_view.dart';
+import 'package:raintree/app/modules/service_agent/bindings/service_agent_binding.dart';
+import 'package:raintree/app/modules/service_agent/views/service_agent_view.dart';
 import 'package:raintree/app/modules/serving/bindings/serving_binding.dart';
 import 'package:raintree/app/modules/serving/views/serving_view.dart';
 import 'package:raintree/app/modules/setting/bindings/setting_binding.dart';
@@ -96,6 +100,8 @@ import 'package:raintree/app/modules/submit_order/bindings/submit_order_binding.
 import 'package:raintree/app/modules/submit_order/views/submit_order_view.dart';
 import 'package:raintree/app/modules/transit_input/bindings/transit_input_binding.dart';
 import 'package:raintree/app/modules/transit_input/views/transit_input_view.dart';
+import 'package:raintree/app/modules/unbind_battery/bindings/unbind_battery_binding.dart';
+import 'package:raintree/app/modules/unbind_battery/views/unbind_battery_view.dart';
 import 'package:raintree/app/modules/urge_cabinets/bindings/urge_cabinets_binding.dart';
 import 'package:raintree/app/modules/urge_cabinets/views/urge_cabinets_view.dart';
 import 'package:raintree/app/modules/use_records/bindings/use_records_binding.dart';
@@ -208,6 +214,7 @@ class AppPages {
       name: _Paths.VEHICLE,
       page: () => VehicleView(),
       binding: VehicleBinding(),
+      middlewares: [RouteAuthMiddleware()],
     ),
     GetPage(
       name: _Paths.EXCHANGE_FINISH,
@@ -353,6 +360,7 @@ class AppPages {
       name: _Paths.SHOP_ORDER_LIST,
       page: () => ShopOrderListView(),
       binding: ShopOrderListBinding(),
+      middlewares: [RouteAuthMiddleware()],
     ),
     GetPage(
       name: _Paths.COMMON_PROBLEM,
@@ -393,6 +401,21 @@ class AppPages {
       name: _Paths.ADMIN_BATTERY_DETAIL,
       page: () => AdminBatteryDetailView(),
       binding: AdminBatteryDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_SCAN,
+      page: () => AdminScanView(),
+      binding: AdminScanBinding(),
+    ),
+    GetPage(
+      name: _Paths.SERVICE_AGENT,
+      page: () => ServiceAgentView(),
+      binding: ServiceAgentBinding(),
+    ),
+    GetPage(
+      name: _Paths.UNBIND_BATTERY,
+      page: () => UnbindBatteryView(),
+      binding: UnbindBatteryBinding(),
     ),
   ];
 }

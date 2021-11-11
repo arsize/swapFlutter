@@ -51,8 +51,9 @@ class StoreController extends GetxController {
     update();
   }
 
-  void getLoginData() {
-    Map<String, dynamic>? _login = LoacalStorage().getJSON(LOGINDATA);
+  Future getLoginData() async {
+    Map<String, dynamic>? _login = await LoacalStorage().getJSON(LOGINDATA);
+    print("先走这里");
     if (_login != null) {
       loginData = LoginModel.fromMap(_login);
       if (_login["appToken"] != null) changeLoginStatus(true);

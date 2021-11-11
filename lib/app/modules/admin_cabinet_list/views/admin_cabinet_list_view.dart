@@ -66,10 +66,15 @@ class AdminCabinetListView extends GetView<AdminCabinetListController> {
                               onChanged: (String text) {},
                             ),
                           ),
-                          Image(
-                            width: 40.w,
-                            height: 40.w,
-                            image: AssetImage("images/admin_scan_icon.png"),
+                          InkWell(
+                            onTap: () {
+                              Get.toNamed("/admin-scan");
+                            },
+                            child: Image(
+                              width: 40.w,
+                              height: 40.w,
+                              image: AssetImage("images/admin_scan_icon.png"),
+                            ),
                           )
                         ],
                       ),

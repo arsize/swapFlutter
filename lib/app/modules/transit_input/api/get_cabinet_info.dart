@@ -18,6 +18,7 @@ Future getCabinetInfoByScan({cabinetId, from}) {
     if (value["code"] != 200) {
       var _msg = '';
       var type = 'info';
+
       switch (value["code"]) {
         case CABINET_DONT_EXISTS:
           _msg = "电柜未开通，请稍后再试";
@@ -30,6 +31,9 @@ Future getCabinetInfoByScan({cabinetId, from}) {
           break;
         case EXISTED_CONTINUOUS_MONTHLY_FREQUENCY_CARD:
           _msg = "电池类型未设置单次收费套餐，请稍后再试";
+          break;
+        case NO_BATTERY_CAN_NOT_CHANGE_ELECTRIC:
+          _msg = "未绑定电池，暂不能使用换电服务";
           break;
         default:
       }

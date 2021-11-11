@@ -28,7 +28,7 @@ class PanelHeadRow extends StatelessWidget {
                 duration: Duration(milliseconds: 110),
                 child: Container(
                   width: 90.w,
-                  child: PanelHeadText(str: '商城'),
+                  child: PanelHeadText(str: '商城'.tr),
                 ),
                 onPressed: () => {
                   ctrl.changeMenu("商城"),

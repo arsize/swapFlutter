@@ -227,31 +227,36 @@ class CabinetPanel extends StatelessWidget {
                           )
                         ],
                       ),
-                      InkWell(
-                        onTap: () {
-                          home.gotoNext();
-                        },
-                        child: Container(
-                          alignment: Alignment.center,
-                          width: 173.w,
-                          height: 80.h,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colours.app_main,
-                              width: 2.w,
-                              style: BorderStyle.solid,
+                      GetBuilder<StoreController>(builder: (_) {
+                        return Offstage(
+                          offstage: !_.isLogin.value,
+                          child: InkWell(
+                            onTap: () {
+                              home.gotoNext();
+                            },
+                            child: Container(
+                              alignment: Alignment.center,
+                              width: 173.w,
+                              height: 80.h,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colours.app_main,
+                                  width: 2.w,
+                                  style: BorderStyle.solid,
+                                ),
+                                borderRadius: ArUtil.border(15),
+                              ),
+                              child: Text(
+                                "扫码换电",
+                                style: TextStyle(
+                                  fontSize: 28.f,
+                                  color: Colours.app_main,
+                                ),
+                              ),
                             ),
-                            borderRadius: ArUtil.border(15),
                           ),
-                          child: Text(
-                            "扫码换电",
-                            style: TextStyle(
-                              fontSize: 28.f,
-                              color: Colours.app_main,
-                            ),
-                          ),
-                        ),
-                      )
+                        );
+                      })
                     ],
                   ),
                   SizedBox(

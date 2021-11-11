@@ -7,6 +7,7 @@ import 'package:raintree/app/utils/http/http_util.dart';
 
 Future getUserCenterData() {
   return HTTP().request(
+    loading: false,
     path: "app/wx/userCenter",
     methods: "get",
     data: {},

@@ -69,26 +69,34 @@ class AdminCabinetItem extends StatelessWidget {
                 ],
               ),
             ),
-            Row(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(right: 20.w, left: 32.w),
-                  width: 21.w,
-                  height: 21.w,
-                  decoration: BoxDecoration(
-                    color: Colours.app_admin_blue,
-                    borderRadius: ArUtil.border(21),
+            GetBuilder<AdminCabinetListController>(builder: (_) {
+              return Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(right: 20.w, left: 32.w),
+                    width: 21.w,
+                    height: 21.w,
+                    decoration: BoxDecoration(
+                      color: _.cabinetList.data!.records![index].status == 0
+                          ? Colours.app_admin_blue
+                          : Color(0xFFFF3939),
+                      borderRadius: ArUtil.border(21),
+                    ),
                   ),
-                ),
-                Text(
-                  "启用",
-                  style: TextStyle(
-                    fontSize: 30.f,
-                    color: Colours.app_admin_blue,
-                  ),
-                )
-              ],
-            ),
+                  Text(
+                    _.cabinetList.data!.records![index].status == 0
+                        ? "启用"
+                        : "禁用",
+                    style: TextStyle(
+                      fontSize: 30.f,
+                      color: _.cabinetList.data!.records![index].status == 0
+                          ? Colours.app_admin_blue
+                          : Color(0xFFFF3939),
+                    ),
+                  )
+                ],
+              );
+            }),
             Padding(
               padding: EdgeInsets.only(left: 32.w, bottom: 32.h),
               child: Column(

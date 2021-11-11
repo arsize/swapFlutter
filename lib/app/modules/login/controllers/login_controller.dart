@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:raintree/app/common/methods/check_format.dart';
 import 'package:raintree/app/modules/login/api/login_by_mobile.dart';
@@ -6,6 +7,7 @@ import 'package:raintree/app/store/store.dart';
 import 'package:raintree/app/utils/utils.dart';
 import 'package:raintree/app/values/mobile_prefix.dart';
 import 'package:raintree/config.dart';
+import 'package:raintree/global.dart';
 
 class LoginController extends GetxController {
   StoreController store = Get.find();
@@ -68,7 +70,6 @@ class LoginController extends GetxController {
 
   /// 验证表单
   bool checkForm() {
-    print(mobile);
     if (!checkMobile(mobile)) {
       Get.snackbar(
         "注意",
@@ -76,7 +77,6 @@ class LoginController extends GetxController {
       );
       return false;
     }
-    print(pwd);
     if (!checkPwd(pwd)) {
       Get.snackbar(
         "注意",
@@ -101,7 +101,9 @@ class LoginController extends GetxController {
         "password": pwd,
         "areaCode": prefixList[prefix.value]["prefix"],
       });
-      store.getLoginData();
+      await store.getLoginData();
+      print("再走这里");
+      Global.currentPage?.onInit();
       Get.back();
     } else {
       print("不提交");

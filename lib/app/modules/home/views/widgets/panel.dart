@@ -29,7 +29,7 @@ class Panel extends StatelessWidget {
                     },
                     leftIcon:
                         store.isLogin.value ? "images/home_scan_icon.png" : "",
-                    text: store.isLogin.value ? "扫码换电".tr : "登录/注册",
+                    text: store.isLogin.value ? "扫码换电".tr : "登录/注册".tr,
                     width: 630,
                     height: 110,
                     fontSize: 36,

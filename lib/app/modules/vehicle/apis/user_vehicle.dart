@@ -9,6 +9,7 @@ import 'package:raintree/app/utils/utils.dart';
 Future userVehicle() {
   return HTTP()
       .request(
+        loading: false,
         responseType: "json",
         path: "app/wx/userVehicle",
         methods: "get",

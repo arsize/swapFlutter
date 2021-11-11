@@ -22,7 +22,7 @@ class AdminCabinetListController extends GetxController {
   late ScrollController scrollController;
   QueryCabinetListModel cabinetList = QueryCabinetListModel();
 
-  late List records = [1, 1, 1, 1, 1, 1];
+  late List records = [];
 
   @override
   void onInit() {

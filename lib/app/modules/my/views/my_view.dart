@@ -170,23 +170,23 @@ class MyView extends GetView<MyController> {
               ),
               MenuPanel(
                 warp: false,
-                titleName: '商城订单',
+                titleName: '商城订单'.tr,
                 menuList: [
                   MenuItem(
                       icon: "images/my_icons01.png",
-                      itemText: "待付款",
+                      itemText: "待付款".tr,
                       route: "/shop-order-list"),
                   MenuItem(
                       icon: "images/my_icons02.png",
-                      itemText: "待发货",
+                      itemText: "待发货".tr,
                       route: "/shop-order-list"),
                   MenuItem(
                       icon: "images/my_icons03.png",
-                      itemText: "待收货",
+                      itemText: "待收货".tr,
                       route: "/shop-order-list"),
                   MenuItem(
                       icon: "images/my_icons04.png",
-                      itemText: "全部订单",
+                      itemText: "全部订单".tr,
                       route: "/shop-order-list"),
                 ],
               ),
@@ -195,39 +195,42 @@ class MyView extends GetView<MyController> {
               ),
               MenuPanel(
                 warp: true,
-                titleName: '常用功能',
+                titleName: '常用功能'.tr,
                 menuList: [
                   MenuItem(
                       icon: "images/my_icons05.png",
-                      itemText: "我的车辆",
+                      itemText: "我的车辆".tr,
                       route: "/vehicle"),
                   MenuItem(
                       icon: "images/my_icons06.png",
-                      itemText: "服务网点",
-                      route: ""),
+                      itemText: "服务网点".tr,
+                      route: "/service-agent"),
                   MenuItem(
                       icon: "images/my_icons07.png",
-                      itemText: "客服中心",
+                      itemText: "客服中心".tr,
                       route: "/customer-service"),
                   MenuItem(
                       icon: "images/my_icons08.png",
-                      itemText: "设置",
+                      itemText: "设置".tr,
                       route: "/setting"),
                   MenuItem(
                       icon: "images/my_icons09.png",
-                      itemText: "公告消息",
+                      itemText: "公告消息".tr,
                       route: "notice-list"),
                   MenuItem(
                       icon: "images/my_icons10.png",
-                      itemText: "更多",
+                      itemText: "更多".tr,
                       route: "/more"),
-                  Offstage(
-                    offstage: store.loginData.isAdmin == 0,
-                    child: MenuItem(
-                        icon: "images/my_icons11.png",
-                        itemText: "管理员",
-                        route: "/admin"),
-                  ),
+                  GetBuilder<StoreController>(builder: (_) {
+                    return Offstage(
+                      offstage: _.loginData.isAdmin == 0 ||
+                          _.loginData.isAdmin == null,
+                      child: MenuItem(
+                          icon: "images/my_icons11.png",
+                          itemText: "管理员",
+                          route: "/admin"),
+                    );
+                  }),
                 ],
               ),
             ],

@@ -18,113 +18,72 @@ class CameraScanView extends GetView<CameraScanController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
+        alignment: Alignment.center,
         children: [
-          Positioned(
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: QRView(
-              key: qrKey,
-              onQRViewCreated: controller.onQRViewCreated,
-            ),
+          QRView(
+            key: qrKey,
+            onQRViewCreated: controller.onQRViewCreated,
           ),
           Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: Opacity(
-              opacity: 0.8,
-              child: Container(
-                height: 301.h,
-                color: Colors.black,
-              ),
-            ),
-          ),
-          Positioned(
-            top: 910.h,
-            bottom: 210.h,
-            left: 0,
-            right: 0,
-            child: Opacity(
-              opacity: 0.8,
-              child: Container(
-                color: Colors.black,
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Opacity(
-              opacity: 1,
-              child: Container(
-                height: 210.h,
-                color: Colors.black,
-                child: Padding(
-                  padding: EdgeInsets.only(
-                    left: 146.w,
-                    right: 146.w,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Bounce(
-                        duration: Duration(milliseconds: 110),
-                        onPressed: () {
-                          Get.offNamed("/transit-input");
-                        },
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image(
-                              width: 88.w,
-                              height: 88.w,
-                              image: AssetImage("images/scan_hand.png"),
-                            ),
-                            SizedBox(
-                              height: 16.h,
-                            ),
-                            Text(
-                              "输入电柜ID",
-                              style: TextStyle(
-                                fontSize: 24.f,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
+            bottom: 100.h,
+            child: Container(
+              width: 450.w,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Bounce(
+                    duration: Duration(milliseconds: 110),
+                    onPressed: () {
+                      Get.offNamed("/transit-input");
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image(
+                          width: 88.w,
+                          height: 88.w,
+                          image: AssetImage("images/scan_hand.png"),
                         ),
-                      ),
-                      Bounce(
-                        duration: Duration(milliseconds: 110),
-                        onPressed: () {
-                          controller.toggleFlash();
-                        },
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image(
-                              width: 88.w,
-                              height: 88.w,
-                              image: AssetImage("images/scan_light.png"),
-                            ),
-                            SizedBox(
-                              height: 16.h,
-                            ),
-                            Text(
-                              "打开手电筒",
-                              style: TextStyle(
-                                fontSize: 24.f,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
+                        SizedBox(
+                          height: 16.h,
                         ),
-                      )
-                    ],
+                        Text(
+                          "输入电柜ID",
+                          style: TextStyle(
+                            fontSize: 24.f,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
+                  Bounce(
+                    duration: Duration(milliseconds: 110),
+                    onPressed: () {
+                      controller.toggleFlash();
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image(
+                          width: 88.w,
+                          height: 88.w,
+                          image: AssetImage("images/scan_light.png"),
+                        ),
+                        SizedBox(
+                          height: 16.h,
+                        ),
+                        Text(
+                          "打开手电筒",
+                          style: TextStyle(
+                            fontSize: 24.f,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
           ),
@@ -173,11 +132,10 @@ class CameraScanView extends GetView<CameraScanController> {
             ),
           ),
           Positioned(
-            top: 301.h,
-            left: 0,
-            right: 0,
+            top: 350.h,
             child: Container(
-              height: 610.h,
+              width: 600.w,
+              height: 600.w,
               child: Image(
                 fit: BoxFit.fill,
                 image: AssetImage("images/scan_view.png"),

@@ -69,7 +69,9 @@ class AdminUnbindBatteryView extends GetView<AdminUnbindBatteryController> {
                 ),
                 SizedBox(height: 32.h),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Get.offNamed("/unbind-battery");
+                  },
                   child: Container(
                     alignment: Alignment.center,
                     width: 400.w,

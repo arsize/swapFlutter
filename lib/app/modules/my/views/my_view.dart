@@ -24,7 +24,7 @@ class MyView extends GetView<MyController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: defaultAppBar(
-        title: "个人中心",
+        title: "个人中心".tr,
         elevation: 0,
       ),
       body: GestureDetector(
@@ -65,19 +65,19 @@ class MyView extends GetView<MyController> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                InfoItem(str: "钱包余额(元)"),
+                                InfoItem(str: "钱包余额（元）".tr),
                                 Container(
                                   width: 2.w,
                                   height: 80.h,
                                   color: Colours.app_light_grey,
                                 ),
-                                InfoItem(str: "本月换电(次)"),
+                                InfoItem(str: "本月换电（次）".tr),
                                 Container(
                                   width: 2.w,
                                   height: 80.h,
                                   color: Colours.app_light_grey,
                                 ),
-                                InfoItem(str: "当前套餐剩余(次)"),
+                                InfoItem(str: "当前套餐剩余（次）".tr),
                               ],
                             ),
                           ),
@@ -227,7 +227,7 @@ class MyView extends GetView<MyController> {
                           _.loginData.isAdmin == null,
                       child: MenuItem(
                           icon: "images/my_icons11.png",
-                          itemText: "管理员",
+                          itemText: "管理员".tr,
                           route: "/admin"),
                     );
                   }),

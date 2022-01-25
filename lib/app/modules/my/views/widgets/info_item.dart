@@ -13,9 +13,9 @@ class InfoItem extends StatelessWidget {
         Obx(
           () => store.isLogin.value
               ? Text(
-                  str == "钱包余额(元)"
+                  str == "钱包余额（元）"
                       ? my.usr().data?.walletMoney.toString() ?? '0.0'
-                      : str == "本月换电(次)"
+                      : str == "本月换电（次）"
                           ? my.usr().data?.currentMonthOrderCount.toString() ??
                               '0'
                           : my.usr().data?.totalSurplusNum?.toString() ?? '0',
